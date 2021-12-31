@@ -21,6 +21,12 @@ struct ESEvent: Identifiable, Codable{
         self.goal = goal
     }
     
+    func getReadableTimestamp() -> String{        
+        let curDate = Date(timeIntervalSince1970: timestamp)
+        return "\(curDate)"
+    }
+        
+    
 }
 
 extension ESEvent{ //Today's Timestamp: 1640923256. ~100,000 is a day

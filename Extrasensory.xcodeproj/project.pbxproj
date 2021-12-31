@@ -24,6 +24,7 @@
 		D2B0A46F277EB2E400ED1CBA /* ESEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */; };
 		D2B0A471277EB33A00ED1CBA /* ESEventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A470277EB33A00ED1CBA /* ESEventsListView.swift */; };
 		D2B0A473277EB40900ED1CBA /* ESEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* ESEventType.swift */; };
+		D2B0A475277EB94200ED1CBA /* ESEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A474277EB94200ED1CBA /* ESEventCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEvent.swift; sourceTree = "<group>"; };
 		D2B0A470277EB33A00ED1CBA /* ESEventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEventsListView.swift; sourceTree = "<group>"; };
 		D2B0A472277EB40900ED1CBA /* ESEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEventType.swift; sourceTree = "<group>"; };
+		D2B0A474277EB94200ED1CBA /* ESEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEventCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				D2B0A46D277EB29F00ED1CBA /* Models */,
 				D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */,
+				D2B0A474277EB94200ED1CBA /* ESEventCard.swift */,
 				D2B0A434277EB17400ED1CBA /* ContentView.swift */,
 				D2B0A436277EB17600ED1CBA /* Assets.xcassets */,
 				D2B0A438277EB17600ED1CBA /* Preview Content */,
@@ -326,6 +329,7 @@
 				D2B0A473277EB40900ED1CBA /* ESEventType.swift in Sources */,
 				D2B0A471277EB33A00ED1CBA /* ESEventsListView.swift in Sources */,
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
+				D2B0A475277EB94200ED1CBA /* ESEventCard.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* ESEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

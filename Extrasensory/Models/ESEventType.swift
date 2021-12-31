@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum ESEventType: Codable {
-    case urge
-    case atomicLapse
-    case lapseStart
-    case lapseEnd
+enum ESEventType: String, Codable {
+    case urge = "Urge"
+    case atomicLapse = "Lapse"
+    case lapseStart = "Lapse Start"
+    case lapseEnd = "Lapse End"
 }
