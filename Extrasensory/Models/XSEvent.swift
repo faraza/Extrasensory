@@ -13,6 +13,10 @@ struct XSEvent: Identifiable, Codable{
     var typeOfEvent: XSEventType
     var timestamp: TimeInterval
     var goal: String
+    /**
+            Added by the user after
+     */
+    var description: String = ""
     
     init(id: UUID = UUID(), typeOfEvent: XSEventType, timestamp: TimeInterval, goal: String){
         self.id = id

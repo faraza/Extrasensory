@@ -12,10 +12,17 @@ struct XSEventCard: View {
     var body: some View {
         HStack{
             Text(event.goal)
+                .font(.headline)                
                 .accessibilityLabel("goal")
             Text(event.typeOfEvent.rawValue)
+                .font(.subheadline)
+                .fontWeight(.bold)
+                .foregroundColor(event.typeOfEvent.textColor)
+            Spacer()
             Text(event.getPrintableTime())
+                .foregroundColor(Color.gray)
         }
+        .padding(.horizontal)
     }
 }
 
