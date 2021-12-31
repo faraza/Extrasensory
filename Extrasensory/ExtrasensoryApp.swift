@@ -11,7 +11,7 @@ import SwiftUI
 struct ExtrasensoryApp: App {
     var body: some Scene {
         WindowGroup {
-//            XSEventsListView() //TODO
+            XSEventsListView(events: XSEvent.sampleData)
         }
     }
 }

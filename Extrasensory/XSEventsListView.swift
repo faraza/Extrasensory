@@ -15,7 +15,7 @@ struct XSEventsListView: View {
         List{
             ForEach(groupedEvents){ group in
                 Section(header: Text(group.groupDate)){
-                    ForEach(events){ event in
+                    ForEach(group.events){ event in
                         XSEventCard(event: event)
                     }
                 }
@@ -27,5 +27,6 @@ struct XSEventsListView: View {
 struct XSEventsListView_Previews: PreviewProvider {
     static var previews: some View {
         XSEventsListView(events: XSEvent.sampleData)
+.previewInterfaceOrientation(.portrait)
     }
 }

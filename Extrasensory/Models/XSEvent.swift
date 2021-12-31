@@ -62,14 +62,14 @@ extension XSEvent{
         var groupedEvents: [XSEventGroup] = []
         for(_, dictionaryEvents) in eventsDict{
             let sorted = dictionaryEvents.sorted {
-                $0.timestamp < $1.timestamp
+                $0.timestamp > $1.timestamp
             }
             let group = XSEventGroup(events: sorted)
             groupedEvents.append(group)
         }
         
         groupedEvents.sort {
-            $0.events[0].timestamp < $1.events[0].timestamp
+            $0.events[0].timestamp > $1.events[0].timestamp
         }
         
         return groupedEvents
