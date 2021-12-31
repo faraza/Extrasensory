@@ -48,10 +48,31 @@ extension XSEvent{
         Returns a map where key is the date and val is array of events that happened on that date, sorted from newest to oldest date
      */
     static func groupEventsByDate(events: [XSEvent]) ->[[XSEvent]]{
-        //1: Put all the events into a map
-        //2: Put the map into an array
-        //3: Sort the map by date newest to oldest
-        return [] //TODO
+        var eventsDict: [String: [XSEvent]] = [:]
+        for event in events {
+            if var newVal = eventsDict[event.getPrintableDate()]{
+                newVal.append(event)
+                eventsDict[event.getPrintableDate()] = newVal
+            }
+            else{
+                eventsDict[event.getPrintableDate()] = [event]
+            }
+        }
+        
+        var groupedEvents: [[XSEvent]] = []
+        for(_, dictionaryEvents) in eventsDict{
+            let sorted = dictionaryEvents.sorted {
+                $0.timestamp < $1.timestamp
+            }
+            
+            groupedEvents.append(sorted)
+        }
+        
+        groupedEvents.sort {
+            $0[0].timestamp < $1[0].timestamp
+        }
+        
+        return groupedEvents
     }
 }
 
