@@ -47,7 +47,7 @@ extension XSEvent{
     /**
         Returns a map where key is the date and val is array of events that happened on that date, sorted from newest to oldest date
      */
-    static func groupEventsByDate(events: [XSEvent]) ->[[XSEvent]]{
+    static func groupEventsByDate(events: [XSEvent]) ->[XSEventGroup]{
         var eventsDict: [String: [XSEvent]] = [:]
         for event in events {
             if var newVal = eventsDict[event.getPrintableDate()]{
@@ -59,20 +59,34 @@ extension XSEvent{
             }
         }
         
-        var groupedEvents: [[XSEvent]] = []
+        var groupedEvents: [XSEventGroup] = []
         for(_, dictionaryEvents) in eventsDict{
             let sorted = dictionaryEvents.sorted {
                 $0.timestamp < $1.timestamp
             }
-            
-            groupedEvents.append(sorted)
+            let group = XSEventGroup(events: sorted)
+            groupedEvents.append(group)
         }
         
         groupedEvents.sort {
-            $0[0].timestamp < $1[0].timestamp
+            $0.events[0].timestamp < $1.events[0].timestamp
         }
         
         return groupedEvents
+    }
+}
+
+struct XSEventGroup: Identifiable, Codable{
+    let id: UUID
+    var events: [XSEvent]
+    var groupDate: String = ""
+    
+    init(id: UUID = UUID(), events: [XSEvent]){
+        self.id = id
+        self.events = events
+        if(events.count > 0){
+            self.groupDate = events[0].getPrintableDate()
+        }
     }
 }
 

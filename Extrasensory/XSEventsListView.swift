@@ -9,10 +9,16 @@ import SwiftUI
 
 struct XSEventsListView: View {
     let events: [XSEvent]
+    
     var body: some View {
+        let groupedEvents = XSEvent.groupEventsByDate(events: events)
         List{
-            ForEach(events){ event in
-               XSEventCard(event: event)
+            ForEach(groupedEvents){ group in
+                Section(header: Text(group.groupDate)){
+                    ForEach(events){ event in
+                        XSEventCard(event: event)
+                    }
+                }
             }
         }
     }
