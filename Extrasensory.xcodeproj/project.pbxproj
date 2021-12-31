@@ -1,0 +1,695 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
+		D2B0A435277EB17400ED1CBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A434277EB17400ED1CBA /* ContentView.swift */; };
+		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
+		D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */; };
+		D2B0A43E277EB17600ED1CBA /* Extrasensory WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D2B0A43D277EB17600ED1CBA /* Extrasensory WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D2B0A443277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A442277EB17600ED1CBA /* Assets.xcassets */; };
+		D2B0A449277EB17600ED1CBA /* Extrasensory WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D2B0A448277EB17600ED1CBA /* Extrasensory WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A44D277EB17600ED1CBA /* ExtrasensoryApp.swift */; };
+		D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A44F277EB17600ED1CBA /* ContentView.swift */; };
+		D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A451277EB17600ED1CBA /* NotificationController.swift */; };
+		D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A453277EB17600ED1CBA /* NotificationView.swift */; };
+		D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A455277EB17600ED1CBA /* ComplicationController.swift */; };
+		D2B0A458277EB17700ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A457277EB17700ED1CBA /* Assets.xcassets */; };
+		D2B0A45B277EB17700ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A45A277EB17700ED1CBA /* Preview Assets.xcassets */; };
+		D2B0A46F277EB2E400ED1CBA /* ESEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */; };
+		D2B0A471277EB33A00ED1CBA /* ESEventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A470277EB33A00ED1CBA /* ESEventsListView.swift */; };
+		D2B0A473277EB40900ED1CBA /* ESEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* ESEventType.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2B0A43F277EB17600ED1CBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B0A427277EB17400ED1CBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2B0A43C277EB17600ED1CBA;
+			remoteInfo = "Extrasensory WatchKit App";
+		};
+		D2B0A44A277EB17600ED1CBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B0A427277EB17400ED1CBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2B0A447277EB17600ED1CBA;
+			remoteInfo = "Extrasensory WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D2B0A463277EB17700ED1CBA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D2B0A449277EB17600ED1CBA /* Extrasensory WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B0A467277EB17700ED1CBA /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D2B0A43E277EB17600ED1CBA /* Extrasensory WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
+		D2B0A434277EB17400ED1CBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2B0A436277EB17600ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D2B0A43D277EB17600ED1CBA /* Extrasensory WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Extrasensory WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2B0A442277EB17600ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2B0A448277EB17600ED1CBA /* Extrasensory WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Extrasensory WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2B0A44D277EB17600ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
+		D2B0A44F277EB17600ED1CBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2B0A451277EB17600ED1CBA /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		D2B0A453277EB17600ED1CBA /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		D2B0A455277EB17600ED1CBA /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		D2B0A457277EB17700ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2B0A45A277EB17700ED1CBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D2B0A45C277EB17700ED1CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2B0A45D277EB17700ED1CBA /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEvent.swift; sourceTree = "<group>"; };
+		D2B0A470277EB33A00ED1CBA /* ESEventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEventsListView.swift; sourceTree = "<group>"; };
+		D2B0A472277EB40900ED1CBA /* ESEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEventType.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2B0A42C277EB17400ED1CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B0A445277EB17600ED1CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2B0A426277EB17400ED1CBA = {
+			isa = PBXGroup;
+			children = (
+				D2B0A431277EB17400ED1CBA /* Extrasensory */,
+				D2B0A441277EB17600ED1CBA /* Extrasensory WatchKit App */,
+				D2B0A44C277EB17600ED1CBA /* Extrasensory WatchKit Extension */,
+				D2B0A430277EB17400ED1CBA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2B0A430277EB17400ED1CBA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0A42F277EB17400ED1CBA /* Extrasensory.app */,
+				D2B0A43D277EB17600ED1CBA /* Extrasensory WatchKit App.app */,
+				D2B0A448277EB17600ED1CBA /* Extrasensory WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2B0A431277EB17400ED1CBA /* Extrasensory */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0A46D277EB29F00ED1CBA /* Models */,
+				D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */,
+				D2B0A434277EB17400ED1CBA /* ContentView.swift */,
+				D2B0A436277EB17600ED1CBA /* Assets.xcassets */,
+				D2B0A438277EB17600ED1CBA /* Preview Content */,
+				D2B0A470277EB33A00ED1CBA /* ESEventsListView.swift */,
+			);
+			path = Extrasensory;
+			sourceTree = "<group>";
+		};
+		D2B0A438277EB17600ED1CBA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D2B0A441277EB17600ED1CBA /* Extrasensory WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0A442277EB17600ED1CBA /* Assets.xcassets */,
+			);
+			path = "Extrasensory WatchKit App";
+			sourceTree = "<group>";
+		};
+		D2B0A44C277EB17600ED1CBA /* Extrasensory WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0A44D277EB17600ED1CBA /* ExtrasensoryApp.swift */,
+				D2B0A44F277EB17600ED1CBA /* ContentView.swift */,
+				D2B0A451277EB17600ED1CBA /* NotificationController.swift */,
+				D2B0A453277EB17600ED1CBA /* NotificationView.swift */,
+				D2B0A455277EB17600ED1CBA /* ComplicationController.swift */,
+				D2B0A457277EB17700ED1CBA /* Assets.xcassets */,
+				D2B0A45C277EB17700ED1CBA /* Info.plist */,
+				D2B0A45D277EB17700ED1CBA /* PushNotificationPayload.apns */,
+				D2B0A459277EB17700ED1CBA /* Preview Content */,
+			);
+			path = "Extrasensory WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		D2B0A459277EB17700ED1CBA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0A45A277EB17700ED1CBA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D2B0A46D277EB29F00ED1CBA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */,
+				D2B0A472277EB40900ED1CBA /* ESEventType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2B0A42E277EB17400ED1CBA /* Extrasensory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2B0A468277EB17700ED1CBA /* Build configuration list for PBXNativeTarget "Extrasensory" */;
+			buildPhases = (
+				D2B0A42B277EB17400ED1CBA /* Sources */,
+				D2B0A42C277EB17400ED1CBA /* Frameworks */,
+				D2B0A42D277EB17400ED1CBA /* Resources */,
+				D2B0A467277EB17700ED1CBA /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2B0A440277EB17600ED1CBA /* PBXTargetDependency */,
+			);
+			name = Extrasensory;
+			productName = Extrasensory;
+			productReference = D2B0A42F277EB17400ED1CBA /* Extrasensory.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D2B0A43C277EB17600ED1CBA /* Extrasensory WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2B0A464277EB17700ED1CBA /* Build configuration list for PBXNativeTarget "Extrasensory WatchKit App" */;
+			buildPhases = (
+				D2B0A43B277EB17600ED1CBA /* Resources */,
+				D2B0A463277EB17700ED1CBA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2B0A44B277EB17600ED1CBA /* PBXTargetDependency */,
+			);
+			name = "Extrasensory WatchKit App";
+			productName = "Extrasensory WatchKit App";
+			productReference = D2B0A43D277EB17600ED1CBA /* Extrasensory WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		D2B0A447277EB17600ED1CBA /* Extrasensory WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2B0A460277EB17700ED1CBA /* Build configuration list for PBXNativeTarget "Extrasensory WatchKit Extension" */;
+			buildPhases = (
+				D2B0A444277EB17600ED1CBA /* Sources */,
+				D2B0A445277EB17600ED1CBA /* Frameworks */,
+				D2B0A446277EB17600ED1CBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Extrasensory WatchKit Extension";
+			productName = "Extrasensory WatchKit Extension";
+			productReference = D2B0A448277EB17600ED1CBA /* Extrasensory WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2B0A427277EB17400ED1CBA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					D2B0A42E277EB17400ED1CBA = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D2B0A43C277EB17600ED1CBA = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D2B0A447277EB17600ED1CBA = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = D2B0A42A277EB17400ED1CBA /* Build configuration list for PBXProject "Extrasensory" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D2B0A426277EB17400ED1CBA;
+			productRefGroup = D2B0A430277EB17400ED1CBA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2B0A42E277EB17400ED1CBA /* Extrasensory */,
+				D2B0A43C277EB17600ED1CBA /* Extrasensory WatchKit App */,
+				D2B0A447277EB17600ED1CBA /* Extrasensory WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D2B0A42D277EB17400ED1CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */,
+				D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B0A43B277EB17600ED1CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B0A443277EB17600ED1CBA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B0A446277EB17600ED1CBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B0A45B277EB17700ED1CBA /* Preview Assets.xcassets in Resources */,
+				D2B0A458277EB17700ED1CBA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2B0A42B277EB17400ED1CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B0A435277EB17400ED1CBA /* ContentView.swift in Sources */,
+				D2B0A473277EB40900ED1CBA /* ESEventType.swift in Sources */,
+				D2B0A471277EB33A00ED1CBA /* ESEventsListView.swift in Sources */,
+				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
+				D2B0A46F277EB2E400ED1CBA /* ESEvent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B0A444277EB17600ED1CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
+				D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */,
+				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
+				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,
+				D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2B0A440277EB17600ED1CBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2B0A43C277EB17600ED1CBA /* Extrasensory WatchKit App */;
+			targetProxy = D2B0A43F277EB17600ED1CBA /* PBXContainerItemProxy */;
+		};
+		D2B0A44B277EB17600ED1CBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2B0A447277EB17600ED1CBA /* Extrasensory WatchKit Extension */;
+			targetProxy = D2B0A44A277EB17600ED1CBA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D2B0A45E277EB17700ED1CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D2B0A45F277EB17700ED1CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D2B0A461277EB17700ED1CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = NX5537CAQ9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Extrasensory WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Extrasensory WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Extrasensory.Extrasensory.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		D2B0A462277EB17700ED1CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = NX5537CAQ9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Extrasensory WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Extrasensory WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Extrasensory.Extrasensory.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
+		D2B0A465277EB17700ED1CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NX5537CAQ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = Extrasensory_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "Extrasensory WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Extrasensory.Extrasensory;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Extrasensory.Extrasensory.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		D2B0A466277EB17700ED1CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NX5537CAQ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = Extrasensory_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "Extrasensory WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Extrasensory.Extrasensory;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Extrasensory.Extrasensory.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
+		D2B0A469277EB17700ED1CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory/Preview Content\"";
+				DEVELOPMENT_TEAM = NX5537CAQ9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Extrasensory.Extrasensory;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2B0A46A277EB17700ED1CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory/Preview Content\"";
+				DEVELOPMENT_TEAM = NX5537CAQ9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Extrasensory.Extrasensory;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2B0A42A277EB17400ED1CBA /* Build configuration list for PBXProject "Extrasensory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2B0A45E277EB17700ED1CBA /* Debug */,
+				D2B0A45F277EB17700ED1CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2B0A460277EB17700ED1CBA /* Build configuration list for PBXNativeTarget "Extrasensory WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2B0A461277EB17700ED1CBA /* Debug */,
+				D2B0A462277EB17700ED1CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2B0A464277EB17700ED1CBA /* Build configuration list for PBXNativeTarget "Extrasensory WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2B0A465277EB17700ED1CBA /* Debug */,
+				D2B0A466277EB17700ED1CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2B0A468277EB17700ED1CBA /* Build configuration list for PBXNativeTarget "Extrasensory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2B0A469277EB17700ED1CBA /* Debug */,
+				D2B0A46A277EB17700ED1CBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D2B0A427277EB17400ED1CBA /* Project object */;
+}
