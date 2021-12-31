@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
-		D2B0A435277EB17400ED1CBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A434277EB17400ED1CBA /* ContentView.swift */; };
 		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
 		D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */; };
 		D2B0A43E277EB17600ED1CBA /* Extrasensory WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D2B0A43D277EB17600ED1CBA /* Extrasensory WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -21,10 +20,10 @@
 		D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A455277EB17600ED1CBA /* ComplicationController.swift */; };
 		D2B0A458277EB17700ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A457277EB17700ED1CBA /* Assets.xcassets */; };
 		D2B0A45B277EB17700ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A45A277EB17700ED1CBA /* Preview Assets.xcassets */; };
-		D2B0A46F277EB2E400ED1CBA /* ESEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */; };
-		D2B0A471277EB33A00ED1CBA /* ESEventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A470277EB33A00ED1CBA /* ESEventsListView.swift */; };
-		D2B0A473277EB40900ED1CBA /* ESEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* ESEventType.swift */; };
-		D2B0A475277EB94200ED1CBA /* ESEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A474277EB94200ED1CBA /* ESEventCard.swift */; };
+		D2B0A46F277EB2E400ED1CBA /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */; };
+		D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */; };
+		D2B0A473277EB40900ED1CBA /* XSEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* XSEventType.swift */; };
+		D2B0A475277EB94200ED1CBA /* XSEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A474277EB94200ED1CBA /* XSEventCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +71,6 @@
 /* Begin PBXFileReference section */
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
-		D2B0A434277EB17400ED1CBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2B0A436277EB17600ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D2B0A43D277EB17600ED1CBA /* Extrasensory WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Extrasensory WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,10 +85,10 @@
 		D2B0A45A277EB17700ED1CBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D2B0A45C277EB17700ED1CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2B0A45D277EB17700ED1CBA /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEvent.swift; sourceTree = "<group>"; };
-		D2B0A470277EB33A00ED1CBA /* ESEventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEventsListView.swift; sourceTree = "<group>"; };
-		D2B0A472277EB40900ED1CBA /* ESEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEventType.swift; sourceTree = "<group>"; };
-		D2B0A474277EB94200ED1CBA /* ESEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEventCard.swift; sourceTree = "<group>"; };
+		D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEvent.swift; sourceTree = "<group>"; };
+		D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsListView.swift; sourceTree = "<group>"; };
+		D2B0A472277EB40900ED1CBA /* XSEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventType.swift; sourceTree = "<group>"; };
+		D2B0A474277EB94200ED1CBA /* XSEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,11 +134,10 @@
 			children = (
 				D2B0A46D277EB29F00ED1CBA /* Models */,
 				D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */,
-				D2B0A474277EB94200ED1CBA /* ESEventCard.swift */,
-				D2B0A434277EB17400ED1CBA /* ContentView.swift */,
+				D2B0A474277EB94200ED1CBA /* XSEventCard.swift */,
 				D2B0A436277EB17600ED1CBA /* Assets.xcassets */,
 				D2B0A438277EB17600ED1CBA /* Preview Content */,
-				D2B0A470277EB33A00ED1CBA /* ESEventsListView.swift */,
+				D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */,
 			);
 			path = Extrasensory;
 			sourceTree = "<group>";
@@ -188,8 +185,8 @@
 		D2B0A46D277EB29F00ED1CBA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D2B0A472277EB40900ED1CBA /* ESEventType.swift */,
-				D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */,
+				D2B0A472277EB40900ED1CBA /* XSEventType.swift */,
+				D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,12 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2B0A435277EB17400ED1CBA /* ContentView.swift in Sources */,
-				D2B0A473277EB40900ED1CBA /* ESEventType.swift in Sources */,
-				D2B0A471277EB33A00ED1CBA /* ESEventsListView.swift in Sources */,
+				D2B0A473277EB40900ED1CBA /* XSEventType.swift in Sources */,
+				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
-				D2B0A475277EB94200ED1CBA /* ESEventCard.swift in Sources */,
-				D2B0A46F277EB2E400ED1CBA /* ESEvent.swift in Sources */,
+				D2B0A475277EB94200ED1CBA /* XSEventCard.swift in Sources */,
+				D2B0A46F277EB2E400ED1CBA /* XSEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

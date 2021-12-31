@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ESEventType: String, Codable {
+enum XSEventType: String, Codable {
     case urge = "Urge"
     case atomicLapse = "Lapse"
     case lapseStart = "Lapse Start"
