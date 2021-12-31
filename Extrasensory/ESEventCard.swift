@@ -14,7 +14,7 @@ struct ESEventCard: View {
             Text(event.goal)
                 .accessibilityLabel("goal")
             Text(event.typeOfEvent.rawValue)
-            Text(event.getReadableTimestamp())
+            Text(event.getPrintableDate())
         }
     }
 }
@@ -22,5 +22,6 @@ struct ESEventCard: View {
 struct ESEventCard_Previews: PreviewProvider {
     static var previews: some View {
         ESEventCard(event: ESEvent.sampleData[0])
+//            .previewLayout(.sizeThatFits)
     }
 }

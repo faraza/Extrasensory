@@ -188,8 +188,8 @@
 		D2B0A46D277EB29F00ED1CBA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */,
 				D2B0A472277EB40900ED1CBA /* ESEventType.swift */,
+				D2B0A46E277EB2E400ED1CBA /* ESEvent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

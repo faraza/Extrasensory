@@ -20,13 +20,36 @@ struct ESEvent: Identifiable, Codable{
         self.timestamp = timestamp
         self.goal = goal
     }
-    
-    func getReadableTimestamp() -> String{        
-        let curDate = Date(timeIntervalSince1970: timestamp)
-        return "\(curDate)"
-    }
         
+}
+
+extension ESEvent{
     
+    func getPrintableDate() ->String{
+        let curDate = Date(timeIntervalSince1970: timestamp)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy"
+        return dateFormatter.string(from: curDate)
+    }
+    
+    func getRawTime()-> String{
+        return ""
+    }
+    
+    func getPrintableTime()-> String{
+        return ""
+    }
+}
+
+extension ESEvent{
+    
+    /**
+        Returns a map where key is the date and val is array of events that happened on that date, sorted from newest to oldest date
+     */
+    static func groupEventsByDate(events: [ESEvent]) ->[[ESEvent]]{
+        return [] //TODO
+    }
 }
 
 extension ESEvent{ //Today's Timestamp: 1640923256. ~100,000 is a day
