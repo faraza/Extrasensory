@@ -33,12 +33,12 @@ extension ESEvent{
         return dateFormatter.string(from: curDate)
     }
     
-    func getRawTime()-> String{
-        return ""
-    }
-    
     func getPrintableTime()-> String{
-        return ""
+        let curDate = Date(timeIntervalSince1970: timestamp)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        return dateFormatter.string(from: curDate)
     }
 }
 

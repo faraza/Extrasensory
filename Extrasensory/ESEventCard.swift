@@ -14,7 +14,7 @@ struct ESEventCard: View {
             Text(event.goal)
                 .accessibilityLabel("goal")
             Text(event.typeOfEvent.rawValue)
-            Text(event.getPrintableDate())
+            Text(event.getPrintableTime())
         }
     }
 }
