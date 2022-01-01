@@ -9,18 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack{
-            Text("Nail Biting")
-            Button(action: {}){
-                Text("Lapse Start")
+        TabView{
+            VStack{
+                Text("Nail Biting")
+                Button(action: {}){
+                    Text("Urge")
+                        .font(.largeTitle)
+                        .fontWeight(.thin)
+                        .padding(.vertical, 30) //TODO: Don't hardcode the number
+                }
+                
+                
             }
-            Button(action: {}){
-                Text("Urge")
-            }
-            Button(action: {}){
-                Text("Lapse End")
-            }
+            Text("Sup")
         }
+        
     }
 }
 
