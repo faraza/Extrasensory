@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScrollableGoalsView: View {
-    @StateObject var goalsModel = GoalsModel()
+    @EnvironmentObject var goalsModel: GoalsModel
 
     var body: some View {
         Text("\(goalsModel.currentGoal)")
@@ -18,7 +18,9 @@ struct ScrollableGoalsView: View {
 }
 
 struct ScrollableGoalsView_Previews: PreviewProvider {
+    @StateObject static var goalsModel = GoalsModel()
     static var previews: some View {
-        ScrollableGoalsView()
+            ScrollableGoalsView()
+                .environmentObject(goalsModel)
     }
 }

@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct UrgeView: View {
+    @EnvironmentObject var goalsModel: GoalsModel
     var body: some View {
         VStack{
             ScrollableGoalsView()
             
-            Button(action: {}){
+            Button(action: {
+                XSEventsTransmitter.urgePressed(currentGoal: "Blah") //TODO
+            }){
                 Text("Urge")
                     .font(.largeTitle)
                     .fontWeight(.thin)
@@ -24,7 +27,10 @@ struct UrgeView: View {
 }
 
 struct UrgeView_Previews: PreviewProvider {
+    @StateObject static var goalsModel = GoalsModel()
+
     static var previews: some View {
         UrgeView()
+            .environmentObject(goalsModel)
     }
 }

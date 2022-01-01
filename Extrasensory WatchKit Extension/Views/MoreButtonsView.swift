@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MoreButtonsView: View {
+    @EnvironmentObject var goalsModel: GoalsModel
     @State var isLapseInProgress = false
     
     var body: some View {
@@ -33,7 +34,10 @@ struct MoreButtonsView: View {
 }
 
 struct MoreButtonsView_Previews: PreviewProvider {
+    @StateObject static var goalsModel = GoalsModel()
+
     static var previews: some View {
         MoreButtonsView()
+            .environmentObject(goalsModel)
     }
 }

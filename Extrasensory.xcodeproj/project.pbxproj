@@ -28,6 +28,7 @@
 		D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */; };
 		D2B0A47D278004E000ED1CBA /* ScrollableGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A47C278004E000ED1CBA /* ScrollableGoalsView.swift */; };
 		D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A481278009F100ED1CBA /* GoalsModel.swift */; };
+		D2B0A48427801AD600ED1CBA /* XSEventsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButtonsView.swift; sourceTree = "<group>"; };
 		D2B0A47C278004E000ED1CBA /* ScrollableGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableGoalsView.swift; sourceTree = "<group>"; };
 		D2B0A481278009F100ED1CBA /* GoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsModel.swift; sourceTree = "<group>"; };
+		D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsTransmitter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				D2B0A44D277EB17600ED1CBA /* ExtrasensoryApp.swift */,
 				D2B0A47B278004B100ED1CBA /* Views */,
 				D2B0A451277EB17600ED1CBA /* NotificationController.swift */,
+				D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */,
 				D2B0A455277EB17600ED1CBA /* ComplicationController.swift */,
 				D2B0A47E2780099F00ED1CBA /* Models */,
 				D2B0A457277EB17700ED1CBA /* Assets.xcassets */,
@@ -363,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B0A47D278004E000ED1CBA /* ScrollableGoalsView.swift in Sources */,
+				D2B0A48427801AD600ED1CBA /* XSEventsTransmitter.swift in Sources */,
 				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
 				D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */,
 				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
