@@ -15,7 +15,12 @@ struct MoreButtonsView: View {
         VStack{
             ScrollableGoalsView()
             Button(action:{
-                //TODO: Call model
+                if(isLapseInProgress){
+                    XSEventsTransmitter.lapseEndPressed(currentGoal: goalsModel.currentGoal)
+                }
+                else{
+                    XSEventsTransmitter.lapseStartPressed(currentGoal: goalsModel.currentGoal)
+                }
                 isLapseInProgress = !isLapseInProgress
             }){
                 if(isLapseInProgress){
@@ -26,7 +31,9 @@ struct MoreButtonsView: View {
                 }
                 
             }
-            Button(action: {}){
+            Button(action: {
+                XSEventsTransmitter.atomicLapsePressed(currentGoal: goalsModel.currentGoal)
+            }){
                 Text("Atomic Lapse")
             }
         }

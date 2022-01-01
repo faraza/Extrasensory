@@ -14,7 +14,7 @@ struct UrgeView: View {
             ScrollableGoalsView()
             
             Button(action: {
-                XSEventsTransmitter.urgePressed(currentGoal: "Blah") //TODO
+                XSEventsTransmitter.urgePressed(currentGoal: goalsModel.currentGoal)
             }){
                 Text("Urge")
                     .font(.largeTitle)

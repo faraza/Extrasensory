@@ -11,21 +11,21 @@ class XSEventsTransmitter {
     
     static func urgePressed(currentGoal: String){
         //TODO
-        print("XSEventsTransmitter::urgePressed")
+        print("XSEventsTransmitter::urgePressed. Habit: \(currentGoal)")
     }
     
     static func lapseStartPressed(currentGoal: String){
         //TODO
-        print("XSEventsTransmitter::lapseStartPressed")
+        print("XSEventsTransmitter::lapseStartPressed. Habit: \(currentGoal)")
     }
     
     static func lapseEndPressed(currentGoal: String){
         //TODO
-        print("XSEventsTransmitter::lapseEndPressed")
+        print("XSEventsTransmitter::lapseEndPressed. Habit: \(currentGoal)")
     }
     
     static func atomicLapsePressed(currentGoal: String){
         //TODO
-        print("XSEventsTransmitter::atomicLapsePressed")
+        print("XSEventsTransmitter::atomicLapsePressed. Habit: \(currentGoal)")
     }
 }
