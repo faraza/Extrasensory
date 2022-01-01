@@ -24,6 +24,8 @@
 		D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */; };
 		D2B0A473277EB40900ED1CBA /* XSEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* XSEventType.swift */; };
 		D2B0A475277EB94200ED1CBA /* XSEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A474277EB94200ED1CBA /* XSEventCard.swift */; };
+		D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A476277FFA5200ED1CBA /* UrgeView.swift */; };
+		D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsListView.swift; sourceTree = "<group>"; };
 		D2B0A472277EB40900ED1CBA /* XSEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventType.swift; sourceTree = "<group>"; };
 		D2B0A474277EB94200ED1CBA /* XSEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventCard.swift; sourceTree = "<group>"; };
+		D2B0A476277FFA5200ED1CBA /* UrgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrgeView.swift; sourceTree = "<group>"; };
+		D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButtonsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,8 @@
 				D2B0A45C277EB17700ED1CBA /* Info.plist */,
 				D2B0A45D277EB17700ED1CBA /* PushNotificationPayload.apns */,
 				D2B0A459277EB17700ED1CBA /* Preview Content */,
+				D2B0A476277FFA5200ED1CBA /* UrgeView.swift */,
+				D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */,
 			);
 			path = "Extrasensory WatchKit Extension";
 			sourceTree = "<group>";
@@ -337,8 +343,10 @@
 				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
 				D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */,
 				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
+				D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */,
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */,
+				D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
