@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct UrgeView: View {
-    @State var goalIndex: Double = 0
-
     var body: some View {
         VStack{
-            Text("Scroll: \(goalIndex)")
-                .focusable(true)
-                .digitalCrownRotation($goalIndex, from: 0, through: 5, by: 1, sensitivity: .low, isContinuous: true) //TODO: Use WKInterfacePicker later
+            ScrollableGoalsView()
             
             Button(action: {}){
                 Text("Urge")

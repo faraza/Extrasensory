@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct MoreButtonsView: View {
+    @State var isLapseInProgress = false
+    
     var body: some View {
         VStack{
-            Text("Nail Biting")
-            Button(action:{}){ //TODO: State variable
-                Text("Lapse Start")
+            ScrollableGoalsView()
+            Button(action:{
+                //TODO: Call model
+                isLapseInProgress = !isLapseInProgress
+            }){
+                if(isLapseInProgress){
+                    Text("Lapse End")
+                }
+                else{
+                    Text("Lapse Start")
+                }
+                
             }
             Button(action: {}){
                 Text("Atomic Lapse")
