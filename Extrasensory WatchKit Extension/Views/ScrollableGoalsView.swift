@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ScrollableGoalsView: View {
-    @State var goalIndex: Double = 0
+    @StateObject var goalsModel = GoalsModel()
 
     var body: some View {
-        Text("Scroll: \(goalIndex)")
+        Text("\(goalsModel.currentGoal)")
             .focusable(true)
-            .digitalCrownRotation($goalIndex, from: 0, through: 5, by: 1, sensitivity: .low, isContinuous: true) //TODO: Use WKInterfacePicker later
+            .digitalCrownRotation($goalsModel.crownSetGoalIndex, from: 0, through: Double(goalsModel.getGoalsListCount() - 1), by: 1, sensitivity: .low, isContinuous: true) //TODO: Use WKInterfacePicker later
     }
 }
 
