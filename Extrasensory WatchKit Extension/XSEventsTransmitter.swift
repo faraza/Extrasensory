@@ -12,6 +12,12 @@ class XSEventsTransmitter {
     static func urgePressed(currentGoal: String){
         //TODO
         print("XSEventsTransmitter::urgePressed. Habit: \(currentGoal)")
+        if let unwrapped = WCSessionManager.session{
+            print("Reachable: \(unwrapped.isReachable)")
+        }
+        else{
+            print("XSEventsTransmitter::urgePressed. Session not initialized")
+        }
     }
     
     static func lapseStartPressed(currentGoal: String){

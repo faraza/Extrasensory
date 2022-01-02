@@ -8,8 +8,21 @@ import Foundation
 import WatchConnectivity
 
 class WCSessionManager: NSObject, WCSessionDelegate {
+    
+    static var session: WCSession?
+    
+    init(session: WCSession = .default){
+        WCSessionManager.session = session
+        if let unwrapped = WCSessionManager.session{
+            unwrapped.activate()
+        }
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+            //TODO
+    }
+    
 #if os(iOS)
-
     func sessionDidBecomeInactive(_ session: WCSession) {
         //
     }
@@ -18,16 +31,5 @@ class WCSessionManager: NSObject, WCSessionDelegate {
         //
     }
 #endif
-    
-    var session: WCSession
-    
-    init(session: WCSession = .default){
-            self.session = session
-            session.activate()
-    }
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-            
-    }
         
 }

@@ -28,6 +28,5 @@ struct XSEventsListView: View {
 struct XSEventsListView_Previews: PreviewProvider {
     static var previews: some View {
         XSEventsListView(events: XSEvent.sampleData)
-.previewInterfaceOrientation(.portrait)
     }
 }
