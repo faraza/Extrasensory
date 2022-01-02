@@ -33,6 +33,8 @@
 		D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B28D2427813A200076EAC8 /* WCSessionManager.swift */; };
 		D2DF0BFA27823E4000AE6D99 /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */; };
 		D2DF0BFB27823E5600AE6D99 /* XSEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* XSEventType.swift */; };
+		D2DF0BFD2782596E00AE6D99 /* XSEventsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */; };
+		D2DF0BFE2782596E00AE6D99 /* XSEventsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,7 @@
 		D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extrasensory.entitlements; sourceTree = "<group>"; };
 		D2B28D2827813E120076EAC8 /* Extrasensory WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Extrasensory WatchKit App.entitlements"; sourceTree = "<group>"; };
 		D2B28D2927813E250076EAC8 /* Extrasensory WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Extrasensory WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +212,7 @@
 			children = (
 				D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */,
 				D2B0A472277EB40900ED1CBA /* XSEventType.swift */,
+				D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +382,7 @@
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A475277EB94200ED1CBA /* XSEventCard.swift in Sources */,
 				D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */,
+				D2DF0BFD2782596E00AE6D99 /* XSEventsStore.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* XSEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +396,7 @@
 				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
 				D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */,
 				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
+				D2DF0BFE2782596E00AE6D99 /* XSEventsStore.swift in Sources */,
 				D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */,
 				D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */,
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,

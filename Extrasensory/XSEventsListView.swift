@@ -9,7 +9,8 @@ import SwiftUI
 
 struct XSEventsListView: View {
     var session = WCSessionManager()
-    let events: [XSEvent]
+    @Binding var events: [XSEvent]
+    let saveAction: ()->Void
     
     var body: some View {
         let groupedEvents = XSEvent.groupEventsByDate(events: events)
@@ -26,7 +27,8 @@ struct XSEventsListView: View {
 }
 
 struct XSEventsListView_Previews: PreviewProvider {
+    @State static var sampleEvents = XSEvent.sampleData
     static var previews: some View {
-        XSEventsListView(events: XSEvent.sampleData)
+        XSEventsListView(events: $sampleEvents){}
     }
 }

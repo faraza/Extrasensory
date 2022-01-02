@@ -9,10 +9,27 @@ import SwiftUI
 
 @main
 struct ExtrasensoryApp: App {
+    @StateObject private var store = XSEventsStore()
     
     var body: some Scene {
         WindowGroup {
-            XSEventsListView(events: XSEvent.sampleData)
+            XSEventsListView(events: $store.events){
+                XSEventsStore.save(events: store.events) { result in
+                    if case .failure(let error) = result {
+                        fatalError(error.localizedDescription)
+                    }
+                }
+            }
+            .onAppear{
+                XSEventsStore.load { result in
+                    switch result {
+                    case .failure(let error):
+                        fatalError(error.localizedDescription)
+                    case .success(let events):
+                        store.events = events
+                    }
+                }
+            }
         }
     }
 }
