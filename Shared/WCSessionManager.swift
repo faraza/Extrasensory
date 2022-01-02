@@ -24,6 +24,13 @@ class WCSessionManager: NSObject, WCSessionDelegate {
             //TODO
     }
     
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+            DispatchQueue.main.async {
+                let messageText = message["message"] as? String ?? "Unknown"
+                print("WCSessionManager. Message Received: \(messageText)")
+        }
+    }
+    
 #if os(iOS)
     func sessionDidBecomeInactive(_ session: WCSession) {
         //

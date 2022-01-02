@@ -13,7 +13,9 @@ class XSEventsTransmitter {
         //TODO
         print("XSEventsTransmitter::urgePressed. Habit: \(currentGoal)")
         if let unwrapped = WCSessionManager.session{
-            print("Reachable: \(unwrapped.isReachable)")
+            unwrapped.sendMessage(["message" : "XSMessage test 1"], replyHandler: nil) { (error) in
+                print(error.localizedDescription)
+            }
         }
         else{
             print("XSEventsTransmitter::urgePressed. Session not initialized")
