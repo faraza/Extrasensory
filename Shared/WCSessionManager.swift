@@ -21,7 +21,6 @@ class WCSessionManager: NSObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        //TODO
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
@@ -33,6 +32,7 @@ class WCSessionManager: NSObject, WCSessionDelegate {
                     let decoder = JSONDecoder()
                     let event = try decoder.decode(XSEvent.self, from: encodedEvent)
                     print("Message. Goal: \(event.goal) Type: \(event.typeOfEvent.rawValue) Timestamp: \(event.getPrintableTime())")
+                    //TODO: Store this event if 
                 }
                 catch{
                     print("Failed to decode event")
