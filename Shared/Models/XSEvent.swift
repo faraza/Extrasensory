@@ -44,6 +44,17 @@ extension XSEvent{
         dateFormatter.dateFormat = "h:mm a"
         return dateFormatter.string(from: curDate)
     }
+    
+    func encode() -> Data?{
+        let encoder = JSONEncoder()
+        do{
+            let data = try encoder.encode(self)
+            return data
+        }
+        catch{
+            return nil
+        }
+    }
 }
 
 extension XSEvent{

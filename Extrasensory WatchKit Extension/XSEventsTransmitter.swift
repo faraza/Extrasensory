@@ -10,10 +10,15 @@ import Foundation
 class XSEventsTransmitter {
     
     static func urgePressed(currentGoal: String){
-        //TODO
-        print("XSEventsTransmitter::urgePressed. Habit: \(currentGoal)")
+        let event = XSEvent(typeOfEvent: .urge, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
+        let encodedEvent = event.encode()
+        guard encodedEvent != nil else{
+            print("Failed to encode event.")
+            return
+        }
+
         if let unwrapped = WCSessionManager.session{
-            unwrapped.sendMessage(["message" : "XSMessage test 1"], replyHandler: nil) { (error) in
+            unwrapped.sendMessage(["event" : encodedEvent], replyHandler: nil) { (error) in
                 print(error.localizedDescription)
             }
         }

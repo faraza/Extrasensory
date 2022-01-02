@@ -16,18 +16,29 @@ class WCSessionManager: NSObject, WCSessionDelegate {
         WCSessionManager.session = session
         if let unwrapped = WCSessionManager.session{
             unwrapped.delegate = self
-            unwrapped.activate()            
+            unwrapped.activate()
         }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-            //TODO
+        //TODO
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-            DispatchQueue.main.async {
-                let messageText = message["message"] as? String ?? "Unknown"
-                print("WCSessionManager. Message Received: \(messageText)")
+        print("Message receive start")
+        DispatchQueue.main.async {
+            
+            if let encodedEvent = message["event"] as? Data{
+                do{
+                    let decoder = JSONDecoder()
+                    let event = try decoder.decode(XSEvent.self, from: encodedEvent)
+                    print("Message. Goal: \(event.goal) Type: \(event.typeOfEvent.rawValue) Timestamp: \(event.getPrintableTime())")
+                }
+                catch{
+                    print("Failed to decode event")
+                }
+                
+            }
         }
     }
     
@@ -40,5 +51,5 @@ class WCSessionManager: NSObject, WCSessionDelegate {
         //
     }
 #endif
-        
+    
 }

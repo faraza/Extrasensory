@@ -31,6 +31,8 @@
 		D2B0A48427801AD600ED1CBA /* XSEventsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */; };
 		D2B28D2527813A200076EAC8 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B28D2427813A200076EAC8 /* WCSessionManager.swift */; };
 		D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B28D2427813A200076EAC8 /* WCSessionManager.swift */; };
+		D2DF0BFA27823E4000AE6D99 /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */; };
+		D2DF0BFB27823E5600AE6D99 /* XSEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* XSEventType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */,
-				D2B0A46D277EB29F00ED1CBA /* Models */,
 				D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */,
 				D2B0A474277EB94200ED1CBA /* XSEventCard.swift */,
 				D2B0A436277EB17600ED1CBA /* Assets.xcassets */,
@@ -206,8 +207,8 @@
 		D2B0A46D277EB29F00ED1CBA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D2B0A472277EB40900ED1CBA /* XSEventType.swift */,
 				D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */,
+				D2B0A472277EB40900ED1CBA /* XSEventType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,6 +236,7 @@
 		D2B28D2627813B730076EAC8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D2B0A46D277EB29F00ED1CBA /* Models */,
 				D2B28D2427813A200076EAC8 /* WCSessionManager.swift */,
 			);
 			path = Shared;
@@ -393,6 +395,8 @@
 				D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */,
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */,
+				D2DF0BFB27823E5600AE6D99 /* XSEventType.swift in Sources */,
+				D2DF0BFA27823E4000AE6D99 /* XSEvent.swift in Sources */,
 				D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */,
 				D2B28D2527813A200076EAC8 /* WCSessionManager.swift in Sources */,
 			);
