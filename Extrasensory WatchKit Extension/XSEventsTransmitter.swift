@@ -9,8 +9,8 @@ import Foundation
 
 class XSEventsTransmitter {
     
-    static func urgePressed(currentGoal: String){
-        let event = XSEvent(typeOfEvent: .urge, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
+    
+    private static func transmitEvent(event: XSEvent){
         let encodedEvent = event.encode()
         guard encodedEvent != nil else{
             print("Failed to encode event.")
@@ -23,22 +23,29 @@ class XSEventsTransmitter {
             }
         }
         else{
-            print("XSEventsTransmitter::urgePressed. Session not initialized")
+            print("XSEventsTransmitter::transmitEvent. Session not initialized")
         }
+    }
+}
+
+extension XSEventsTransmitter{
+    static func urgePressed(currentGoal: String){
+        let event = XSEvent(typeOfEvent: .urge, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
+        transmitEvent(event: event)
     }
     
     static func lapseStartPressed(currentGoal: String){
-        //TODO
-        print("XSEventsTransmitter::lapseStartPressed. Habit: \(currentGoal)")
+        let event = XSEvent(typeOfEvent: .lapseStart, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
+        transmitEvent(event: event)
     }
     
     static func lapseEndPressed(currentGoal: String){
-        //TODO
-        print("XSEventsTransmitter::lapseEndPressed. Habit: \(currentGoal)")
+        let event = XSEvent(typeOfEvent: .lapseEnd, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
+        transmitEvent(event: event)
     }
     
     static func atomicLapsePressed(currentGoal: String){
-        //TODO
-        print("XSEventsTransmitter::atomicLapsePressed. Habit: \(currentGoal)")
+        let event = XSEvent(typeOfEvent: .atomicLapse, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
+        transmitEvent(event: event)
     }
 }
