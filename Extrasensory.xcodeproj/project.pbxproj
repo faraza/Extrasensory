@@ -29,6 +29,8 @@
 		D2B0A47D278004E000ED1CBA /* ScrollableGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A47C278004E000ED1CBA /* ScrollableGoalsView.swift */; };
 		D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A481278009F100ED1CBA /* GoalsModel.swift */; };
 		D2B0A48427801AD600ED1CBA /* XSEventsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */; };
+		D2B28D2527813A200076EAC8 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B28D2427813A200076EAC8 /* WCSessionManager.swift */; };
+		D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B28D2427813A200076EAC8 /* WCSessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,10 @@
 		D2B0A47C278004E000ED1CBA /* ScrollableGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableGoalsView.swift; sourceTree = "<group>"; };
 		D2B0A481278009F100ED1CBA /* GoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsModel.swift; sourceTree = "<group>"; };
 		D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsTransmitter.swift; sourceTree = "<group>"; };
+		D2B28D2427813A200076EAC8 /* WCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
+		D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extrasensory.entitlements; sourceTree = "<group>"; };
+		D2B28D2827813E120076EAC8 /* Extrasensory WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Extrasensory WatchKit App.entitlements"; sourceTree = "<group>"; };
+		D2B28D2927813E250076EAC8 /* Extrasensory WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Extrasensory WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		D2B0A426277EB17400ED1CBA = {
 			isa = PBXGroup;
 			children = (
+				D2B28D2627813B730076EAC8 /* Shared */,
 				D2B0A431277EB17400ED1CBA /* Extrasensory */,
 				D2B0A441277EB17600ED1CBA /* Extrasensory WatchKit App */,
 				D2B0A44C277EB17600ED1CBA /* Extrasensory WatchKit Extension */,
@@ -142,6 +149,7 @@
 		D2B0A431277EB17400ED1CBA /* Extrasensory */ = {
 			isa = PBXGroup;
 			children = (
+				D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */,
 				D2B0A46D277EB29F00ED1CBA /* Models */,
 				D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */,
 				D2B0A474277EB94200ED1CBA /* XSEventCard.swift */,
@@ -163,6 +171,7 @@
 		D2B0A441277EB17600ED1CBA /* Extrasensory WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				D2B28D2827813E120076EAC8 /* Extrasensory WatchKit App.entitlements */,
 				D2B0A442277EB17600ED1CBA /* Assets.xcassets */,
 			);
 			path = "Extrasensory WatchKit App";
@@ -171,6 +180,7 @@
 		D2B0A44C277EB17600ED1CBA /* Extrasensory WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D2B28D2927813E250076EAC8 /* Extrasensory WatchKit Extension.entitlements */,
 				D2B0A44D277EB17600ED1CBA /* ExtrasensoryApp.swift */,
 				D2B0A47B278004B100ED1CBA /* Views */,
 				D2B0A451277EB17600ED1CBA /* NotificationController.swift */,
@@ -220,6 +230,14 @@
 				D2B0A481278009F100ED1CBA /* GoalsModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D2B28D2627813B730076EAC8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D2B28D2427813A200076EAC8 /* WCSessionManager.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +375,7 @@
 				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A475277EB94200ED1CBA /* XSEventCard.swift in Sources */,
+				D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* XSEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +394,7 @@
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */,
 				D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */,
+				D2B28D2527813A200076EAC8 /* WCSessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +529,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit Extension/Extrasensory WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory WatchKit Extension/Preview Content\"";
@@ -541,6 +562,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit Extension/Extrasensory WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory WatchKit Extension/Preview Content\"";
@@ -576,6 +598,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit App/Extrasensory WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NX5537CAQ9;
@@ -602,6 +625,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit App/Extrasensory WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NX5537CAQ9;
@@ -628,6 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Extrasensory/Extrasensory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory/Preview Content\"";
@@ -659,6 +684,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Extrasensory/Extrasensory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory/Preview Content\"";

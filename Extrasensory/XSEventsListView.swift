@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct XSEventsListView: View {
+    var session = WCSessionManager()
     let events: [XSEvent]
     
     var body: some View {

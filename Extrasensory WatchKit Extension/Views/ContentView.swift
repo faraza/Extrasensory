@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    var session = WCSessionManager()
+    
     @StateObject var goalsModel = GoalsModel()
     
     var body: some View {
