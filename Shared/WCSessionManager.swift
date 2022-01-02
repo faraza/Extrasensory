@@ -12,9 +12,11 @@ class WCSessionManager: NSObject, WCSessionDelegate {
     static var session: WCSession?
     
     init(session: WCSession = .default){
+        super.init()
         WCSessionManager.session = session
         if let unwrapped = WCSessionManager.session{
-            unwrapped.activate()
+            unwrapped.delegate = self
+            unwrapped.activate()            
         }
     }
     
