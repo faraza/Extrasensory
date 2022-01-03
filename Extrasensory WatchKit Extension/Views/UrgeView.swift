@@ -14,16 +14,20 @@ struct UrgeView: View {
             ScrollableGoalsView()                
             
             Button(action: {
-                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .urge)
+                
             }){
                 Text("Urge")
                     .font(.largeTitle)
                     .fontWeight(.thin)
                     .padding(.vertical, 40) //TODO: Don't hardcode the number
             }
-            .onTapGesture {
+            .simultaneousGesture(LongPressGesture().onEnded { _ in
                 XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .redZone)
-            }
+            })
+            .simultaneousGesture(TapGesture().onEnded {
+                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .urge)
+            })
+            
         }
     }
 }
