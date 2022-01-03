@@ -44,9 +44,10 @@ class XSEventsStore: ObservableObject{
                     }
                     return
                 }
-                let dailyScrums = try JSONDecoder().decode([XSEvent].self, from: file.availableData)
+                let savedEvents = try JSONDecoder().decode([XSEvent].self, from: file.availableData)
                 DispatchQueue.main.async {
-                    completion(.success(dailyScrums))
+//                    completion(.success(savedEvents))
+                    completion(.success(XSEvent.sampleData))
                 }
             } catch {
                 DispatchQueue.main.async {

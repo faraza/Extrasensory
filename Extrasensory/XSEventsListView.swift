@@ -11,22 +11,33 @@ struct XSEventsListView: View {
     var session = WCSessionManager()
     @Binding var events: [XSEvent]
     @Environment(\.scenePhase) private var scenePhase
-
+    
     let saveAction: ()->Void
     
     var body: some View {
         let groupedEvents = XSEvent.groupEventsByDate(events: events)
-        List{
-            ForEach(groupedEvents){ group in
-                Section(header: Text(group.groupDate)){
-                    ForEach(group.events){ event in
-                        XSEventCard(event: event)
+        NavigationView{
+            List{
+                ForEach(groupedEvents){ group in
+                    Section(header: Text(group.groupDate)){
+                        ForEach(group.events){ event in
+                            XSEventCard(event: event)
+                        }
+                        .onDelete(){ offsets in
+                            for offset in offsets{
+                                let eventToDelete = group.events[offset]
+                                if let index = events.firstIndex(where: {$0.timestamp == eventToDelete.timestamp}){
+                                    events.remove(at: index)
+                                }
+                            }
+                        }
                     }
                 }
             }
-        }
-        .onChange(of: scenePhase) { phase in
-            if phase == .inactive { saveAction() }
+            .onChange(of: scenePhase) { phase in
+                if phase == .inactive { saveAction() }
+            }
+            .navigationTitle("Events")
         }
     }
 }
