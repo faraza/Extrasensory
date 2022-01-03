@@ -24,6 +24,11 @@ class XSEventsStore: ObservableObject{
             return
         }
         events.append(newEvent)
+        XSEventsStore.save(events: events) { result in
+            if case .failure(let error) = result {
+                fatalError(error.localizedDescription)
+            }
+        }
     }
     
     private static func fileURL() throws -> URL {
@@ -46,8 +51,9 @@ class XSEventsStore: ObservableObject{
                 }
                 let savedEvents = try JSONDecoder().decode([XSEvent].self, from: file.availableData)
                 DispatchQueue.main.async {
-//                    completion(.success(savedEvents))
-                    completion(.success(XSEvent.sampleData))
+                    completion(.success(savedEvents))
+//                    completion(.success(XSEvent.sampleData))
+//                    completion(.success([]))
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -64,6 +70,7 @@ class XSEventsStore: ObservableObject{
                 let outfile = try fileURL()
                 try data.write(to: outfile)
                 DispatchQueue.main.async {
+                    print("Saving events to file")
                     completion(.success(events.count))
                 }
             } catch {
