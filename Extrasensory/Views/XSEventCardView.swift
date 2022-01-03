@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct XSEventCard: View {
+struct XSEventCardView: View {
     let event: XSEvent
     var body: some View {
         HStack{
@@ -28,7 +28,7 @@ struct XSEventCard: View {
 
 struct XSEventCard_Previews: PreviewProvider {
     static var previews: some View {
-        XSEventCard(event: XSEvent.sampleData[0])
+        XSEventCardView(event: XSEvent.sampleData[0])
 //            .previewLayout(.sizeThatFits)
     }
 }

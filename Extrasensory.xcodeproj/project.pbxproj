@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
 		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
 		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
 		D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */; };
@@ -23,7 +24,7 @@
 		D2B0A46F277EB2E400ED1CBA /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */; };
 		D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */; };
 		D2B0A473277EB40900ED1CBA /* XSEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* XSEventType.swift */; };
-		D2B0A475277EB94200ED1CBA /* XSEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A474277EB94200ED1CBA /* XSEventCard.swift */; };
+		D2B0A475277EB94200ED1CBA /* XSEventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A474277EB94200ED1CBA /* XSEventCardView.swift */; };
 		D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A476277FFA5200ED1CBA /* UrgeView.swift */; };
 		D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */; };
 		D2B0A47D278004E000ED1CBA /* ScrollableGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A47C278004E000ED1CBA /* ScrollableGoalsView.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D221147F2783A85800859B53 /* XSEventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventDetailsView.swift; sourceTree = "<group>"; };
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
 		D2B0A436277EB17600ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,7 +103,7 @@
 		D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEvent.swift; sourceTree = "<group>"; };
 		D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsListView.swift; sourceTree = "<group>"; };
 		D2B0A472277EB40900ED1CBA /* XSEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventType.swift; sourceTree = "<group>"; };
-		D2B0A474277EB94200ED1CBA /* XSEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventCard.swift; sourceTree = "<group>"; };
+		D2B0A474277EB94200ED1CBA /* XSEventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventCardView.swift; sourceTree = "<group>"; };
 		D2B0A476277FFA5200ED1CBA /* UrgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrgeView.swift; sourceTree = "<group>"; };
 		D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButtonsView.swift; sourceTree = "<group>"; };
 		D2B0A47C278004E000ED1CBA /* ScrollableGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableGoalsView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D221147E2783A82100859B53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */,
+				D2B0A474277EB94200ED1CBA /* XSEventCardView.swift */,
+				D221147F2783A85800859B53 /* XSEventDetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D2B0A426277EB17400ED1CBA = {
 			isa = PBXGroup;
 			children = (
@@ -159,10 +171,9 @@
 			children = (
 				D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */,
 				D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */,
-				D2B0A474277EB94200ED1CBA /* XSEventCard.swift */,
+				D221147E2783A82100859B53 /* Views */,
 				D2B0A436277EB17600ED1CBA /* Assets.xcassets */,
 				D2B0A438277EB17600ED1CBA /* Preview Content */,
-				D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */,
 			);
 			path = Extrasensory;
 			sourceTree = "<group>";
@@ -383,8 +394,9 @@
 			files = (
 				D2B0A473277EB40900ED1CBA /* XSEventType.swift in Sources */,
 				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
+				D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */,
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
-				D2B0A475277EB94200ED1CBA /* XSEventCard.swift in Sources */,
+				D2B0A475277EB94200ED1CBA /* XSEventCardView.swift in Sources */,
 				D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */,
 				D2DF0BFD2782596E00AE6D99 /* XSEventsStore.swift in Sources */,
 				D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */,

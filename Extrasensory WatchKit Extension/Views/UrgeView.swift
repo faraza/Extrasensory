@@ -14,12 +14,11 @@ struct UrgeView: View {
             ScrollableGoalsView()                
             
             Button(action: {
-                
             }){
                 Text("Urge")
                     .font(.largeTitle)
                     .fontWeight(.thin)
-                    .padding(.vertical, 40) //TODO: Don't hardcode the number
+                    .padding(.vertical, 40) //TODO: Don't hardcode the number - make it a % of screen size
             }
             .simultaneousGesture(LongPressGesture().onEnded { _ in
                 XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .redZone)

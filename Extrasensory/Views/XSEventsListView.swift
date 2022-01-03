@@ -21,7 +21,7 @@ struct XSEventsListView: View {
                 ForEach(groupedEvents){ group in
                     Section(header: Text(group.groupDate)){
                         ForEach(group.events){ event in
-                            XSEventCard(event: event)
+                            XSEventCardView(event: event)
                         }
                         .onDelete(){ offsets in
                             for offset in offsets{
