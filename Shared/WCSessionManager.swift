@@ -31,8 +31,9 @@ class WCSessionManager: NSObject, WCSessionDelegate {
                 do{
                     let decoder = JSONDecoder()
                     let event = try decoder.decode(XSEvent.self, from: encodedEvent)
-                    print("Message. Goal: \(event.goal) Type: \(event.typeOfEvent.rawValue) Timestamp: \(event.getPrintableTime())")
-                    //TODO: Store this event if 
+                    let nc = NotificationCenter.default
+                    nc.post(name: NSNotification.Name(NotificationTypes.xsEventReceived.rawValue), object: event)
+//                    print("Message. Goal: \(event.goal) Type: \(event.typeOfEvent.rawValue) Timestamp: \(event.getPrintableTime())")                    
                 }
                 catch{
                     print("Failed to decode event")
@@ -41,6 +42,7 @@ class WCSessionManager: NSObject, WCSessionDelegate {
             }
         }
     }
+        
     
 #if os(iOS)
     func sessionDidBecomeInactive(_ session: WCSession) {

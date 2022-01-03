@@ -35,6 +35,8 @@
 		D2DF0BFB27823E5600AE6D99 /* XSEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* XSEventType.swift */; };
 		D2DF0BFD2782596E00AE6D99 /* XSEventsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */; };
 		D2DF0BFE2782596E00AE6D99 /* XSEventsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */; };
+		D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */; };
+		D2DF0C0127828F0000AE6D99 /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,7 @@
 		D2B28D2827813E120076EAC8 /* Extrasensory WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Extrasensory WatchKit App.entitlements"; sourceTree = "<group>"; };
 		D2B28D2927813E250076EAC8 /* Extrasensory WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Extrasensory WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsStore.swift; sourceTree = "<group>"; };
+		D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,7 @@
 				D2B0A46E277EB2E400ED1CBA /* XSEvent.swift */,
 				D2B0A472277EB40900ED1CBA /* XSEventType.swift */,
 				D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */,
+				D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -383,6 +387,7 @@
 				D2B0A475277EB94200ED1CBA /* XSEventCard.swift in Sources */,
 				D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */,
 				D2DF0BFD2782596E00AE6D99 /* XSEventsStore.swift in Sources */,
+				D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* XSEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +407,7 @@
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */,
 				D2DF0BFB27823E5600AE6D99 /* XSEventType.swift in Sources */,
+				D2DF0C0127828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D2DF0BFA27823E4000AE6D99 /* XSEvent.swift in Sources */,
 				D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */,
 				D2B28D2527813A200076EAC8 /* WCSessionManager.swift in Sources */,

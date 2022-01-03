@@ -10,6 +10,22 @@ import Foundation
 class XSEventsStore: ObservableObject{
     @Published var events: [XSEvent] = []
     
+    init(){
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(xsEventAdded(notification:)), name: Notification.Name(NotificationTypes.xsEventReceived.rawValue), object: nil)
+
+    }
+        
+    
+    @objc func xsEventAdded(notification: Notification){
+        guard let newEvent = notification.object as? XSEvent
+        else{
+            print("No event added from notificationCenter")
+            return
+        }
+        events.append(newEvent)
+    }
+    
     private static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
                                        in: .userDomainMask,
@@ -17,8 +33,7 @@ class XSEventsStore: ObservableObject{
                                        create: false)
             .appendingPathComponent("xsevents.data")
     }
-    
-    //TODO: Called when?
+        
     static func load(completion: @escaping (Result<[XSEvent], Error>)->Void) {
         DispatchQueue.global(qos: .background).async {
             do {
@@ -41,7 +56,6 @@ class XSEventsStore: ObservableObject{
         }
     }
     
-    //TODO: Called when?
     static func save(events: [XSEvent], completion: @escaping (Result<Int, Error>)->Void) {
         DispatchQueue.global(qos: .background).async {
             do {

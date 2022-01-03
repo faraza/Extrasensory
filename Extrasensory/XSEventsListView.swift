@@ -10,6 +10,8 @@ import SwiftUI
 struct XSEventsListView: View {
     var session = WCSessionManager()
     @Binding var events: [XSEvent]
+    @Environment(\.scenePhase) private var scenePhase
+
     let saveAction: ()->Void
     
     var body: some View {
@@ -22,6 +24,9 @@ struct XSEventsListView: View {
                     }
                 }
             }
+        }
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive { saveAction() }
         }
     }
 }
