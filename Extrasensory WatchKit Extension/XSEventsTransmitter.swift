@@ -29,23 +29,8 @@ class XSEventsTransmitter {
 }
 
 extension XSEventsTransmitter{
-    static func urgePressed(currentGoal: String){
-        let event = XSEvent(typeOfEvent: .urge, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
+    static func eventButtonPressed(currentGoal: String, eventType: XSEventType){
+        let event = XSEvent(typeOfEvent: eventType, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
         transmitEvent(event: event)
-    }
-    
-    static func lapseStartPressed(currentGoal: String){
-        let event = XSEvent(typeOfEvent: .lapseStart, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
-        transmitEvent(event: event)
-    }
-    
-    static func lapseEndPressed(currentGoal: String){
-        let event = XSEvent(typeOfEvent: .lapseEnd, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
-        transmitEvent(event: event)
-    }
-    
-    static func atomicLapsePressed(currentGoal: String){
-        let event = XSEvent(typeOfEvent: .atomicLapse, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
-        transmitEvent(event: event)
-    }
+    }    
 }

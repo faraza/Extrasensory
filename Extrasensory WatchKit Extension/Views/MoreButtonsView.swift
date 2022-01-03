@@ -16,10 +16,11 @@ struct MoreButtonsView: View {
             ScrollableGoalsView()
             Button(action:{
                 if(isLapseInProgress){
-                    XSEventsTransmitter.lapseEndPressed(currentGoal: goalsModel.currentGoal)
+                    XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .lapseEnd)
                 }
                 else{
-                    XSEventsTransmitter.lapseStartPressed(currentGoal: goalsModel.currentGoal)
+                    
+                    XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .lapseStart)
                 }
                 isLapseInProgress = !isLapseInProgress
             }){
@@ -32,7 +33,7 @@ struct MoreButtonsView: View {
                 
             }
             Button(action: {
-                XSEventsTransmitter.atomicLapsePressed(currentGoal: goalsModel.currentGoal)
+                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .atomicLapse)
             }){
                 Text("Atomic Lapse")
             }

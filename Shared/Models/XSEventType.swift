@@ -12,12 +12,13 @@ enum XSEventType: String, Codable {
     case atomicLapse = "Lapse"
     case lapseStart = "Lapse Start"
     case lapseEnd = "Lapse End"
+    case redZone = "Red Zone"
     
     var textColor: Color{
         switch self{
-        case .urge: return .yellow
+        case .urge, .redZone: return .yellow
         case .atomicLapse, .lapseStart: return .red
-        default: return .black
+        default: return .blue
         }
     }
 }
