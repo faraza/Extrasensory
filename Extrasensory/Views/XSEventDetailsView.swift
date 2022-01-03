@@ -25,6 +25,7 @@ struct ListInfoItem: View{
 
 struct XSEventDetailsView: View{
     @Binding var event: XSEvent
+    
     var body: some View{
         Form{
             Section(header: Text("Event")){
@@ -36,7 +37,8 @@ struct XSEventDetailsView: View{
                 }
             }
             Section(header: Text("Description")){
-                
+                TextEditor(text: $event.description)
+                    .padding(.vertical, 100)
             }
         }
     }
