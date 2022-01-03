@@ -19,6 +19,7 @@ struct ScrollableGoalsView: View {
                 Text("\(goal)")
             }
         }
+        .frame(height: 50)        
     }
 }
 

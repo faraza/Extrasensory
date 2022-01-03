@@ -11,7 +11,7 @@ struct UrgeView: View {
     @EnvironmentObject var goalsModel: GoalsModel
     var body: some View {
         VStack{
-            ScrollableGoalsView()
+            ScrollableGoalsView()                
             
             Button(action: {
                 XSEventsTransmitter.urgePressed(currentGoal: goalsModel.currentGoal)
@@ -19,7 +19,7 @@ struct UrgeView: View {
                 Text("Urge")
                     .font(.largeTitle)
                     .fontWeight(.thin)
-                    .padding(.vertical, 30) //TODO: Don't hardcode the number
+                    .padding(.vertical, 40) //TODO: Don't hardcode the number
             }
    
         }
