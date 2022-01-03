@@ -47,5 +47,5 @@ class GoalsModel: ObservableObject{
 }
 
 extension GoalsModel{
-    static let sampleGoalsList = ["Bite Nails", "Soda", "Browsing", "Sugary Snack"]
+    static let sampleGoalsList = ["Bite Nails", "Browse", "Browse_g", "Judgment", "Sugar", "Vortex"]
 }
