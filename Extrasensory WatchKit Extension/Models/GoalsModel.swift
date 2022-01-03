@@ -9,29 +9,11 @@ import Foundation
 
 class GoalsModel: ObservableObject{
     @Published var currentGoal = ""
-    
-    var crownSetGoalIndex: Double = 0 {
-        didSet{
-            if(Int(crownSetGoalIndex) != currentGoalIndex){
-                currentGoalIndex = Int(crownSetGoalIndex)
-                currentGoal = goalsList[Int(currentGoalIndex)]
-            }
-        }
-    }
-    
-    func getGoalsListCount() ->Int{
-        return goalsList.count
-    }
-    
-    private var goalsList: [String]
-    private var currentGoalIndex: Int = 0
-        
+    @Published var goalsList: [String] = [""]
     
     init(){
         self.goalsList = GoalsModel.sampleGoalsList
-        currentGoalIndex = 0
-        crownSetGoalIndex = 0
-        currentGoal = goalsList[Int(currentGoalIndex)]
+        currentGoal = goalsList[0]
     }
     
     init(goalsList: [String]){
@@ -39,10 +21,8 @@ class GoalsModel: ObservableObject{
         guard goalsList.count > 0 else{
             return
         }
-        
-        currentGoalIndex = 0
-        crownSetGoalIndex = 0
-        currentGoal = goalsList[Int(currentGoalIndex)]
+                
+        currentGoal = goalsList[0]
     }
 }
 

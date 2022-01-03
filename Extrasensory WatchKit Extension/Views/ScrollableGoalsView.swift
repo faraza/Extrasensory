@@ -9,17 +9,16 @@ import SwiftUI
 
 struct ScrollableGoalsView: View {
     @EnvironmentObject var goalsModel: GoalsModel
-    @State var currentInt = 0
-    let ints = [1,2,3,4,5]
+    
+    
     var body: some View {
-//        Text("\(goalsModel.currentGoal)")
-//            .focusable(true)
-        Picker("", selection: $currentInt){
-            ForEach(ints, id: \.self){ int in
-                Text("\(int)")
+        let goalsList = goalsModel.goalsList //TODO: If picker doesn't update when goalsList changes, this is why
+
+        Picker("", selection: $goalsModel.currentGoal){
+            ForEach(goalsList, id: \.self){ goal in
+                Text("\(goal)")
             }
         }
-//            .digitalCrownRotation($goalsModel.crownSetGoalIndex, from: 0, through: Double(goalsModel.getGoalsListCount() - 1), by: 1, sensitivity: .low, isContinuous: true) //TODO: Use WKInterfacePicker later
     }
 }
 
