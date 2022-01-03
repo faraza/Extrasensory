@@ -7,15 +7,44 @@
 
 import SwiftUI
 
+struct ListInfoItem: View{
+    var propertyName: String
+    var propertyVal: String
+    var propertyValColor: Color?
+    
+    var body: some View{
+        HStack{
+            Text(propertyName)
+                .bold()
+            Spacer()
+            Text(propertyVal)
+                .foregroundColor(propertyValColor ?? .gray)
+        }
+    }
+}
+
 struct XSEventDetailsView: View{
     @Binding var event: XSEvent
     var body: some View{
-        Text("Hello")
+        Form{
+            Section(header: Text("Event")){
+                List{
+                    ListInfoItem(propertyName: "Goal", propertyVal: event.goal)
+                    ListInfoItem(propertyName: "Type", propertyVal: event.typeOfEvent.rawValue, propertyValColor: event.typeOfEvent.textColor)
+                    ListInfoItem(propertyName: "Date", propertyVal: event.getPrintableDate())
+                    ListInfoItem(propertyName: "Time", propertyVal: event.getPrintableTime())
+                }
+            }
+            Section(header: Text("Description")){
+                
+            }
+        }
     }
 }
 
 struct XSEventDetailsView_Previews: PreviewProvider {
+    @State static var events = XSEvent.sampleData
     static var previews: some View {
-        Text("Hello, world!")
+        XSEventDetailsView(event: $events[0])
     }
 }
