@@ -24,7 +24,8 @@ struct ListInfoItem: View{
 }
 
 struct XSEventDetailsView: View{
-    @Binding var event: XSEvent
+    var event: XSEvent
+    @State var textfieldString = ""
     
     var body: some View{
         Form{
@@ -37,16 +38,16 @@ struct XSEventDetailsView: View{
                 }
             }
             Section(header: Text("Description")){
-                TextEditor(text: $event.description)
-                    .padding(.vertical, 100)
+                TextEditor(text: $textfieldString)
+                    .frame(minHeight: 200)
             }
         }
     }
 }
 
 struct XSEventDetailsView_Previews: PreviewProvider {
-    @State static var events = XSEvent.sampleData
+    static var events = XSEvent.sampleData
     static var previews: some View {
-        XSEventDetailsView(event: $events[0])
+        XSEventDetailsView(event: events[0])
     }
 }
