@@ -50,6 +50,9 @@ struct XSEventDetailsView: View{
                 saveNewDescription(event, textfieldString)
             }
         }
+        .onAppear{
+            textfieldString = event.description
+        }
         .onDisappear{
             saveNewDescription(event, textfieldString)
         }
