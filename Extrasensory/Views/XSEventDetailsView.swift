@@ -11,14 +11,22 @@ struct ListInfoItem: View{
     var propertyName: String
     var propertyVal: String
     var propertyValColor: Color?
+    var shouldBoldVal: Bool = false
     
     var body: some View{
         HStack{
             Text(propertyName)
                 .bold()
             Spacer()
-            Text(propertyVal)
+            if(shouldBoldVal){
+                Text(propertyVal)
+                    .foregroundColor(propertyValColor ?? .gray)
+                    .bold()
+            }
+            else{
+                Text(propertyVal)
                 .foregroundColor(propertyValColor ?? .gray)
+            }
         }
     }
 }
@@ -35,7 +43,7 @@ struct XSEventDetailsView: View{
             Section(header: Text("Event")){
                 List{
                     ListInfoItem(propertyName: "Goal", propertyVal: event.goal)
-                    ListInfoItem(propertyName: "Type", propertyVal: event.typeOfEvent.rawValue, propertyValColor: event.typeOfEvent.textColor)
+                    ListInfoItem(propertyName: "Type", propertyVal: event.typeOfEvent.rawValue, propertyValColor: event.typeOfEvent.textColor, shouldBoldVal: true)
                     ListInfoItem(propertyName: "Date", propertyVal: event.getPrintableDate())
                     ListInfoItem(propertyName: "Time", propertyVal: event.getPrintableTime())
                 }
