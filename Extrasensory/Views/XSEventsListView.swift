@@ -22,10 +22,10 @@ struct XSEventsListView: View {
                     Section(header: Text(group.groupDate)){
                         ForEach(group.events){ event in
                             NavigationLink(destination: XSEventDetailsView(event: event){event, newText in
-                                print("Descripton text updated. New text: \(newText). Old text: \(event.description)") //TODO: Delete
                                 let index = events.firstIndex(where: {$0.timestamp == event.timestamp})
                                 if(index != nil){
                                     events[index!].description = newText
+                                    saveAction()
                                 }
                             }){
                                 XSEventCardView(event: event)
