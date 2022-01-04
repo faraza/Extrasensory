@@ -21,7 +21,10 @@ struct XSEventsListView: View {
                 ForEach(groupedEvents){ group in
                     Section(header: Text(group.groupDate)){
                         ForEach(group.events){ event in
-                            NavigationLink(destination: XSEventDetailsView(event: event)){
+                            NavigationLink(destination: XSEventDetailsView(event: event){event, newText in
+                                print("Descripton text updated. New text: \(newText)")
+                                //TODO
+                            }){
                                 XSEventCardView(event: event)
                             }
                         }

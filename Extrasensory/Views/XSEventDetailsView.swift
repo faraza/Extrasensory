@@ -26,6 +26,9 @@ struct ListInfoItem: View{
 struct XSEventDetailsView: View{
     var event: XSEvent
     @State var textfieldString = ""
+    @Environment(\.scenePhase) private var scenePhase
+
+    var saveNewDescription: (XSEvent, String)->Void
     
     var body: some View{
         Form{
@@ -42,12 +45,22 @@ struct XSEventDetailsView: View{
                     .frame(minHeight: 200)
             }
         }
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive {
+                saveNewDescription(event, textfieldString)
+            }
+        }
+        .onDisappear{
+            saveNewDescription(event, textfieldString)
+        }
     }
 }
 
 struct XSEventDetailsView_Previews: PreviewProvider {
     static var events = XSEvent.sampleData
     static var previews: some View {
-        XSEventDetailsView(event: events[0])
+        XSEventDetailsView(event: events[0]){ event, newText in
+            
+        }
     }
 }
