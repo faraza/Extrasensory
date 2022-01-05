@@ -20,16 +20,17 @@ struct ContentView: View{
     
     var body: some View{
         TabView{
-            XSEventsListView(events: $events)
-                .tabItem{
-                    Image(systemName: "1.square.fill")
-                    Text("First")
-                }
             XSEventLoggerView()
                 .tabItem{
-                    Image(systemName: "2.square.fill")
-                    Text("Second")
+                    Image(systemName: "square.and.pencil")
+                    Text("Log")
                 }
+            XSEventsListView(events: $events)
+                .tabItem{
+                    Image(systemName: "book")
+                    Text("Events")
+                }
+
         }
     }
 }
