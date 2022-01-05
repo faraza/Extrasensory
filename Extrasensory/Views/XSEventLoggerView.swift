@@ -10,8 +10,7 @@ import SwiftUI
 struct XSEventLoggerView: View {
     @Binding var events: [XSEvent]
     @StateObject var goalsModel = GoalsModel()
-    
-    //TODO: Store state of lapse start
+    @State var isLapseInProgress = false
     
     func addEvent(eventType: XSEventType){
         let newEvent = XSEvent(typeOfEvent: eventType, timestamp: NSDate().timeIntervalSince1970, goal: goalsModel.currentGoal)
@@ -20,8 +19,11 @@ struct XSEventLoggerView: View {
             if case .failure(let error) = result {
                 fatalError(error.localizedDescription)
             }
-        }    
+        }
     }
+    
+//    var lapseButtonText = isLapseInProgress ? XSEventType.lapseEnd.rawValue : XSEventType.lapseStart.rawValue
+ 
     
     var body: some View {
         NavigationView{
@@ -45,21 +47,37 @@ struct XSEventLoggerView: View {
                 .simultaneousGesture(TapGesture().onEnded {
                     addEvent(eventType: .urge)
                 })
-                
+                                
                 Button(action: {}){
-                    Text(XSEventType.lapseStart.rawValue)
-                        .fontWeight(.bold)
-                        .padding()
-                        .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .frame(minWidth: 1000)
+                    if(isLapseInProgress){
+                        Text(XSEventType.lapseEnd.rawValue)
+                            .fontWeight(.bold)
+                            .padding()
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                            .frame(minWidth: 1000)
+                    }
+                    else{
+                        Text(XSEventType.lapseStart.rawValue)
+                            .fontWeight(.bold)
+                            .padding()
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                            .frame(minWidth: 1000)
+                    }
                 }
                 .background(XSEventType.lapseStart.textColor)
                 .simultaneousGesture(LongPressGesture().onEnded { _ in
                     addEvent(eventType: .atomicLapse)
                 })
                 .simultaneousGesture(TapGesture().onEnded {
-                    addEvent(eventType: .lapseStart)
+                    if(isLapseInProgress){
+                        addEvent(eventType: .lapseEnd)
+                    }
+                    else{
+                        addEvent(eventType: .lapseStart)
+                    }
+                    isLapseInProgress = !isLapseInProgress
                 })
                 
             }.navigationTitle("Add Event")
