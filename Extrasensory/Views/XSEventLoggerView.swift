@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct XSEventLoggerView: View {
+    @Binding var events: [XSEvent]
     @StateObject var goalsModel = GoalsModel()
+    
+    //TODO: Store state of lapse start
+    
+    func addEvent(eventType: XSEventType){
+        let newEvent = XSEvent(typeOfEvent: eventType, timestamp: NSDate().timeIntervalSince1970, goal: goalsModel.currentGoal)
+        events.append(newEvent)
+        XSEventsStore.save(events: events) { result in
+            if case .failure(let error) = result {
+                fatalError(error.localizedDescription)
+            }
+        }    
+    }
     
     var body: some View {
         NavigationView{
             VStack{
-                //            Text("Add Event")
-                //                .font(.largeTitle)
-                //                .fontWeight(.bold)
-                
                 
                 GoalsPicker()
                     .environmentObject(goalsModel)
@@ -30,8 +39,12 @@ struct XSEventLoggerView: View {
                         .frame(minWidth: 1000)
                 }
                 .background(XSEventType.urge.textColor)
-                //TODO: Long hold for danger zone
-                
+                .simultaneousGesture(LongPressGesture().onEnded { _ in
+                    addEvent(eventType: .dangerZone)
+                })
+                .simultaneousGesture(TapGesture().onEnded {
+                    addEvent(eventType: .urge)
+                })
                 
                 Button(action: {}){
                     Text(XSEventType.lapseStart.rawValue)
@@ -42,7 +55,12 @@ struct XSEventLoggerView: View {
                         .frame(minWidth: 1000)
                 }
                 .background(XSEventType.lapseStart.textColor)
-                //TODO: Long hold for atomic lapse
+                .simultaneousGesture(LongPressGesture().onEnded { _ in
+                    addEvent(eventType: .atomicLapse)
+                })
+                .simultaneousGesture(TapGesture().onEnded {
+                    addEvent(eventType: .lapseStart)
+                })
                 
             }.navigationTitle("Add Event")
             
@@ -51,7 +69,8 @@ struct XSEventLoggerView: View {
 }
 
 struct XSEventLoggerView_Previews: PreviewProvider {
+    @State static var events = XSEvent.sampleData
     static var previews: some View {
-        XSEventLoggerView()
+        XSEventLoggerView(events: $events)
     }
 }
