@@ -9,34 +9,44 @@ import SwiftUI
 
 struct XSEventLoggerView: View {
     @StateObject var goalsModel = GoalsModel()
-
+    
     var body: some View {
-        
-        VStack{
-            GoalsPicker()
-                .environmentObject(goalsModel)
-            Button(action: {}){
-                Text(XSEventType.urge.rawValue)
-                    .fontWeight(.bold)
-                    .padding()
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .frame(minWidth: 1000)
-            }
-            .background(XSEventType.urge.textColor)
+        NavigationView{
+            VStack{
+                //            Text("Add Event")
+                //                .font(.largeTitle)
+                //                .fontWeight(.bold)
+                
+                
+                GoalsPicker()
+                    .environmentObject(goalsModel)
+                
+                Button(action: {}){
+                    Text(XSEventType.urge.rawValue)
+                        .fontWeight(.bold)
+                        .padding()
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .frame(minWidth: 1000)
+                }
+                .background(XSEventType.urge.textColor)
+                //TODO: Long hold for danger zone
+                
+                
+                Button(action: {}){
+                    Text(XSEventType.lapseStart.rawValue)
+                        .fontWeight(.bold)
+                        .padding()
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .frame(minWidth: 1000)
+                }
+                .background(XSEventType.lapseStart.textColor)
+                //TODO: Long hold for atomic lapse
+                
+            }.navigationTitle("Add Event")
             
-            
-            Button(action: {}){
-                Text(XSEventType.lapseStart.rawValue)
-                    .fontWeight(.bold)
-                    .padding()
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .frame(minWidth: 1000)
-            }
-            .background(XSEventType.lapseStart.textColor)
-                                    
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
