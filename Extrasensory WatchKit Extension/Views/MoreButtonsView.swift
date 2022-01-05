@@ -30,7 +30,7 @@ struct MoreButtonsView: View {
                 }                
             }
             .simultaneousGesture(LongPressGesture().onEnded { _ in
-                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .atomicLapse)                
+                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .atomicLapse)
             })
             .simultaneousGesture(TapGesture().onEnded {
                 if(isLapseInProgress){
