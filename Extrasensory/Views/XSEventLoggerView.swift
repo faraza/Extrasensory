@@ -40,6 +40,8 @@ struct XSEventLoggerView: View {
                 .background(XSEventType.urge.textColor)
                 .simultaneousGesture(LongPressGesture().onEnded { _ in
                     addEvent(eventType: .dangerZone)
+                    let haptics = UINotificationFeedbackGenerator()
+                    haptics.notificationOccurred(.success)
                 })
                 .simultaneousGesture(TapGesture().onEnded {
                     addEvent(eventType: .urge)
@@ -66,6 +68,9 @@ struct XSEventLoggerView: View {
                 .background(XSEventType.lapseStart.textColor)
                 .simultaneousGesture(LongPressGesture().onEnded { _ in
                     addEvent(eventType: .atomicLapse)
+                    let haptics = UINotificationFeedbackGenerator()
+                    haptics.notificationOccurred(.success)
+                    
                 })
                 .simultaneousGesture(TapGesture().onEnded {
                     if(isLapseInProgress){
