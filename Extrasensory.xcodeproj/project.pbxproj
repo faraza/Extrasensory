@@ -30,7 +30,7 @@
 		D2B0A475277EB94200ED1CBA /* XSEventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A474277EB94200ED1CBA /* XSEventCardView.swift */; };
 		D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A476277FFA5200ED1CBA /* UrgeView.swift */; };
 		D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */; };
-		D2B0A47D278004E000ED1CBA /* ScrollableGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A47C278004E000ED1CBA /* ScrollableGoalsView.swift */; };
+		D2B0A47D278004E000ED1CBA /* GoalsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A47C278004E000ED1CBA /* GoalsPicker.swift */; };
 		D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A481278009F100ED1CBA /* GoalsModel.swift */; };
 		D2B0A48427801AD600ED1CBA /* XSEventsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */; };
 		D2B28D2527813A200076EAC8 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B28D2427813A200076EAC8 /* WCSessionManager.swift */; };
@@ -111,7 +111,7 @@
 		D2B0A474277EB94200ED1CBA /* XSEventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventCardView.swift; sourceTree = "<group>"; };
 		D2B0A476277FFA5200ED1CBA /* UrgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrgeView.swift; sourceTree = "<group>"; };
 		D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButtonsView.swift; sourceTree = "<group>"; };
-		D2B0A47C278004E000ED1CBA /* ScrollableGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableGoalsView.swift; sourceTree = "<group>"; };
+		D2B0A47C278004E000ED1CBA /* GoalsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsPicker.swift; sourceTree = "<group>"; };
 		D2B0A481278009F100ED1CBA /* GoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsModel.swift; sourceTree = "<group>"; };
 		D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsTransmitter.swift; sourceTree = "<group>"; };
 		D2B28D2427813A200076EAC8 /* WCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
@@ -211,7 +211,6 @@
 				D2B0A451277EB17600ED1CBA /* NotificationController.swift */,
 				D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */,
 				D2B0A455277EB17600ED1CBA /* ComplicationController.swift */,
-				D2B0A47E2780099F00ED1CBA /* Models */,
 				D2B0A457277EB17700ED1CBA /* Assets.xcassets */,
 				D2B0A45C277EB17700ED1CBA /* Info.plist */,
 				D2B0A45D277EB17700ED1CBA /* PushNotificationPayload.apns */,
@@ -247,16 +246,9 @@
 				D2B0A453277EB17600ED1CBA /* NotificationView.swift */,
 				D2B0A476277FFA5200ED1CBA /* UrgeView.swift */,
 				D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */,
-				D2B0A47C278004E000ED1CBA /* ScrollableGoalsView.swift */,
+				D2B0A47C278004E000ED1CBA /* GoalsPicker.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		D2B0A47E2780099F00ED1CBA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		D2B28D2627813B730076EAC8 /* Shared */ = {
@@ -418,7 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2B0A47D278004E000ED1CBA /* ScrollableGoalsView.swift in Sources */,
+				D2B0A47D278004E000ED1CBA /* GoalsPicker.swift in Sources */,
 				D2B0A48427801AD600ED1CBA /* XSEventsTransmitter.swift in Sources */,
 				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
 				D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */,

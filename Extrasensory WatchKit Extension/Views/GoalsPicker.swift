@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScrollableGoalsView: View {
+struct GoalsPicker: View {
     @EnvironmentObject var goalsModel: GoalsModel
     
     
@@ -23,10 +23,10 @@ struct ScrollableGoalsView: View {
     }
 }
 
-struct ScrollableGoalsView_Previews: PreviewProvider {
+struct GoalsPicker_Previews: PreviewProvider {
     @StateObject static var goalsModel = GoalsModel()
     static var previews: some View {
-            ScrollableGoalsView()
+            GoalsPicker()
                 .environmentObject(goalsModel)
     }
 }

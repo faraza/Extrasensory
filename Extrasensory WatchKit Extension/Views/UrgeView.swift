@@ -11,7 +11,7 @@ struct UrgeView: View {
     @EnvironmentObject var goalsModel: GoalsModel
     var body: some View {
         VStack{
-            ScrollableGoalsView()                
+            GoalsPicker()                
             
             Button(action: {
             }){

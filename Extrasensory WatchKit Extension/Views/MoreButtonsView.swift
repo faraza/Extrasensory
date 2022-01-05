@@ -13,7 +13,7 @@ struct MoreButtonsView: View {
     
     var body: some View {
         VStack{
-            ScrollableGoalsView()
+            GoalsPicker()
             Button(action:{
                 if(isLapseInProgress){
                     XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .lapseEnd)
