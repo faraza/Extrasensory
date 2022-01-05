@@ -10,6 +10,14 @@ import SwiftUI
 struct ContentView: View{
     @Binding var events: [XSEvent]
     
+    init(events: Binding <[XSEvent]>){
+        self._events = events
+        if #available(iOS 15.0, *) {
+                let appearance = UITabBarAppearance()
+                UITabBar.appearance().scrollEdgeAppearance = appearance
+            }
+    }
+    
     var body: some View{
         TabView{
             XSEventsListView(events: $events)
