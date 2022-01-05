@@ -11,7 +11,18 @@ struct ContentView: View{
     @Binding var events: [XSEvent]
     
     var body: some View{
-        XSEventsListView(events: $events)
+        TabView{
+            XSEventsListView(events: $events)
+                .tabItem{
+                    Image(systemName: "1.square.fill")
+                    Text("First")
+                }
+            XSEventLoggerView()
+                .tabItem{
+                    Image(systemName: "2.square.fill")
+                    Text("Second")
+                }
+        }
     }
 }
 
