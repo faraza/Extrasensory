@@ -10,16 +10,11 @@ import SwiftUI
 @main
 struct ExtrasensoryApp: App {
     @StateObject private var store = XSEventsStore()
+    var session = WCSessionManager()
     
     var body: some Scene {
         WindowGroup {
-            XSEventsListView(events: $store.events){
-                XSEventsStore.save(events: store.events) { result in
-                    if case .failure(let error) = result {
-                        fatalError(error.localizedDescription)
-                    }
-                }
-            }
+            ContentView(events: $store.events)
             .onAppear{
                 XSEventsStore.load { result in
                     switch result {

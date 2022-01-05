@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct XSEventsListView: View {
-    var session = WCSessionManager()
     @Binding var events: [XSEvent]
-    @Environment(\.scenePhase) private var scenePhase
-    
-    let saveAction: ()->Void
-    
+        
     var body: some View {
         let groupedEvents = XSEvent.groupEventsByDate(events: events)
         NavigationView{
@@ -25,7 +21,11 @@ struct XSEventsListView: View {
                                 let index = events.firstIndex(where: {$0.timestamp == event.timestamp})
                                 if(index != nil){
                                     events[index!].description = newText
-                                    saveAction()
+                                    XSEventsStore.save(events: events) { result in
+                                        if case .failure(let error) = result {
+                                            fatalError(error.localizedDescription)
+                                        }
+                                    }                                    
                                 }
                             }){
                                 XSEventCardView(event: event)
@@ -38,14 +38,12 @@ struct XSEventsListView: View {
                                     events.remove(at: index)
                                 }
                             }
+                            XSEventsStore.save(events: events){_ in}
                         }
                     }
                 }
             }
-            .onChange(of: scenePhase) { phase in
-                if phase == .inactive { saveAction() }
-            }
-            .navigationTitle("Events")
+            .navigationTitle("Log")
         }
     }
 }
@@ -53,6 +51,6 @@ struct XSEventsListView: View {
 struct XSEventsListView_Previews: PreviewProvider {
     @State static var sampleEvents = XSEvent.sampleData
     static var previews: some View {
-        XSEventsListView(events: $sampleEvents){}
+        XSEventsListView(events: $sampleEvents)
     }
 }
