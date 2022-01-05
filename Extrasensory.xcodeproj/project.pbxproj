@@ -10,6 +10,7 @@
 		D21E74B127851D5000CA217F /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A481278009F100ED1CBA /* GoalsModel.swift */; };
 		D21E74B327851E9100CA217F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B227851E9100CA217F /* ContentView.swift */; };
 		D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B42785240E00CA217F /* XSEventLoggerView.swift */; };
+		D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B72785434200CA217F /* GoalsPicker.swift */; };
 		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
 		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
 		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 /* Begin PBXFileReference section */
 		D21E74B227851E9100CA217F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D21E74B42785240E00CA217F /* XSEventLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventLoggerView.swift; sourceTree = "<group>"; };
+		D21E74B72785434200CA217F /* GoalsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsPicker.swift; sourceTree = "<group>"; };
 		D221147F2783A85800859B53 /* XSEventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventDetailsView.swift; sourceTree = "<group>"; };
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */,
+				D21E74B72785434200CA217F /* GoalsPicker.swift */,
 				D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */,
 				D221147E2783A82100859B53 /* Views */,
 				D2B0A436277EB17600ED1CBA /* Assets.xcassets */,
@@ -395,6 +398,7 @@
 				D21E74B327851E9100CA217F /* ContentView.swift in Sources */,
 				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
 				D21E74B127851D5000CA217F /* GoalsModel.swift in Sources */,
+				D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */,
 				D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */,
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A475277EB94200ED1CBA /* XSEventCardView.swift in Sources */,

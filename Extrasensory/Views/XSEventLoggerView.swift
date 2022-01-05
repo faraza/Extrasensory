@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct XSEventLoggerView: View {
+    @StateObject var goalsModel = GoalsModel()
+
     var body: some View {
-        Text("Event Logger")
+        GoalsPicker()
+            .environmentObject(goalsModel)
     }
 }
 
