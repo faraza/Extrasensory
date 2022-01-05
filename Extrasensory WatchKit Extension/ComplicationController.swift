@@ -11,9 +11,10 @@ import ClockKit
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        let entry: CLKComplicationTimelineEntry
+        handler(nil)
+        /*let entry: CLKComplicationTimelineEntry
      
-        switch complication.family {
+       switch complication.family {
         case .modularSmall:
             let template = CLKComplicationTemplateModularSmallStackText()
             template.line1TextProvider = CLKSimpleTextProvider(text: "PM10")
@@ -30,6 +31,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             preconditionFailure("Complication family not supported")
         }
      
-        handler(entry)
+        handler(entry) */
     }
 }

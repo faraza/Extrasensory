@@ -572,7 +572,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Extrasensory WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Extrasensory WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = Extrasensory_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -605,7 +605,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Extrasensory WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Extrasensory WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = Extrasensory_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
