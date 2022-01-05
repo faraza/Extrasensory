@@ -43,7 +43,7 @@ struct XSEventsListView: View {
                     }
                 }
             }
-            .navigationTitle("Events")
+            .navigationTitle("Saved Events")
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
