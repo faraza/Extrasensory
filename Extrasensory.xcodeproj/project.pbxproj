@@ -562,7 +562,7 @@
 		D2B0A461277EB17700ED1CBA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = "Complication-1";
 				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit Extension/Extrasensory WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -595,7 +595,7 @@
 		D2B0A462277EB17700ED1CBA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = "Complication-1";
 				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit Extension/Extrasensory WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
