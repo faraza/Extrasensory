@@ -25,15 +25,6 @@ struct XSEventLoggerView: View {
             }
             .background(XSEventType.urge.textColor)
             
-            Button(action: {}){
-                Text(XSEventType.dangerZone.rawValue)
-                    .fontWeight(.bold)
-                    .padding()
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .frame(minWidth: 1000)
-            }
-            .background(XSEventType.dangerZone.textColor)
             
             Button(action: {}){
                 Text(XSEventType.lapseStart.rawValue)
