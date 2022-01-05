@@ -15,6 +15,24 @@ struct MoreButtonsView: View {
         VStack{
             GoalsPicker()
             Button(action:{
+            }){
+                if(isLapseInProgress){
+                    Text("Lapse End")
+                        .font(.title2)
+                        .fontWeight(.thin)
+                        .padding(.vertical, 40) //TODO: Don't hardcode the number - make it a % of screen size
+                }
+                else{
+                    Text("Lapse Start")
+                        .font(.title2)
+                        .fontWeight(.thin)
+                        .padding(.vertical, 40) //TODO: Don't hardcode the number - make it a % of screen size
+                }                
+            }
+            .simultaneousGesture(LongPressGesture().onEnded { _ in
+                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .atomicLapse)                
+            })
+            .simultaneousGesture(TapGesture().onEnded {
                 if(isLapseInProgress){
                     XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .lapseEnd)
                 }
@@ -23,20 +41,8 @@ struct MoreButtonsView: View {
                     XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .lapseStart)
                 }
                 isLapseInProgress = !isLapseInProgress
-            }){
-                if(isLapseInProgress){
-                    Text("Lapse End")
-                }
-                else{
-                    Text("Lapse Start")
-                }
-                
-            }
-            Button(action: {
-                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .atomicLapse)
-            }){
-                Text("Atomic Lapse")
-            }
+            })
+            
         }
     }
 }
