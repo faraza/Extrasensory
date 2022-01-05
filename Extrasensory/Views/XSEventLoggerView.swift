@@ -22,9 +22,6 @@ struct XSEventLoggerView: View {
         }
     }
     
-//    var lapseButtonText = isLapseInProgress ? XSEventType.lapseEnd.rawValue : XSEventType.lapseStart.rawValue
- 
-    
     var body: some View {
         NavigationView{
             VStack{
