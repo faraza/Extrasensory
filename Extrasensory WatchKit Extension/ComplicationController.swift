@@ -11,8 +11,7 @@ import ClockKit
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        handler(nil)
-        /*let entry: CLKComplicationTimelineEntry
+       let entry: CLKComplicationTimelineEntry
      
        switch complication.family {
         case .modularSmall:
@@ -26,11 +25,24 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.line1TextProvider = CLKSimpleTextProvider(text: "PM")
             template.line2TextProvider = CLKSimpleTextProvider(text: "75")
             entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+           
      
         default:
-            preconditionFailure("Complication family not supported")
+//            preconditionFailure("Complication family not supported")
+           handler(nil)
+           return
         }
      
-        handler(entry) */
+        handler(entry)
+    }
+    
+    func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
+        let descriptors = [
+            CLKComplicationDescriptor(identifier: "complication", displayName: "Extrasensory", supportedFamilies: CLKComplicationFamily.allCases)
+            // Multiple complication support can be added here with more descriptors
+        ]
+
+        // Call the handler with the currently supported complication descriptors
+        handler(descriptors)
     }
 }
