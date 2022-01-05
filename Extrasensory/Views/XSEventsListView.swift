@@ -44,7 +44,7 @@ struct XSEventsListView: View {
                 }
             }
             .navigationTitle("Log")
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
