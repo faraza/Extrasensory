@@ -32,8 +32,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     func placeholderTemplate(family: CLKComplicationFamily) -> CLKComplicationTemplate {
             let appNameTextProvider = CLKSimpleTextProvider(text: NSLocalizedString("Extrasensory", comment: "Extrasensory"))
             let simpleTextProvider = CLKSimpleTextProvider(text: "🔮")
-            let gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: .purple, fillFraction: 1.0)
-            let tintColor = UIColor.purple
+            let purpleColor = UIColor(red: 66/255, green: 38/255, blue: 128/255, alpha: 1)
+            let gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: purpleColor, fillFraction: 1.0)
+            let tintColor = purpleColor
 
             switch family {
             case .circularSmall:
