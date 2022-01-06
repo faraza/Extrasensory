@@ -14,23 +14,20 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         let template = self.placeholderTemplate(family: complication.family)
         let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
         handler(entry)
-//        {
-//                    let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-//                    handler(entry)
-//                } else {
-//                    handler(nil)
-//                }
     }
     
     func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
         let descriptors = [
             CLKComplicationDescriptor(identifier: "complication", displayName: "Extrasensory", supportedFamilies: CLKComplicationFamily.allCases)
-            // Multiple complication support can be added here with more descriptors
         ]
 
-        // Call the handler with the currently supported complication descriptors
         handler(descriptors)
     }
+    
+    func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
+            let template = self.placeholderTemplate(family: complication.family)
+            handler(template)
+        }
     
     func placeholderTemplate(family: CLKComplicationFamily) -> CLKComplicationTemplate {
             let appNameTextProvider = CLKSimpleTextProvider(text: NSLocalizedString("Extrasensory", comment: "Extrasensory"))
