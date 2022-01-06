@@ -84,6 +84,7 @@ class XSEventsStore: ObservableObject{
                 DispatchQueue.main.async {
                     completion(.success(events.count))
                     os_log("%@", type: .info, "Saved \(outfile). Length: \(events.count)")
+                    lastSavedEventsCount = events.count
                 }
             } catch {
                 DispatchQueue.main.async {
