@@ -11,9 +11,14 @@ import ClockKit
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        let template = self.placeholderTemplate(family: complication.family)
-        let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-        handler(entry)
+        if let template = self.placeholderTemplate(family: complication.family)
+        {
+            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+            handler(entry)
+        }
+        else{
+            handler(nil)
+        }
     }
     
     func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
@@ -29,7 +34,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             handler(template)
         }
     
-    func placeholderTemplate(family: CLKComplicationFamily) -> CLKComplicationTemplate {
+    func placeholderTemplate(family: CLKComplicationFamily) -> CLKComplicationTemplate? {
             let appNameTextProvider = CLKSimpleTextProvider(text: NSLocalizedString("Extrasensory", comment: "Extrasensory"))
             let simpleTextProvider = CLKSimpleTextProvider(text: "🔮")
             let purpleColor = UIColor(red: 66/255, green: 38/255, blue: 128/255, alpha: 1)
@@ -112,15 +117,21 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
                 return template
 
             case .graphicExtraLarge:
-                    let template = CLKComplicationTemplateGraphicExtraLargeCircularOpenGaugeRangeText()
-                    template.centerTextProvider = simpleTextProvider
-                    template.leadingTextProvider = CLKSimpleTextProvider(text: "")
-                    template.trailingTextProvider = CLKSimpleTextProvider(text: "")
-                    template.gaugeProvider = gaugeProvider
-                    template.tintColor = tintColor
-                
-                return template
-            }
+                        if #available(watchOSApplicationExtension 7.0, *) {
+                            let template = CLKComplicationTemplateGraphicExtraLargeCircularOpenGaugeRangeText()
+                            template.centerTextProvider = simpleTextProvider
+                            template.leadingTextProvider = CLKSimpleTextProvider(text: "")
+                            template.trailingTextProvider = CLKSimpleTextProvider(text: "")
+                            template.gaugeProvider = gaugeProvider
+                            template.tintColor = tintColor
+                            return template
+                        } else {
+                            return nil
+                        }
+
+                    @unknown default:
+                        return nil
+                    }
         }
 }
 
