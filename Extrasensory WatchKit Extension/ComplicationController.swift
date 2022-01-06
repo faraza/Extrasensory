@@ -33,10 +33,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func placeholderTemplate(family: CLKComplicationFamily) -> CLKComplicationTemplate {
-            let appNameTextProvider = CLKSimpleTextProvider(text: NSLocalizedString("🍍Timer", comment: "🍍Timer"))
-            let simpleTextProvider = CLKSimpleTextProvider(text: "🍍")
-            let gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: .gray, fillFraction: 0)
-            let tintColor = UIColor.yellow
+            let appNameTextProvider = CLKSimpleTextProvider(text: NSLocalizedString("Extrasensory", comment: "Extrasensory"))
+            let simpleTextProvider = CLKSimpleTextProvider(text: "🔮")
+            let gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: .purple, fillFraction: 1.0)
+            let tintColor = UIColor.purple
 
             switch family {
             case .circularSmall:
@@ -85,16 +85,16 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             case .graphicCorner:
                 let template = CLKComplicationTemplateGraphicCornerGaugeText()
                 template.outerTextProvider = simpleTextProvider
-                template.leadingTextProvider = CLKSimpleTextProvider(text: "25")
-                template.trailingTextProvider = CLKSimpleTextProvider(text: "0")
+                template.leadingTextProvider = CLKSimpleTextProvider(text: "")
+                template.trailingTextProvider = CLKSimpleTextProvider(text: "")
                 template.gaugeProvider = gaugeProvider
                 return template
 
             case .graphicCircular:
                 let template = CLKComplicationTemplateGraphicCircularOpenGaugeRangeText()
                 template.centerTextProvider = simpleTextProvider
-                template.leadingTextProvider = CLKSimpleTextProvider(text: "25")
-                template.trailingTextProvider = CLKSimpleTextProvider(text: "0")
+                template.leadingTextProvider = CLKSimpleTextProvider(text: "")
+                template.trailingTextProvider = CLKSimpleTextProvider(text: "")
                 template.gaugeProvider = gaugeProvider
                 return template
 
@@ -108,15 +108,16 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             case .graphicRectangular:
                 let template = CLKComplicationTemplateGraphicRectangularTextGauge()
                 template.headerTextProvider = appNameTextProvider
-                template.body1TextProvider = CLKSimpleTextProvider(text: NSLocalizedString("Let's 🍍", comment: ""))
+                template.body1TextProvider = CLKSimpleTextProvider(text: NSLocalizedString("Build a habit", comment: ""))
+                
                 template.gaugeProvider = gaugeProvider
                 return template
 
             case .graphicExtraLarge:
                     let template = CLKComplicationTemplateGraphicExtraLargeCircularOpenGaugeRangeText()
                     template.centerTextProvider = simpleTextProvider
-                    template.leadingTextProvider = CLKSimpleTextProvider(text: "25")
-                    template.trailingTextProvider = CLKSimpleTextProvider(text: "0")
+                    template.leadingTextProvider = CLKSimpleTextProvider(text: "")
+                    template.trailingTextProvider = CLKSimpleTextProvider(text: "")
                     template.gaugeProvider = gaugeProvider
                     template.tintColor = tintColor
                 
