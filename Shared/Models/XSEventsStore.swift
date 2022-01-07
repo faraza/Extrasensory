@@ -10,7 +10,7 @@ import os
 
 class XSEventsStore: ObservableObject{
     @Published var events: [XSEvent] = []
-    private static var lastSavedEventsCount: Int = 0
+    private static var loadComplete = false
     
     init(){
         let nc = NotificationCenter.default
@@ -56,7 +56,7 @@ class XSEventsStore: ObservableObject{
                     completion(.success(savedEvents))
 //                    completion(.success(XSEvent.sampleData))
 //                    completion(.success([]))
-                    lastSavedEventsCount = savedEvents.count
+                    loadComplete = true
                     os_log("%@", type: .info, "Loaded \(fileURL). Length: \(savedEvents.count)")
                 }
             } catch {
@@ -72,8 +72,8 @@ class XSEventsStore: ObservableObject{
     }
     
     static func save(events: [XSEvent], completion: @escaping (Result<Int, Error>)->Void) {
-        if(events.count < lastSavedEventsCount - 10){
-            os_log("%@", type: .error, "Current event count is much lower than saved. To safeguard against data loss, preventing save action. Saved count: \(lastSavedEventsCount) New count: \(events.count)")
+        if(!loadComplete){
+            os_log("ERROR - Loading note complete yet. Preventing save.")
             completion(.failure(FileSaveError.dataLossSafeguard))
         }
         DispatchQueue.global(qos: .background).async {
@@ -84,7 +84,6 @@ class XSEventsStore: ObservableObject{
                 DispatchQueue.main.async {
                     completion(.success(events.count))
                     os_log("%@", type: .info, "Saved \(outfile). Length: \(events.count)")
-                    lastSavedEventsCount = events.count
                 }
             } catch {
                 DispatchQueue.main.async {
