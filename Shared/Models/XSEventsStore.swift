@@ -11,6 +11,7 @@ import os
 class XSEventsStore: ObservableObject{
     @Published var events: [XSEvent] = []
     private static var loadComplete = false
+    private static var savedEventsWaitingForLoad: [XSEvent] = []
     
     init(){
         let nc = NotificationCenter.default
@@ -51,8 +52,9 @@ class XSEventsStore: ObservableObject{
                     }
                     return
                 }
-                let savedEvents = try JSONDecoder().decode([XSEvent].self, from: file.availableData)
+                var savedEvents = try JSONDecoder().decode([XSEvent].self, from: file.availableData)
                 DispatchQueue.main.async {
+                    savedEvents.append(contentsOf: savedEventsWaitingForLoad)
                     completion(.success(savedEvents))
 //                    completion(.success(XSEvent.sampleData))
 //                    completion(.success([]))
@@ -74,7 +76,8 @@ class XSEventsStore: ObservableObject{
     static func save(events: [XSEvent], completion: @escaping (Result<Int, Error>)->Void) {
         if(!loadComplete){
             os_log("ERROR - Loading note complete yet. Preventing save.")
-            completion(.failure(FileSaveError.dataLossSafeguard))
+            savedEventsWaitingForLoad = events
+            return
         }
         DispatchQueue.global(qos: .background).async {
             do {
