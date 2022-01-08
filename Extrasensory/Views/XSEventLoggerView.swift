@@ -11,12 +11,9 @@ struct XSEventLoggerView: View {
     @StateObject var goalsModel = GoalsModel()
     @State var isLapseInProgress = false
     @Environment(\.managedObjectContext) var managedObjectContext
-    var fetchRequest: FetchRequest<XSEventEntity>
-    
-    init(){
-        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
-        fetchRequest = FetchRequest<XSEventEntity>(entity: XSEventEntity.entity(), sortDescriptors: [sortDescriptor])
-    }
+    @FetchRequest(entity: XSEventEntity.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
+    private var events: FetchedResults<XSEventEntity>
+        
     
     func addEvent(eventType: XSEventType){
         let newEventEntity = XSEventEntity(context: managedObjectContext)
@@ -34,7 +31,7 @@ struct XSEventLoggerView: View {
     
     private func getTotalNumberOfEvents()-> Int{
         var numEvents: Int = 0
-        for i in fetchRequest.wrappedValue {
+        for _ in events {
             numEvents += 1
         }
         return numEvents
