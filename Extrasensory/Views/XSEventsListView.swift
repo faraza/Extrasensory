@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct XSEventsListView: View {
-    @Binding var events: [XSEvent]
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(entity: XSEventEntity.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
+    private var events: FetchedResults<XSEventEntity>
         
     var body: some View {
-        let groupedEvents = XSEvent.groupEventsByDate(events: events)
+        let groupedEvents = XSEventEntity.groupEventsByDate(events: events)
         NavigationView{
             List{
                 ForEach(groupedEvents){ group in
                     Section(header: Text(group.groupDate)){
-                        ForEach(group.events){ event in
+                       /* ForEach(group.events){ event in
                             NavigationLink(destination: XSEventDetailsView(event: event){event, newText in
                                 let index = events.firstIndex(where: {$0.timestamp == event.timestamp})
                                 if(index != nil){
@@ -40,6 +42,7 @@ struct XSEventsListView: View {
                             }
                             XSEventsStore.save(events: events){_ in}
                         }
+                        */
                     }
                 }
             }
@@ -49,8 +52,8 @@ struct XSEventsListView: View {
 }
 
 struct XSEventsListView_Previews: PreviewProvider {
-    @State static var sampleEvents = XSEvent.sampleData
+    
     static var previews: some View {
-        XSEventsListView(events: $sampleEvents)
+        XSEventsListView()
     }
 }

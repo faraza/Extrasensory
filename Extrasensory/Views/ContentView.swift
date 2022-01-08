@@ -25,7 +25,7 @@ struct ContentView: View{
                     Image(systemName: "square.and.pencil")
                     Text("Log")
                 }
-            XSEventsListView(events: $events)
+            XSEventsListView()
                 .tabItem{
                     Image(systemName: "book")
                     Text("Events")
