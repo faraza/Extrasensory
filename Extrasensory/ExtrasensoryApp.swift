@@ -11,7 +11,8 @@ import CoreData
 @main
 struct ExtrasensoryApp: App {
     @StateObject private var store = XSEventsStore()
-    var session = WCSessionManager()
+    let session = WCSessionManager()
+    let context = CoreDataStore.shared.persistentContainer.viewContext
     
     var body: some Scene {
         WindowGroup {
@@ -26,17 +27,7 @@ struct ExtrasensoryApp: App {
                     }
                 }
             }
-            .environment(\.managedObjectContext, modelContainer.viewContext)
+            .environment(\.managedObjectContext, context)
         }
     }
-    
-    var modelContainer: NSPersistentContainer = {
-        let modelContainer = NSPersistentContainer(name: "Model")
-        modelContainer.loadPersistentStores(completionHandler: { storeDescription, error in
-            if let error = error as NSError? {
-                fatalError("Loading error: \(error), \(error.userInfo)")
-            }
-        })
-        return modelContainer
-    }()
 }

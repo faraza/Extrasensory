@@ -46,6 +46,8 @@
 		D2DF0BFE2782596E00AE6D99 /* XSEventsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */; };
 		D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */; };
 		D2DF0C0127828F0000AE6D99 /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */; };
+		D2DF2853278A521F0061E89B /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2852278A521F0061E89B /* CoreDataStore.swift */; };
+		D2DF2854278A52300061E89B /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2852278A521F0061E89B /* CoreDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,7 @@
 		D2B28D2927813E250076EAC8 /* Extrasensory WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Extrasensory WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsStore.swift; sourceTree = "<group>"; };
 		D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTypes.swift; sourceTree = "<group>"; };
+		D2DF2852278A521F0061E89B /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				D256500527890A6100C79FAE /* Model.xcdatamodeld */,
+				D2DF2852278A521F0061E89B /* CoreDataStore.swift */,
 				D2B28D2627813B730076EAC8 /* Shared */,
 				D2B0A431277EB17400ED1CBA /* Extrasensory */,
 				D2B0A441277EB17600ED1CBA /* Extrasensory WatchKit App */,
@@ -418,6 +422,7 @@
 				D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */,
 				D256501027890F1A00C79FAE /* XSEventEntity.swift in Sources */,
+				D2DF2853278A521F0061E89B /* CoreDataStore.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* XSEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2DF2854278A52300061E89B /* CoreDataStore.swift in Sources */,
 				D2B0A47D278004E000ED1CBA /* GoalsPicker.swift in Sources */,
 				D2B0A48427801AD600ED1CBA /* XSEventsTransmitter.swift in Sources */,
 				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
