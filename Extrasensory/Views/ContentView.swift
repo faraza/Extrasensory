@@ -20,7 +20,7 @@ struct ContentView: View{
     
     var body: some View{
         TabView{
-            XSEventLoggerView(events: $events)
+            XSEventLoggerView()
                 .tabItem{
                     Image(systemName: "square.and.pencil")
                     Text("Log")

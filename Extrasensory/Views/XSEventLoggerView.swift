@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct XSEventLoggerView: View {
-    @Binding var events: [XSEvent]
     @StateObject var goalsModel = GoalsModel()
     @State var isLapseInProgress = false
     @Environment(\.managedObjectContext) var managedObjectContext
+    var fetchRequest: FetchRequest<XSEventEntity>
+    
+    init(){
+        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
+        fetchRequest = FetchRequest<XSEventEntity>(entity: XSEventEntity.entity(), sortDescriptors: [sortDescriptor])
+    }
     
     func addEvent(eventType: XSEventType){
         let newEventEntity = XSEventEntity(context: managedObjectContext)
@@ -20,18 +25,30 @@ struct XSEventLoggerView: View {
         newEventEntity.goal = goalsModel.currentGoal
         do {
             try managedObjectContext.save()
+            print("XSEventLogger. Saved successfully")
         }
         catch{
             print("ERROR -- XSEventLoggerView. Unable to save")
         }
     }
     
+    private func getTotalNumberOfEvents()-> Int{
+        var numEvents: Int = 0
+        for i in fetchRequest.wrappedValue {
+            numEvents += 1
+        }
+        return numEvents
+    }
+    
     var body: some View {
         NavigationView{
             VStack{
                 
+                Text("Number of events in coreData: \(getTotalNumberOfEvents())")
+                
                 GoalsPicker()
                     .environmentObject(goalsModel)
+                                
                 
                 Button(action: {}){
                     Text(XSEventType.urge.rawValue)
@@ -92,9 +109,8 @@ struct XSEventLoggerView: View {
     }
 }
 
-struct XSEventLoggerView_Previews: PreviewProvider {
-    @State static var events = XSEvent.sampleData
+struct XSEventLoggerView_Previews: PreviewProvider {    
     static var previews: some View {
-        XSEventLoggerView(events: $events)
+        XSEventLoggerView()
     }
 }
