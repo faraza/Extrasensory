@@ -12,6 +12,8 @@
 		D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B42785240E00CA217F /* XSEventLoggerView.swift */; };
 		D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B72785434200CA217F /* GoalsPicker.swift */; };
 		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
+		D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
+		D256500827890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
 		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
 		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
 		D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */; };
@@ -92,6 +94,7 @@
 		D21E74B72785434200CA217F /* GoalsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsPicker.swift; sourceTree = "<group>"; };
 		D21E74BB2786959000CA217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D221147F2783A85800859B53 /* XSEventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventDetailsView.swift; sourceTree = "<group>"; };
+		D256500627890A6100C79FAE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
 		D2B0A436277EB17600ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 		D2B0A426277EB17400ED1CBA = {
 			isa = PBXGroup;
 			children = (
+				D256500527890A6100C79FAE /* Model.xcdatamodeld */,
 				D2B28D2627813B730076EAC8 /* Shared */,
 				D2B0A431277EB17400ED1CBA /* Extrasensory */,
 				D2B0A441277EB17600ED1CBA /* Extrasensory WatchKit App */,
@@ -399,6 +403,7 @@
 				D2B0A473277EB40900ED1CBA /* XSEventType.swift in Sources */,
 				D21E74B327851E9100CA217F /* ContentView.swift in Sources */,
 				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
+				D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */,
 				D21E74B127851D5000CA217F /* GoalsModel.swift in Sources */,
 				D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */,
 				D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */,
@@ -427,6 +432,7 @@
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */,
 				D2DF0BFB27823E5600AE6D99 /* XSEventType.swift in Sources */,
+				D256500827890A6100C79FAE /* Model.xcdatamodeld in Sources */,
 				D2DF0C0127828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D2DF0BFA27823E4000AE6D99 /* XSEvent.swift in Sources */,
 				D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */,
@@ -792,6 +798,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D256500527890A6100C79FAE /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D256500627890A6100C79FAE /* Model.xcdatamodel */,
+			);
+			currentVersion = D256500627890A6100C79FAE /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D2B0A427277EB17400ED1CBA /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct ExtrasensoryApp: App {
@@ -25,6 +26,17 @@ struct ExtrasensoryApp: App {
                     }
                 }
             }
+            .environment(\.managedObjectContext, modelContainer.viewContext)
         }
     }
+    
+    var modelContainer: NSPersistentContainer = {
+        let modelContainer = NSPersistentContainer(name: "Model")
+        modelContainer.loadPersistentStores(completionHandler: { storeDescription, error in
+            if let error = error as NSError? {
+                fatalError("Loading error: \(error), \(error.userInfo)")
+            }
+        })
+        return modelContainer
+    }()
 }

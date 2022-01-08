@@ -8,6 +8,7 @@ XSEvent - Parent Class { //Class members are just what the card view will displa
 	tagText: String
 	tagTextColor: Color
 	userNotes: String
+	cause: String
 
 }
 
