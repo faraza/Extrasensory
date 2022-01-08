@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct XSEventCardView: View {
-    let event: XSEvent
+    let event: XSEventEntity
     var body: some View {
         HStack{
-            Text(event.goal)
+            Text(event.goal!)
                 .font(.headline)                
                 .accessibilityLabel("goal")
-            Text(event.typeOfEvent.rawValue)
+            Text(event.typeOfEvent!)
                 .font(.subheadline)
                 .fontWeight(.bold)
-                .foregroundColor(event.typeOfEvent.textColor)
+                .foregroundColor(XSEventType(rawValue: event.typeOfEvent!)!.textColor)
             Spacer()
             Text(event.getPrintableTime())
                 .foregroundColor(Color.gray)
@@ -27,8 +27,10 @@ struct XSEventCardView: View {
 }
 
 struct XSEventCard_Previews: PreviewProvider {
+    static let event = XSEventEntity.fromData(typeOfEvent: .atomicLapse, intervalTimeStamp: 1000, goal: "random")
     static var previews: some View {
-        XSEventCardView(event: XSEvent.sampleData[0])
+//        XSEventCardView(event: XSEventEntity.sampleData[0])
+        XSEventCardView(event: event)
 //            .previewLayout(.sizeThatFits)
     }
 }

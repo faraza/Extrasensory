@@ -73,3 +73,30 @@ extension XSEventEntity{
         return "Missing timestamp"
     }        
 }
+
+extension XSEventEntity{
+    static func fromData(typeOfEvent: XSEventType, intervalTimeStamp: TimeInterval, goal: String) -> XSEventEntity{
+        let event = XSEventEntity()
+        event.typeOfEvent = typeOfEvent.rawValue
+        event.timestamp = Date(timeIntervalSince1970: intervalTimeStamp)
+        event.goal = goal
+        return event
+    }
+}
+
+extension XSEventEntity{ //Today's Timestamp: 1640923256. ~100,000 is a day
+    static let sampleData: [XSEventEntity] =
+    [
+        XSEventEntity.fromData(typeOfEvent: XSEventType.atomicLapse, intervalTimeStamp: 1640923256, goal: "Biting nails"),
+        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640921256, goal: "Biting nails"),
+        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640913256, goal: "Biting nails"),
+        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640903256, goal: "Biting nails"),
+        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640901256, goal: "Biting nails"),
+        //Previous day
+        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640823256, goal: "Biting nails"),
+        XSEventEntity.fromData(typeOfEvent: XSEventType.atomicLapse, intervalTimeStamp: 1640822256, goal: "Biting nails"),
+        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640821256, goal: "Biting nails"),
+        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640813256, goal: "Biting nails"),
+        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640810056, goal: "Biting nails")
+    ]
+}

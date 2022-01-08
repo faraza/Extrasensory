@@ -18,6 +18,9 @@ struct XSEventsListView: View {
             List{
                 ForEach(groupedEvents){ group in
                     Section(header: Text(group.groupDate)){
+                        ForEach(group.events){ event in
+                            XSEventCardView(event: event)
+                        }
                        /* ForEach(group.events){ event in
                             NavigationLink(destination: XSEventDetailsView(event: event){event, newText in
                                 let index = events.firstIndex(where: {$0.timestamp == event.timestamp})
