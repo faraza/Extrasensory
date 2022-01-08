@@ -32,18 +32,18 @@ struct ListInfoItem: View{
 }
 
 struct XSEventDetailsView: View{
-    var event: XSEvent
+    var event: XSEventEntity
     @State var textfieldString = ""
     @Environment(\.scenePhase) private var scenePhase
 
-    var saveNewDescription: (XSEvent, String)->Void
-    
+    var saveNewDescription: (XSEventEntity, String)->Void //TODO
+     
     var body: some View{
         Form{
             Section(header: Text("Event")){
                 List{
-                    ListInfoItem(propertyName: "Goal", propertyVal: event.goal)
-                    ListInfoItem(propertyName: "Type", propertyVal: event.typeOfEvent.rawValue, propertyValColor: event.typeOfEvent.textColor, shouldBoldVal: true)
+                    ListInfoItem(propertyName: "Goal", propertyVal: event.goal!)
+                    ListInfoItem(propertyName: "Type", propertyVal: event.typeOfEvent!, propertyValColor: XSEventType(rawValue: event.typeOfEvent!)?.textColor, shouldBoldVal: true)
                     ListInfoItem(propertyName: "Date", propertyVal: event.getPrintableDate())
                     ListInfoItem(propertyName: "Time", propertyVal: event.getPrintableTime())
                 }
@@ -55,11 +55,14 @@ struct XSEventDetailsView: View{
         }
         .onChange(of: scenePhase) { phase in
             if phase == .inactive {
-                saveNewDescription(event, textfieldString)
+//                saveNewDescription(event, textfieldString)
+                event.userNotes = textfieldString
+                CoreDataStore.shared.saveContext() //TODO: This doesn't work
+                
             }
         }
         .onAppear{
-            textfieldString = event.description
+            textfieldString = event.userNotes ?? ""
         }
         .onDisappear{
             saveNewDescription(event, textfieldString)
@@ -68,7 +71,7 @@ struct XSEventDetailsView: View{
 }
 
 struct XSEventDetailsView_Previews: PreviewProvider {
-    static var events = XSEvent.sampleData
+    static var events = XSEventEntity.sampleData
     static var previews: some View {
         XSEventDetailsView(event: events[0]){ event, newText in
             

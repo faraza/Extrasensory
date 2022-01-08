@@ -17,10 +17,18 @@ extension XSEventEntity{
 
 extension XSEventEntity{
     
+    static func groupEventsByDate(events: FetchedResults<XSEventEntity>) ->[XSEventGroup]{
+        var eventsArray: [XSEventEntity] = []
+        for event in events{
+            eventsArray.append(event)
+        }
+        return groupEventsByDate(events: eventsArray)
+    }
+    
     /**
         Returns a map where key is the date and val is array of events that happened on that date, sorted from newest to oldest date
      */
-    static func groupEventsByDate(events: FetchedResults<XSEventEntity>) ->[XSEventGroup]{
+    static func groupEventsByDate(events: [XSEventEntity]) ->[XSEventGroup]{
         var eventsDict: [String: [XSEventEntity]] = [:]
         for event in events {
             if var newVal = eventsDict[event.getPrintableDate()]{

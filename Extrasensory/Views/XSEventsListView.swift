@@ -11,9 +11,12 @@ struct XSEventsListView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: XSEventEntity.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
     private var events: FetchedResults<XSEventEntity>
+    
+    var _previewEvents: [XSEventEntity]? = nil
         
     var body: some View {
-        let groupedEvents = XSEventEntity.groupEventsByDate(events: events)
+        let groupedEvents = _previewEvents == nil ? XSEventEntity.groupEventsByDate(events: events) : XSEventEntity.groupEventsByDate(events: _previewEvents!)
+        
         NavigationView{
             List{
                 ForEach(groupedEvents){ group in
@@ -21,16 +24,16 @@ struct XSEventsListView: View {
                         ForEach(group.events){ event in
                             XSEventCardView(event: event)
                         }
-                       /* ForEach(group.events){ event in
+                       ForEach(group.events){ event in
                             NavigationLink(destination: XSEventDetailsView(event: event){event, newText in
                                 let index = events.firstIndex(where: {$0.timestamp == event.timestamp})
                                 if(index != nil){
-                                    events[index!].description = newText
-                                    XSEventsStore.save(events: events) { result in
+//                                    events[index!].description = newText
+                                    /*XSEventsStore.save(events: events) { result in
                                         if case .failure(let error) = result {
                                             fatalError(error.localizedDescription)
                                         }
-                                    }                                    
+                                    } */
                                 }
                             }){
                                 XSEventCardView(event: event)
@@ -40,12 +43,11 @@ struct XSEventsListView: View {
                             for offset in offsets{
                                 let eventToDelete = group.events[offset]
                                 if let index = events.firstIndex(where: {$0.timestamp == eventToDelete.timestamp}){
-                                    events.remove(at: index)
+//                                    events.remove(at: index)
                                 }
                             }
-                            XSEventsStore.save(events: events){_ in}
+//                            XSEventsStore.save(events: events){_ in}
                         }
-                        */
                     }
                 }
             }
@@ -57,6 +59,6 @@ struct XSEventsListView: View {
 struct XSEventsListView_Previews: PreviewProvider {
     
     static var previews: some View {
-        XSEventsListView()
+        XSEventsListView(_previewEvents: XSEventEntity.sampleData)
     }
 }
