@@ -11,14 +11,18 @@ struct XSEventLoggerView: View {
     @Binding var events: [XSEvent]
     @StateObject var goalsModel = GoalsModel()
     @State var isLapseInProgress = false
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     func addEvent(eventType: XSEventType){
-        let newEvent = XSEvent(typeOfEvent: eventType, timestamp: NSDate().timeIntervalSince1970, goal: goalsModel.currentGoal)
-        events.append(newEvent)
-        XSEventsStore.save(events: events) { result in
-            if case .failure(let error) = result {
-                fatalError(error.localizedDescription)
-            }
+        let newEventEntity = XSEventEntity(context: managedObjectContext)
+        newEventEntity.typeOfEvent = eventType.rawValue
+        newEventEntity.timestamp = Date()
+        newEventEntity.goal = goalsModel.currentGoal
+        do {
+            try managedObjectContext.save()
+        }
+        catch{
+            print("ERROR -- XSEventLoggerView. Unable to save")
         }
     }
     
