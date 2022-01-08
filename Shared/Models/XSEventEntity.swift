@@ -76,7 +76,7 @@ extension XSEventEntity{
 
 extension XSEventEntity{
     static func fromData(typeOfEvent: XSEventType, intervalTimeStamp: TimeInterval, goal: String) -> XSEventEntity{
-        let event = XSEventEntity()
+        let event = XSEventEntity(context: CoreDataStore.shared.persistentContainer.viewContext)
         event.typeOfEvent = typeOfEvent.rawValue
         event.timestamp = Date(timeIntervalSince1970: intervalTimeStamp)
         event.goal = goal
