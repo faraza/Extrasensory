@@ -10,7 +10,8 @@ import Foundation
 
 struct XSEventRawData: Identifiable, Codable{
     let id: UUID
-    var typeOfEvent: XSEventType
+    var eventFamily: XSEventFamily
+    var urgeFamilyType: UrgeFamilyType
     var timestamp: Date
     var goal: String
     /**
@@ -18,11 +19,12 @@ struct XSEventRawData: Identifiable, Codable{
      */
     var description: String = ""
     
-    init(id: UUID = UUID(), typeOfEvent: XSEventType, timestamp: Date, goal: String){
+    init(id: UUID = UUID(), urgeFamilyType: UrgeFamilyType, timestamp: Date, goal: String){
         self.id = id
-        self.typeOfEvent = typeOfEvent
+        self.urgeFamilyType = urgeFamilyType
         self.timestamp = timestamp
         self.goal = goal
+        self.eventFamily = .urgeFamily
     }
         
 }

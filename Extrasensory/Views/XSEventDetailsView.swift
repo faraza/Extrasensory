@@ -42,7 +42,7 @@ struct XSEventDetailsView: View{
             Section(header: Text("Event")){
                 List{
                     ListInfoItem(propertyName: "Goal", propertyVal: event.goalKey!)
-                    ListInfoItem(propertyName: "Type", propertyVal: event.urgeFamilyType!, propertyValColor: XSEventType(rawValue: event.urgeFamilyType!)?.textColor, shouldBoldVal: true)
+                    ListInfoItem(propertyName: "Type", propertyVal: event.urgeFamilyType!, propertyValColor: UrgeFamilyType(rawValue: event.urgeFamilyType!)?.textColor, shouldBoldVal: true)
                     ListInfoItem(propertyName: "Date", propertyVal: event.getPrintableDate())
                     ListInfoItem(propertyName: "Time", propertyVal: event.getPrintableTime())
                 }

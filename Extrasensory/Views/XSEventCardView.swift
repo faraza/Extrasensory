@@ -17,7 +17,7 @@ struct XSEventCardView: View {
             Text(event.urgeFamilyType!)
                 .font(.subheadline)
                 .fontWeight(.bold)
-                .foregroundColor(XSEventType(rawValue: event.urgeFamilyType!)!.textColor)
+                .foregroundColor(UrgeFamilyType(rawValue: event.urgeFamilyType!)!.textColor)
             Spacer()
             Text(event.getPrintableTime())
                 .foregroundColor(Color.gray)

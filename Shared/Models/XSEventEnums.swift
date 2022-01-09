@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum XSEventFamily: String{
+enum XSEventFamily: String, Codable{
     case urgeFamily = "urgeFamily"
     case energyFamily = "energyFamily"
     

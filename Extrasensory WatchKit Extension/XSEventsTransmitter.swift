@@ -29,8 +29,8 @@ class XSEventsTransmitter {
 }
 
 extension XSEventsTransmitter{
-    static func eventButtonPressed(currentGoal: String, eventType: XSEventType){
-        let event = XSEventRawData(typeOfEvent: eventType, timestamp: Date(), goal: currentGoal) //TODO: Fix
+    static func eventButtonPressed(currentGoal: String, eventType: UrgeFamilyType){
+        let event = XSEventRawData(urgeFamilyType: eventType, timestamp: Date(), goal: currentGoal)
         transmitEvent(event: event)
     }    
 }

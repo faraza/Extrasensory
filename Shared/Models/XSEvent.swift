@@ -83,7 +83,7 @@ extension XSEvent{
 }
 
 extension XSEvent{
-    static func fromData(typeOfEvent: XSEventType, intervalTimeStamp: TimeInterval, goal: String) -> XSEvent{
+    static func fromData(typeOfEvent: UrgeFamilyType, intervalTimeStamp: TimeInterval, goal: String) -> XSEvent{
         let event = XSEvent(context: CoreDataStore.shared.persistentContainer.viewContext)
         event.urgeFamilyType = typeOfEvent.rawValue
         event.timestamp = Date(timeIntervalSince1970: intervalTimeStamp)
@@ -95,17 +95,17 @@ extension XSEvent{
 extension XSEvent{ //Today's Timestamp: 1640923256. ~100,000 is a day
     static let sampleData: [XSEvent] =
     [
-        XSEvent.fromData(typeOfEvent: XSEventType.atomicLapse, intervalTimeStamp: 1640923256, goal: "Biting nails"),
-        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640921256, goal: "Biting nails"),
-        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640913256, goal: "Biting nails"),
-        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640903256, goal: "Biting nails"),
-        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640901256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.atomicLapse, intervalTimeStamp: 1640923256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.urge, intervalTimeStamp: 1640921256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.urge, intervalTimeStamp: 1640913256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.urge, intervalTimeStamp: 1640903256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.urge, intervalTimeStamp: 1640901256, goal: "Biting nails"),
         //Previous day
-        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640823256, goal: "Biting nails"),
-        XSEvent.fromData(typeOfEvent: XSEventType.atomicLapse, intervalTimeStamp: 1640822256, goal: "Biting nails"),
-        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640821256, goal: "Biting nails"),
-        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640813256, goal: "Biting nails"),
-        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640810056, goal: "Biting nails")
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.urge, intervalTimeStamp: 1640823256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.atomicLapse, intervalTimeStamp: 1640822256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.urge, intervalTimeStamp: 1640821256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.urge, intervalTimeStamp: 1640813256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: UrgeFamilyType.urge, intervalTimeStamp: 1640810056, goal: "Biting nails")
     ]
 }
 

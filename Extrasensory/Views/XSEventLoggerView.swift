@@ -16,7 +16,7 @@ struct XSEventLoggerView: View {
         
     @State private var fileManagerLength = 0
     
-    func addEvent(eventType: XSEventType){
+    func addEvent(eventType: UrgeFamilyType){
         let newEventEntity = XSEvent(context: managedObjectContext)
         newEventEntity.eventFamily = XSEventFamily.urgeFamily.rawValue
         newEventEntity.urgeFamilyType = eventType.rawValue
@@ -40,14 +40,14 @@ struct XSEventLoggerView: View {
                                 
                 
                 Button(action: {}){
-                    Text(XSEventType.urge.rawValue)
+                    Text(UrgeFamilyType.urge.rawValue)
                         .fontWeight(.bold)
                         .padding()
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .frame(minWidth: 1000)
                 }
-                .background(XSEventType.urge.textColor)
+                .background(UrgeFamilyType.urge.textColor)
                 .simultaneousGesture(LongPressGesture().onEnded { _ in
                     addEvent(eventType: .dangerZone)
                     let haptics = UINotificationFeedbackGenerator()
@@ -59,7 +59,7 @@ struct XSEventLoggerView: View {
                                 
                 Button(action: {}){
                     if(isLapseInProgress){
-                        Text(XSEventType.lapseEnd.rawValue)
+                        Text(UrgeFamilyType.lapseEnd.rawValue)
                             .fontWeight(.bold)
                             .padding()
                             .foregroundColor(.white)
@@ -67,7 +67,7 @@ struct XSEventLoggerView: View {
                             .frame(minWidth: 1000)
                     }
                     else{
-                        Text(XSEventType.lapseStart.rawValue)
+                        Text(UrgeFamilyType.lapseStart.rawValue)
                             .fontWeight(.bold)
                             .padding()
                             .foregroundColor(.white)
@@ -75,7 +75,7 @@ struct XSEventLoggerView: View {
                             .frame(minWidth: 1000)
                     }
                 }
-                .background(XSEventType.lapseStart.textColor)
+                .background(UrgeFamilyType.lapseStart.textColor)
                 .simultaneousGesture(LongPressGesture().onEnded { _ in
                     addEvent(eventType: .atomicLapse)
                     let haptics = UINotificationFeedbackGenerator()
