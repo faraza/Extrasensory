@@ -16,31 +16,22 @@ struct MoreButtonsView: View {
             GoalsPicker()
             Button(action:{
             }){
-                if(isLapseInProgress){
-                    Text("Lapse End")
-                        .font(.title2)
-                        .fontWeight(.thin)
-                        .padding(.vertical, 40) //TODO: Don't hardcode the number - make it a % of screen size
-                }
-                else{
-                    Text("Lapse Start")
-                        .font(.title2)
-                        .fontWeight(.thin)
-                        .padding(.vertical, 40) //TODO: Don't hardcode the number - make it a % of screen size
-                }                
+                Text("Lapse")
+                    .font(.title2)
+                    .fontWeight(.thin)
+                    .padding(.vertical, 40) //TODO: Don't hardcode the number - make it a % of screen size
             }
             .simultaneousGesture(LongPressGesture().onEnded { _ in
-                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .atomicLapse)
-            })
-            .simultaneousGesture(TapGesture().onEnded {
                 if(isLapseInProgress){
                     XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .lapseEnd)
                 }
-                else{
-                    
+                else{                    
                     XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .lapseStart)
                 }
                 isLapseInProgress = !isLapseInProgress
+            })
+            .simultaneousGesture(TapGesture().onEnded {
+                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .atomicLapse)
             })
             
         }
