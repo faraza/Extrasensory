@@ -36,7 +36,6 @@ class XSEventsStore: ObservableObject{
                 DispatchQueue.main.async {
                     savedEvents.append(contentsOf: savedEventsWaitingForLoad)
                     completion(.success(savedEvents))
-                    events = savedEvents
 //                    completion(.success(XSEvent.sampleData))
 //                    completion(.success([]))
                     loadComplete = true

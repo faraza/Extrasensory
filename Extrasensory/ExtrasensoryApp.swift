@@ -24,6 +24,7 @@ struct ExtrasensoryApp: App {
                         fatalError(error.localizedDescription)
                     case .success(let events):
                         print("successfully loaded via filemanager. Length: \(events.count)")
+                        XSEventsStore.events = events
                     }
                 }
             }

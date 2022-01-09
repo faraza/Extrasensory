@@ -14,6 +14,7 @@ struct XSEventLoggerView: View {
     @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
     private var events: FetchedResults<XSEvent>
         
+    @State private var fileManagerLength = 0
     
     func addEvent(eventType: XSEventType){
         let newEventEntity = XSEvent(context: managedObjectContext)
@@ -37,7 +38,7 @@ struct XSEventLoggerView: View {
         NavigationView{
             VStack{
                 
-                Text("Number of events in file manager: \(getTotalNumberOfEvents())")
+                Text("Number of events in file manager: \(fileManagerLength)")
                 
                 GoalsPicker()
                     .environmentObject(goalsModel)
@@ -97,6 +98,9 @@ struct XSEventLoggerView: View {
                 })
                 
             }.navigationTitle("Add Event")
+            .onAppear{
+                        fileManagerLength = XSEventsStore.events.count
+                }
             
         }.navigationViewStyle(StackNavigationViewStyle())
     }
