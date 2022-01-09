@@ -108,3 +108,17 @@ extension XSEventEntity{ //Today's Timestamp: 1640923256. ~100,000 is a day
         XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640810056, goal: "Biting nails")
     ]
 }
+
+struct XSEventGroup: Identifiable{
+    let id: UUID
+    var events: [XSEventEntity]
+    var groupDate: String = ""
+    
+    init(id: UUID = UUID(), events: [XSEventEntity]){
+        self.id = id
+        self.events = events
+        if(events.count > 0){
+            self.groupDate = events[0].getPrintableDate()
+        }
+    }
+}

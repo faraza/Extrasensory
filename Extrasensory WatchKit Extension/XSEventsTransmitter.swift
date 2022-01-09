@@ -10,7 +10,7 @@ import Foundation
 class XSEventsTransmitter {
     
     
-    private static func transmitEvent(event: XSEvent){
+    private static func transmitEvent(event: XSEventRawData){
         let encodedEvent = event.encode()
         guard encodedEvent != nil else{
             print("Failed to encode event.")
@@ -30,7 +30,7 @@ class XSEventsTransmitter {
 
 extension XSEventsTransmitter{
     static func eventButtonPressed(currentGoal: String, eventType: XSEventType){
-        let event = XSEvent(typeOfEvent: eventType, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
+        let event = XSEventRawData(typeOfEvent: eventType, timestamp: NSDate().timeIntervalSince1970, goal: currentGoal)
         transmitEvent(event: event)
     }    
 }

@@ -30,7 +30,7 @@ class WCSessionManager: NSObject, WCSessionDelegate {
             if let encodedEvent = message["event"] as? Data{
                 do{
                     let decoder = JSONDecoder()
-                    let event = try decoder.decode(XSEvent.self, from: encodedEvent)
+                    let event = try decoder.decode(XSEventRawData.self, from: encodedEvent)
                     let nc = NotificationCenter.default
                     nc.post(name: NSNotification.Name(NotificationTypes.xsEventReceived.rawValue), object: event)
                 }

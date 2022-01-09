@@ -9,9 +9,9 @@ import Foundation
 import os
 
 class XSEventsStore: ObservableObject{
-    @Published var events: [XSEvent] = []
+    @Published var events: [XSEventRawData] = []
     private static var loadComplete = false
-    private static var savedEventsWaitingForLoad: [XSEvent] = []
+    private static var savedEventsWaitingForLoad: [XSEventRawData] = []
     
     init(){
         let nc = NotificationCenter.default
@@ -21,7 +21,7 @@ class XSEventsStore: ObservableObject{
         
     
     @objc func xsEventAdded(notification: Notification){
-        guard let newEvent = notification.object as? XSEvent
+        guard let newEvent = notification.object as? XSEventRawData
         else{
             print("No event added from notificationCenter")
             return
@@ -42,7 +42,7 @@ class XSEventsStore: ObservableObject{
             .appendingPathComponent("xsevents.data")
     }
         
-    static func load(completion: @escaping (Result<[XSEvent], Error>)->Void) {
+    static func load(completion: @escaping (Result<[XSEventRawData], Error>)->Void) {
         DispatchQueue.global(qos: .background).async {
             do {
                 let fileURL = try fileURL()
@@ -52,7 +52,7 @@ class XSEventsStore: ObservableObject{
                     }
                     return
                 }
-                var savedEvents = try JSONDecoder().decode([XSEvent].self, from: file.availableData)
+                var savedEvents = try JSONDecoder().decode([XSEventRawData].self, from: file.availableData)
                 DispatchQueue.main.async {
                     savedEvents.append(contentsOf: savedEventsWaitingForLoad)
                     completion(.success(savedEvents))
@@ -73,7 +73,7 @@ class XSEventsStore: ObservableObject{
         case dataLossSafeguard
     }
     
-    static func save(events: [XSEvent], completion: @escaping (Result<Int, Error>)->Void) {
+    static func save(events: [XSEventRawData], completion: @escaping (Result<Int, Error>)->Void) {
         if(!loadComplete){
             os_log("ERROR - Loading note complete yet. Preventing save.")
             savedEventsWaitingForLoad = events

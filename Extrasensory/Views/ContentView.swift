@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View{
-    @Binding var events: [XSEvent]
+    @Binding var events: [XSEventRawData]
     
-    init(events: Binding <[XSEvent]>){
+    init(events: Binding <[XSEventRawData]>){
         self._events = events
         if #available(iOS 15.0, *) {
                 let appearance = UITabBarAppearance()
@@ -36,7 +36,7 @@ struct ContentView: View{
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @State static var events = XSEvent.sampleData
+    @State static var events = XSEventRawData.sampleData
     static var previews: some View {
         ContentView(events: $events)
     }
