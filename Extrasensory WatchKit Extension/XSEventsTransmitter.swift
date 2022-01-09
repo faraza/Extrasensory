@@ -30,7 +30,7 @@ class XSEventsTransmitter {
 
 extension XSEventsTransmitter{
     static func eventButtonPressed(currentGoal: String, eventType: XSEventType){
-        let event = XSEventRawData(typeOfEvent: eventType, timestamp: Date(), goal: currentGoal)
+        let event = XSEventRawData(typeOfEvent: eventType, timestamp: Date().timeIntervalSince1970, goal: currentGoal) //TODO: Fix
         transmitEvent(event: event)
     }    
 }

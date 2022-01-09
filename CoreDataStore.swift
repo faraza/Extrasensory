@@ -45,7 +45,7 @@ class CoreDataStore{
             return
         }
         let event = XSEvent(context: persistentContainer.viewContext)
-        event.timestamp = newEventRawData.timestamp
+        event.timestamp = Date(timeIntervalSince1970: newEventRawData.timestamp) //TODO: Fix
         event.eventFamily = XSEventFamily.urgeFamily.rawValue
         event.urgeFamilyType = newEventRawData.typeOfEvent.rawValue
         event.goalKey = newEventRawData.goal

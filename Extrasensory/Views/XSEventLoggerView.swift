@@ -42,13 +42,21 @@ struct XSEventLoggerView: View {
                         let newEventEntity = XSEvent(context: managedObjectContext)
                         newEventEntity.eventFamily = XSEventFamily.urgeFamily.rawValue
                         newEventEntity.urgeFamilyType = event.typeOfEvent.rawValue
-                        newEventEntity.timestamp = event.timestamp
+                        newEventEntity.timestamp = Date(timeIntervalSince1970: event.timestamp)
                         newEventEntity.goalKey = event.goal
                         newEventEntity.userNotes = event.description
                     }
                     CoreDataStore.shared.saveContext()
                 }){
                     Text("Migrate")
+                }
+                Button(action: {
+                    for event in events{
+                        managedObjectContext.delete(event)
+                        CoreDataStore.shared.saveContext()
+                    }
+                }){
+                    Text("Delete Data Store")
                 }
                 
                 GoalsPicker()
