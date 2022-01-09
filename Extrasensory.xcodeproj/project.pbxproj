@@ -48,6 +48,7 @@
 		D2DF285B278A7B490061E89B /* XSEventEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2859278A7B490061E89B /* XSEventEnums.swift */; };
 		D2DF285D278A98A40061E89B /* XSEventExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF285C278A98A40061E89B /* XSEventExporter.swift */; };
 		D2DF285E278A9D450061E89B /* XSEventExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF285C278A98A40061E89B /* XSEventExporter.swift */; };
+		D2DF2866278B97060061E89B /* GoalsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2865278B97060061E89B /* GoalsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		D2DF2852278A521F0061E89B /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = SOURCE_ROOT; };
 		D2DF2859278A7B490061E89B /* XSEventEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventEnums.swift; sourceTree = "<group>"; };
 		D2DF285C278A98A40061E89B /* XSEventExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventExporter.swift; sourceTree = "<group>"; };
+		D2DF2865278B97060061E89B /* GoalsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				D221147F2783A85800859B53 /* XSEventDetailsView.swift */,
 				D21E74B227851E9100CA217F /* ContentView.swift */,
 				D21E74B42785240E00CA217F /* XSEventLoggerView.swift */,
+				D2DF2865278B97060061E89B /* GoalsList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D21E74B327851E9100CA217F /* ContentView.swift in Sources */,
+				D2DF2866278B97060061E89B /* GoalsList.swift in Sources */,
 				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
 				D2DF285D278A98A40061E89B /* XSEventExporter.swift in Sources */,
 				D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */,

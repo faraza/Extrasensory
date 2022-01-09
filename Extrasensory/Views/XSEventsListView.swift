@@ -32,7 +32,7 @@ struct XSEventsListView: View {
                                 managedObjectContext.delete(eventToDelete)
                                 CoreDataStore.shared.saveContext()
                             }
-                        }
+                        }                        
                     }
                 }
             }
