@@ -18,7 +18,7 @@ struct ExtrasensoryApp: App {
         WindowGroup {
             ContentView(events: $store.events)
             .onAppear{
-                XSEventsStore.load { result in
+                XSEventsStore.load { result in //TODO: Delete this after migration
                     switch result {
                     case .failure(let error):
                         fatalError(error.localizedDescription)
