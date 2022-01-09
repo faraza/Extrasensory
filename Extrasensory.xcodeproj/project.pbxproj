@@ -169,7 +169,6 @@
 			children = (
 				D256500527890A6100C79FAE /* Model.xcdatamodeld */,
 				D2DF2852278A521F0061E89B /* CoreDataStore.swift */,
-				D2DF285C278A98A40061E89B /* XSEventExporter.swift */,
 				D2B28D2627813B730076EAC8 /* Shared */,
 				D2B0A431277EB17400ED1CBA /* Extrasensory */,
 				D2B0A441277EB17600ED1CBA /* Extrasensory WatchKit App */,
@@ -247,6 +246,7 @@
 		D2B0A46D277EB29F00ED1CBA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D2DF285C278A98A40061E89B /* XSEventExporter.swift */,
 				D2B0A481278009F100ED1CBA /* GoalsModel.swift */,
 				D2B0A46E277EB2E400ED1CBA /* XSEventRawData.swift */,
 				D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */,

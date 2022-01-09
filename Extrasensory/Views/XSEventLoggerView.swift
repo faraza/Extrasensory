@@ -56,31 +56,15 @@ struct XSEventLoggerView: View {
                 })
                                 
                 Button(action: {}){
-                    if(isLapseInProgress){
-                        Text(UrgeFamilyType.lapseEnd.rawValue)
-                            .fontWeight(.bold)
-                            .padding()
-                            .foregroundColor(.white)
-                            .font(.largeTitle)
-                            .frame(minWidth: 1000)
-                    }
-                    else{
-                        Text(UrgeFamilyType.lapseStart.rawValue)
-                            .fontWeight(.bold)
-                            .padding()
-                            .foregroundColor(.white)
-                            .font(.largeTitle)
-                            .frame(minWidth: 1000)
-                    }
+                    Text(UrgeFamilyType.atomicLapse.rawValue)
+                        .fontWeight(.bold)
+                        .padding()
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .frame(minWidth: 1000)
                 }
                 .background(UrgeFamilyType.lapseStart.textColor)
                 .simultaneousGesture(LongPressGesture().onEnded { _ in
-                    addEvent(eventType: .atomicLapse)
-                    let haptics = UINotificationFeedbackGenerator()
-                    haptics.notificationOccurred(.success)
-                    
-                })
-                .simultaneousGesture(TapGesture().onEnded {
                     if(isLapseInProgress){
                         addEvent(eventType: .lapseEnd)
                     }
@@ -88,7 +72,13 @@ struct XSEventLoggerView: View {
                         addEvent(eventType: .lapseStart)
                     }
                     isLapseInProgress = !isLapseInProgress
+                    let haptics = UINotificationFeedbackGenerator()
+                    haptics.notificationOccurred(.success)
                 })
+                .simultaneousGesture(TapGesture().onEnded { _ in
+                    addEvent(eventType: .atomicLapse)
+                })
+                
                 
             }.navigationTitle("Add Event")            
             
