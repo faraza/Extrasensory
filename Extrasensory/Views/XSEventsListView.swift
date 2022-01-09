@@ -21,7 +21,6 @@ struct XSEventsListView: View {
             List{
                 ForEach(groupedEvents){ group in
                     Section(header: Text(group.groupDate)){
-
                        ForEach(group.events){ event in
                             NavigationLink(destination: XSEventDetailsView(event: event){event, newText in
                                 let index = events.firstIndex(where: {$0.timestamp == event.timestamp})
@@ -40,11 +39,9 @@ struct XSEventsListView: View {
                         .onDelete(){ offsets in
                             for offset in offsets{
                                 let eventToDelete = group.events[offset]
-                                if let index = events.firstIndex(where: {$0.timestamp == eventToDelete.timestamp}){
-//                                    events.remove(at: index)
-                                }
+                                managedObjectContext.delete(eventToDelete)
+                                CoreDataStore.shared.saveContext()
                             }
-//                            XSEventsStore.save(events: events){_ in}
                         }
                     }
                 }
