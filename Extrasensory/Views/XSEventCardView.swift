@@ -11,13 +11,13 @@ struct XSEventCardView: View {
     let event: XSEvent
     var body: some View {
         HStack{
-            Text(event.goal!)
+            Text(event.goalKey!)
                 .font(.headline)                
                 .accessibilityLabel("goal")
-            Text(event.typeOfEvent!)
+            Text(event.urgeFamilyType!)
                 .font(.subheadline)
                 .fontWeight(.bold)
-                .foregroundColor(XSEventType(rawValue: event.typeOfEvent!)!.textColor)
+                .foregroundColor(XSEventType(rawValue: event.urgeFamilyType!)!.textColor)
             Spacer()
             Text(event.getPrintableTime())
                 .foregroundColor(Color.gray)

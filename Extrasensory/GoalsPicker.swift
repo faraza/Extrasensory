@@ -13,6 +13,11 @@ struct GoalsPicker: View {
     
     var body: some View {
         let goalsList = goalsModel.goalsList //TODO: If picker doesn't update when goalsList changes, this is why
+        Button(action: {
+            
+        }){
+            Text("Migrate")
+        }
         
         Picker("Goal", selection: $goalsModel.currentGoal){
             ForEach(goalsList, id: \.self){ goal in

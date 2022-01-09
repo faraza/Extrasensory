@@ -41,8 +41,8 @@ struct XSEventDetailsView: View{
         Form{
             Section(header: Text("Event")){
                 List{
-                    ListInfoItem(propertyName: "Goal", propertyVal: event.goal!)
-                    ListInfoItem(propertyName: "Type", propertyVal: event.typeOfEvent!, propertyValColor: XSEventType(rawValue: event.typeOfEvent!)?.textColor, shouldBoldVal: true)
+                    ListInfoItem(propertyName: "Goal", propertyVal: event.goalKey!)
+                    ListInfoItem(propertyName: "Type", propertyVal: event.urgeFamilyType!, propertyValColor: XSEventType(rawValue: event.urgeFamilyType!)?.textColor, shouldBoldVal: true)
                     ListInfoItem(propertyName: "Date", propertyVal: event.getPrintableDate())
                     ListInfoItem(propertyName: "Time", propertyVal: event.getPrintableTime())
                 }
