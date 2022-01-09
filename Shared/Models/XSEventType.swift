@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum XSEventType: String, Codable {
+enum XSEventType: String, Codable { //TODO: Refactor after migration
     case urge = "Urge"
     case atomicLapse = "Lapse"
     case lapseStart = "Lapse Start"

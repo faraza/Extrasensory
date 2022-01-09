@@ -18,9 +18,10 @@ struct XSEventLoggerView: View {
     
     func addEvent(eventType: XSEventType){
         let newEventEntity = XSEvent(context: managedObjectContext)
-        newEventEntity.typeOfEvent = eventType.rawValue
+        newEventEntity.eventFamily = XSEventFamily.urgeFamily.rawValue
+        newEventEntity.urgeFamilyType = eventType.rawValue
         newEventEntity.timestamp = Date()
-        newEventEntity.goal = goalsModel.currentGoal
+        newEventEntity.goalKey = goalsModel.currentGoal
         do {
             try managedObjectContext.save()
             print("XSEventLogger. Saved successfully")

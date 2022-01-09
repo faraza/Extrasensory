@@ -46,8 +46,9 @@ class CoreDataStore{
         }
         let event = XSEvent(context: persistentContainer.viewContext)
         event.timestamp = newEventRawData.timestamp
-        event.typeOfEvent = newEventRawData.typeOfEvent.rawValue
-        event.goal = newEventRawData.goal
+        event.eventFamily = XSEventFamily.urgeFamily.rawValue
+        event.urgeFamilyType = newEventRawData.typeOfEvent.rawValue
+        event.goalKey = newEventRawData.goal
         saveContext()        
     }
 }

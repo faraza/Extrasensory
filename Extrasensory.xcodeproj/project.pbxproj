@@ -48,6 +48,8 @@
 		D2DF0C0127828F0000AE6D99 /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */; };
 		D2DF2853278A521F0061E89B /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2852278A521F0061E89B /* CoreDataStore.swift */; };
 		D2DF2854278A52300061E89B /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2852278A521F0061E89B /* CoreDataStore.swift */; };
+		D2DF285A278A7B490061E89B /* XSEventEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2859278A7B490061E89B /* XSEventEnums.swift */; };
+		D2DF285B278A7B490061E89B /* XSEventEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2859278A7B490061E89B /* XSEventEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,7 @@
 		D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsStore.swift; sourceTree = "<group>"; };
 		D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTypes.swift; sourceTree = "<group>"; };
 		D2DF2852278A521F0061E89B /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = SOURCE_ROOT; };
+		D2DF2859278A7B490061E89B /* XSEventEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,7 @@
 				D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */,
 				D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */,
 				D256500F27890F1A00C79FAE /* XSEvent.swift */,
+				D2DF2859278A7B490061E89B /* XSEventEnums.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,6 +423,7 @@
 				D2B0A475277EB94200ED1CBA /* XSEventCardView.swift in Sources */,
 				D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */,
 				D2DF0BFD2782596E00AE6D99 /* XSEventsStore.swift in Sources */,
+				D2DF285A278A7B490061E89B /* XSEventEnums.swift in Sources */,
 				D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */,
 				D256501027890F1A00C79FAE /* XSEvent.swift in Sources */,
@@ -447,6 +452,7 @@
 				D256500827890A6100C79FAE /* Model.xcdatamodeld in Sources */,
 				D2DF0C0127828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D2DF0BFA27823E4000AE6D99 /* XSEventRawData.swift in Sources */,
+				D2DF285B278A7B490061E89B /* XSEventEnums.swift in Sources */,
 				D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */,
 				D2B28D2527813A200076EAC8 /* WCSessionManager.swift in Sources */,
 			);

@@ -85,9 +85,9 @@ extension XSEvent{
 extension XSEvent{
     static func fromData(typeOfEvent: XSEventType, intervalTimeStamp: TimeInterval, goal: String) -> XSEvent{
         let event = XSEvent(context: CoreDataStore.shared.persistentContainer.viewContext)
-        event.typeOfEvent = typeOfEvent.rawValue
+        event.urgeFamilyType = typeOfEvent.rawValue
         event.timestamp = Date(timeIntervalSince1970: intervalTimeStamp)
-        event.goal = goal
+        event.goalKey = goal
         return event
     }
 }

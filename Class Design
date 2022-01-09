@@ -3,33 +3,31 @@ Event
 **/
 
 XSEvent - Parent Class { //Class members are just what the card view will display
-	timeLogged: TimeInterval
-	primaryText: String
-	tagText: String
-	tagTextColor: Color
+	timestamp: Date
 	userNotes: String
 	cause: String
-
+	eventFamily: .urgeFamily, .energyFamily
+	urgeFamilyType: 
+	energyFamilyType:
+	goalKey: String
 }
 
-UrgeFamilyEvent: XSEvent {
+-UrgeFamilyEvent-
 	urgeFamilyType: .urge, .atomicLapse, .redZone, .lapseStart, .lapseEnd
-	goalID: String //A unique key for the goal
-	goalUserKey: String //What the user sees in the Watch/iOS picker 
-}
+	goalKey: String //What the user sees in the Watch/iOS picker 
 
-MoodFamilyEvent: XSEvent {
+
+MoodFamilyEvent-
 	//TODO	
-}
 
-EnergyFamilyEvent: XSEvent {
+
+EnergyFamilyEvent-
 	energyFamilyType: .exhausted, .tired, .neutral, .energized
-}
+
 
 //E.g. ate a meal, started coding, stopped coding, etc. 
-ActivityFamilyEvent: XSEvent {
+ActivityFamilyEvent-
 	//TODO	
-}
 
 /**
 TODO: Figure out a superclass name
@@ -37,8 +35,7 @@ TODO: Figure out a superclass name
 
 Goal {
 	goalDirection: .encourage, .discourage
-	goalID: String
-	goalUserKey: String
+	goalKey: String
 	goalLongDescription: String
 
 	//Later
