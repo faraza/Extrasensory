@@ -30,18 +30,14 @@ struct XSEventLoggerView: View {
     }
     
     private func getTotalNumberOfEvents()-> Int{
-        var numEvents: Int = 0
-        for _ in events {
-            numEvents += 1
-        }
-        return numEvents
+        return XSEventsStore.events.count
     }
     
     var body: some View {
         NavigationView{
             VStack{
                 
-                Text("Number of events in coreData: \(getTotalNumberOfEvents())")
+                Text("Number of events in file manager: \(getTotalNumberOfEvents())")
                 
                 GoalsPicker()
                     .environmentObject(goalsModel)

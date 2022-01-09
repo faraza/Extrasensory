@@ -16,14 +16,14 @@ struct ExtrasensoryApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(events: $store.events)
+            ContentView()
             .onAppear{
                 XSEventsStore.load { result in //TODO: Delete this after migration
                     switch result {
                     case .failure(let error):
                         fatalError(error.localizedDescription)
                     case .success(let events):
-                        store.events = events
+                        print("successfully loaded via filemanager. Length: \(events.count)")
                     }
                 }
             }

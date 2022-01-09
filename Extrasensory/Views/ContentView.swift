@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct ContentView: View{
-    @Binding var events: [XSEventRawData]
-    
-    init(events: Binding <[XSEventRawData]>){
-        self._events = events
+    init(){
         if #available(iOS 15.0, *) {
                 let appearance = UITabBarAppearance()
                 UITabBar.appearance().scrollEdgeAppearance = appearance
@@ -35,9 +32,8 @@ struct ContentView: View{
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    @State static var events = XSEventRawData.sampleData
+struct ContentView_Previews: PreviewProvider {    
     static var previews: some View {
-        ContentView(events: $events)
+        ContentView()
     }
 }

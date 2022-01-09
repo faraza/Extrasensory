@@ -9,30 +9,10 @@ import Foundation
 import os
 
 class XSEventsStore: ObservableObject{
-    @Published var events: [XSEventRawData] = []
+    static var events: [XSEventRawData] = []
     private static var loadComplete = false
     private static var savedEventsWaitingForLoad: [XSEventRawData] = []
-    
-    init(){
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(xsEventAdded(notification:)), name: Notification.Name(NotificationTypes.xsEventReceivedFromWatch.rawValue), object: nil)
-
-    }
-        
-    
-    @objc func xsEventAdded(notification: Notification){
-        guard let newEvent = notification.object as? XSEventRawData
-        else{
-            print("No event added from notificationCenter")
-            return
-        }
-        events.append(newEvent)
-        XSEventsStore.save(events: events) { result in
-            if case .failure(let error) = result {
-                fatalError(error.localizedDescription)
-            }
-        }
-    }
+                    
     
     private static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
@@ -56,6 +36,7 @@ class XSEventsStore: ObservableObject{
                 DispatchQueue.main.async {
                     savedEvents.append(contentsOf: savedEventsWaitingForLoad)
                     completion(.success(savedEvents))
+                    events = savedEvents
 //                    completion(.success(XSEvent.sampleData))
 //                    completion(.success([]))
                     loadComplete = true
@@ -74,7 +55,9 @@ class XSEventsStore: ObservableObject{
     }
     
     static func save(events: [XSEventRawData], completion: @escaping (Result<Int, Error>)->Void) {
-        if(!loadComplete){
+        return
+        
+      /*  if(!loadComplete){
             os_log("ERROR - Loading note complete yet. Preventing save.")
             savedEventsWaitingForLoad = events
             return
@@ -93,7 +76,7 @@ class XSEventsStore: ObservableObject{
                     completion(.failure(error))
                 }
             }
-        }
+        } */
     }
     
 }
