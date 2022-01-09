@@ -31,15 +31,25 @@ struct XSEventLoggerView: View {
         }
     }
     
-    private func getTotalNumberOfEvents()-> Int{
-        return XSEventsStore.events.count
-    }
-    
     var body: some View {
         NavigationView{
             VStack{
                 
                 Text("Number of events in file manager: \(fileManagerLength)")
+                Text("Number of events in data store: \(events.count)")
+                Button(action: {
+                    for event in XSEventsStore.events{
+                        let newEventEntity = XSEvent(context: managedObjectContext)
+                        newEventEntity.eventFamily = XSEventFamily.urgeFamily.rawValue
+                        newEventEntity.urgeFamilyType = event.typeOfEvent.rawValue
+                        newEventEntity.timestamp = event.timestamp
+                        newEventEntity.goalKey = event.goal
+                        newEventEntity.userNotes = event.description
+                    }
+                    CoreDataStore.shared.saveContext()
+                }){
+                    Text("Migrate")
+                }
                 
                 GoalsPicker()
                     .environmentObject(goalsModel)
