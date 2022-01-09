@@ -31,4 +31,23 @@ class CoreDataStore{
             }
         }
     }
+    
+    init(){
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(xsEventAddedFromWatch(notification:)), name: Notification.Name(NotificationTypes.xsEventReceivedFromWatch.rawValue), object: nil)
+
+    }
+    
+    @objc func xsEventAddedFromWatch(notification: Notification){
+        guard let newEventRawData = notification.object as? XSEventRawData
+        else{
+            print("No event added from notificationCenter")
+            return
+        }
+        let event = XSEvent(context: persistentContainer.viewContext)
+        event.timestamp = newEventRawData.timestamp
+        event.typeOfEvent = newEventRawData.typeOfEvent.rawValue
+        event.goal = newEventRawData.goal
+        saveContext()        
+    }
 }

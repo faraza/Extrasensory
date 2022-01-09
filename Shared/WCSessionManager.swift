@@ -32,7 +32,7 @@ class WCSessionManager: NSObject, WCSessionDelegate {
                     let decoder = JSONDecoder()
                     let event = try decoder.decode(XSEventRawData.self, from: encodedEvent)
                     let nc = NotificationCenter.default
-                    nc.post(name: NSNotification.Name(NotificationTypes.xsEventReceived.rawValue), object: event)
+                    nc.post(name: NSNotification.Name(NotificationTypes.xsEventReceivedFromWatch.rawValue), object: event)
                 }
                 catch{
                     print("Failed to decode event")

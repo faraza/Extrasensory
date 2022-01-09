@@ -15,7 +15,7 @@ class XSEventsStore: ObservableObject{
     
     init(){
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(xsEventAdded(notification:)), name: Notification.Name(NotificationTypes.xsEventReceived.rawValue), object: nil)
+        nc.addObserver(self, selector: #selector(xsEventAdded(notification:)), name: Notification.Name(NotificationTypes.xsEventReceivedFromWatch.rawValue), object: nil)
 
     }
         
