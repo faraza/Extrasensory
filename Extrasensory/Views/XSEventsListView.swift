@@ -22,17 +22,7 @@ struct XSEventsListView: View {
                 ForEach(groupedEvents){ group in
                     Section(header: Text(group.groupDate)){
                        ForEach(group.events){ event in
-                            NavigationLink(destination: XSEventDetailsView(event: event){event, newText in
-                                let index = events.firstIndex(where: {$0.timestamp == event.timestamp})
-                                if(index != nil){
-//                                    events[index!].description = newText
-                                    /*XSEventsStore.save(events: events) { result in
-                                        if case .failure(let error) = result {
-                                            fatalError(error.localizedDescription)
-                                        }
-                                    } */
-                                }
-                            }){
+                            NavigationLink(destination: XSEventDetailsView(event: event)){
                                 XSEventCardView(event: event)
                             }
                         }

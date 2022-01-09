@@ -36,7 +36,6 @@ struct XSEventDetailsView: View{
     @State var textfieldString = ""
     @Environment(\.scenePhase) private var scenePhase
 
-    var saveNewDescription: (XSEventEntity, String)->Void //TODO
      
     var body: some View{
         Form{
@@ -55,17 +54,16 @@ struct XSEventDetailsView: View{
         }
         .onChange(of: scenePhase) { phase in
             if phase == .inactive {
-//                saveNewDescription(event, textfieldString)
                 event.userNotes = textfieldString
-                CoreDataStore.shared.saveContext() //TODO: This doesn't work
-                
+                CoreDataStore.shared.saveContext()                
             }
         }
         .onAppear{
             textfieldString = event.userNotes ?? ""
         }
         .onDisappear{
-            saveNewDescription(event, textfieldString)
+            event.userNotes = textfieldString
+            CoreDataStore.shared.saveContext()
         }
     }
 }
@@ -73,8 +71,6 @@ struct XSEventDetailsView: View{
 struct XSEventDetailsView_Previews: PreviewProvider {
     static var events = XSEventEntity.sampleData
     static var previews: some View {
-        XSEventDetailsView(event: events[0]){ event, newText in
-            
-        }
+        XSEventDetailsView(event: events[0])
     }
 }
