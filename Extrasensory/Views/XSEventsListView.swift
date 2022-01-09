@@ -37,7 +37,15 @@ struct XSEventsListView: View {
                 }
             }
             .navigationTitle("Saved Events")
+            .toolbar{
+                ToolbarItemGroup(placement: .primaryAction){
+                    Button("Export"){
+                        //TODO
+                    }
+                }
+            }
         }.navigationViewStyle(StackNavigationViewStyle())
+            
     }
 }
 
