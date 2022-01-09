@@ -32,11 +32,12 @@ class XSEventExporter{
         }
     
     private static func fileURL() throws -> URL {
-            try FileManager.default.url(for: .documentDirectory,
+            let fileName = "ExtrasensoryEvents_\(Date().timeIntervalSince1970).json"
+            return try FileManager.default.url(for: .documentDirectory,
                                            in: .userDomainMask,
                                            appropriateFor: nil,
                                            create: false)
-                .appendingPathComponent("ExtrasensoryEvents.json")
+                .appendingPathComponent(fileName)
         }
 
 }
