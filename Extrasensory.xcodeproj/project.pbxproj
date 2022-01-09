@@ -31,7 +31,6 @@
 		D2B0A45B277EB17700ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A45A277EB17700ED1CBA /* Preview Assets.xcassets */; };
 		D2B0A46F277EB2E400ED1CBA /* XSEventRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* XSEventRawData.swift */; };
 		D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */; };
-		D2B0A473277EB40900ED1CBA /* UrgeFamilyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* UrgeFamilyType.swift */; };
 		D2B0A475277EB94200ED1CBA /* XSEventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A474277EB94200ED1CBA /* XSEventCardView.swift */; };
 		D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A476277FFA5200ED1CBA /* UrgeView.swift */; };
 		D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */; };
@@ -41,9 +40,6 @@
 		D2B28D2527813A200076EAC8 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B28D2427813A200076EAC8 /* WCSessionManager.swift */; };
 		D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B28D2427813A200076EAC8 /* WCSessionManager.swift */; };
 		D2DF0BFA27823E4000AE6D99 /* XSEventRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* XSEventRawData.swift */; };
-		D2DF0BFB27823E5600AE6D99 /* UrgeFamilyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A472277EB40900ED1CBA /* UrgeFamilyType.swift */; };
-		D2DF0BFD2782596E00AE6D99 /* XSEventsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */; };
-		D2DF0BFE2782596E00AE6D99 /* XSEventsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */; };
 		D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */; };
 		D2DF0C0127828F0000AE6D99 /* NotificationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */; };
 		D2DF2853278A521F0061E89B /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2852278A521F0061E89B /* CoreDataStore.swift */; };
@@ -120,7 +116,6 @@
 		D2B0A45D277EB17700ED1CBA /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		D2B0A46E277EB2E400ED1CBA /* XSEventRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventRawData.swift; sourceTree = "<group>"; };
 		D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsListView.swift; sourceTree = "<group>"; };
-		D2B0A472277EB40900ED1CBA /* UrgeFamilyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrgeFamilyType.swift; sourceTree = "<group>"; };
 		D2B0A474277EB94200ED1CBA /* XSEventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventCardView.swift; sourceTree = "<group>"; };
 		D2B0A476277FFA5200ED1CBA /* UrgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrgeView.swift; sourceTree = "<group>"; };
 		D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButtonsView.swift; sourceTree = "<group>"; };
@@ -131,7 +126,6 @@
 		D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extrasensory.entitlements; sourceTree = "<group>"; };
 		D2B28D2827813E120076EAC8 /* Extrasensory WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Extrasensory WatchKit App.entitlements"; sourceTree = "<group>"; };
 		D2B28D2927813E250076EAC8 /* Extrasensory WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Extrasensory WatchKit Extension.entitlements"; sourceTree = "<group>"; };
-		D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsStore.swift; sourceTree = "<group>"; };
 		D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTypes.swift; sourceTree = "<group>"; };
 		D2DF2852278A521F0061E89B /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = SOURCE_ROOT; };
 		D2DF2859278A7B490061E89B /* XSEventEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventEnums.swift; sourceTree = "<group>"; };
@@ -251,8 +245,6 @@
 			children = (
 				D2B0A481278009F100ED1CBA /* GoalsModel.swift */,
 				D2B0A46E277EB2E400ED1CBA /* XSEventRawData.swift */,
-				D2B0A472277EB40900ED1CBA /* UrgeFamilyType.swift */,
-				D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */,
 				D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */,
 				D256500F27890F1A00C79FAE /* XSEvent.swift */,
 				D2DF2859278A7B490061E89B /* XSEventEnums.swift */,
@@ -412,7 +404,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2B0A473277EB40900ED1CBA /* UrgeFamilyType.swift in Sources */,
 				D21E74B327851E9100CA217F /* ContentView.swift in Sources */,
 				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
 				D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */,
@@ -422,7 +413,6 @@
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A475277EB94200ED1CBA /* XSEventCardView.swift in Sources */,
 				D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */,
-				D2DF0BFD2782596E00AE6D99 /* XSEventsStore.swift in Sources */,
 				D2DF285A278A7B490061E89B /* XSEventEnums.swift in Sources */,
 				D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */,
@@ -442,13 +432,11 @@
 				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
 				D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */,
 				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
-				D2DF0BFE2782596E00AE6D99 /* XSEventsStore.swift in Sources */,
 				D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */,
 				D256501127890F1A00C79FAE /* XSEvent.swift in Sources */,
 				D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */,
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */,
-				D2DF0BFB27823E5600AE6D99 /* UrgeFamilyType.swift in Sources */,
 				D256500827890A6100C79FAE /* Model.xcdatamodeld in Sources */,
 				D2DF0C0127828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D2DF0BFA27823E4000AE6D99 /* XSEventRawData.swift in Sources */,

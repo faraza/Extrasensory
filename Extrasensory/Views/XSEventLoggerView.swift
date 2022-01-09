@@ -13,9 +13,7 @@ struct XSEventLoggerView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
     private var events: FetchedResults<XSEvent>
-        
-    @State private var fileManagerLength = 0
-    
+            
     func addEvent(eventType: UrgeFamilyType){
         let newEventEntity = XSEvent(context: managedObjectContext)
         newEventEntity.eventFamily = XSEventFamily.urgeFamily.rawValue
@@ -92,10 +90,7 @@ struct XSEventLoggerView: View {
                     isLapseInProgress = !isLapseInProgress
                 })
                 
-            }.navigationTitle("Add Event")
-            .onAppear{
-                        fileManagerLength = XSEventsStore.events.count
-                }
+            }.navigationTitle("Add Event")            
             
         }.navigationViewStyle(StackNavigationViewStyle())
     }
