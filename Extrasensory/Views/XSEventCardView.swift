@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct XSEventCardView: View {
-    let event: XSEventEntity
+    let event: XSEvent
     var body: some View {
         HStack{
             Text(event.goal!)
@@ -27,7 +27,7 @@ struct XSEventCardView: View {
 }
 
 struct XSEventCard_Previews: PreviewProvider {
-    static let event = XSEventEntity.fromData(typeOfEvent: .atomicLapse, intervalTimeStamp: 1000, goal: "random")
+    static let event = XSEvent.fromData(typeOfEvent: .atomicLapse, intervalTimeStamp: 1000, goal: "random")
     static var previews: some View {
         XSEventCardView(event: event)
     }

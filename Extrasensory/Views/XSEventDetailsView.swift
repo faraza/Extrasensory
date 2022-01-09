@@ -32,7 +32,7 @@ struct ListInfoItem: View{
 }
 
 struct XSEventDetailsView: View{
-    var event: XSEventEntity
+    var event: XSEvent
     @State var textfieldString = ""
     @Environment(\.scenePhase) private var scenePhase
 
@@ -69,7 +69,7 @@ struct XSEventDetailsView: View{
 }
 
 struct XSEventDetailsView_Previews: PreviewProvider {
-    static var events = XSEventEntity.sampleData
+    static var events = XSEvent.sampleData
     static var previews: some View {
         XSEventDetailsView(event: events[0])
     }

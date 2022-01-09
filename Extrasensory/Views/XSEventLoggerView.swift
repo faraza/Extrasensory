@@ -11,12 +11,12 @@ struct XSEventLoggerView: View {
     @StateObject var goalsModel = GoalsModel()
     @State var isLapseInProgress = false
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(entity: XSEventEntity.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
-    private var events: FetchedResults<XSEventEntity>
+    @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
+    private var events: FetchedResults<XSEvent>
         
     
     func addEvent(eventType: XSEventType){
-        let newEventEntity = XSEventEntity(context: managedObjectContext)
+        let newEventEntity = XSEvent(context: managedObjectContext)
         newEventEntity.typeOfEvent = eventType.rawValue
         newEventEntity.timestamp = Date()
         newEventEntity.goal = goalsModel.currentGoal

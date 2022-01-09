@@ -14,8 +14,8 @@
 		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
 		D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
 		D256500827890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
-		D256501027890F1A00C79FAE /* XSEventEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEventEntity.swift */; };
-		D256501127890F1A00C79FAE /* XSEventEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEventEntity.swift */; };
+		D256501027890F1A00C79FAE /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEvent.swift */; };
+		D256501127890F1A00C79FAE /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEvent.swift */; };
 		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
 		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
 		D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */; };
@@ -99,7 +99,7 @@
 		D21E74BB2786959000CA217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D221147F2783A85800859B53 /* XSEventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventDetailsView.swift; sourceTree = "<group>"; };
 		D256500627890A6100C79FAE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		D256500F27890F1A00C79FAE /* XSEventEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventEntity.swift; sourceTree = "<group>"; };
+		D256500F27890F1A00C79FAE /* XSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEvent.swift; sourceTree = "<group>"; };
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
 		D2B0A436277EB17600ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 				D2B0A472277EB40900ED1CBA /* XSEventType.swift */,
 				D2DF0BFC2782596E00AE6D99 /* XSEventsStore.swift */,
 				D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */,
-				D256500F27890F1A00C79FAE /* XSEventEntity.swift */,
+				D256500F27890F1A00C79FAE /* XSEvent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,7 +421,7 @@
 				D2DF0BFD2782596E00AE6D99 /* XSEventsStore.swift in Sources */,
 				D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */,
-				D256501027890F1A00C79FAE /* XSEventEntity.swift in Sources */,
+				D256501027890F1A00C79FAE /* XSEvent.swift in Sources */,
 				D2DF2853278A521F0061E89B /* CoreDataStore.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* XSEventRawData.swift in Sources */,
 			);
@@ -439,7 +439,7 @@
 				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
 				D2DF0BFE2782596E00AE6D99 /* XSEventsStore.swift in Sources */,
 				D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */,
-				D256501127890F1A00C79FAE /* XSEventEntity.swift in Sources */,
+				D256501127890F1A00C79FAE /* XSEvent.swift in Sources */,
 				D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */,
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */,

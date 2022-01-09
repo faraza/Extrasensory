@@ -9,13 +9,13 @@ import SwiftUI
 
 struct XSEventsListView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(entity: XSEventEntity.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
-    private var events: FetchedResults<XSEventEntity>
+    @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
+    private var events: FetchedResults<XSEvent>
     
-    var _previewEvents: [XSEventEntity]? = nil
+    var _previewEvents: [XSEvent]? = nil
         
     var body: some View {
-        let groupedEvents = _previewEvents == nil ? XSEventEntity.groupEventsByDate(events: events) : XSEventEntity.groupEventsByDate(events: _previewEvents!)
+        let groupedEvents = _previewEvents == nil ? XSEvent.groupEventsByDate(events: events) : XSEvent.groupEventsByDate(events: _previewEvents!)
         
         NavigationView{
             List{
@@ -44,6 +44,6 @@ struct XSEventsListView: View {
 struct XSEventsListView_Previews: PreviewProvider {
     
     static var previews: some View {
-        XSEventsListView(_previewEvents: XSEventEntity.sampleData)
+        XSEventsListView(_previewEvents: XSEvent.sampleData)
     }
 }

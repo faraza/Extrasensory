@@ -9,16 +9,16 @@ import Foundation
 import CoreData
 import SwiftUI
 
-extension XSEventEntity{
-    static func getAllEvents() -> NSFetchRequest<XSEventEntity>{
-        return XSEventEntity.fetchRequest()        
+extension XSEvent{
+    static func getAllEvents() -> NSFetchRequest<XSEvent>{
+        return XSEvent.fetchRequest()        
     }
 }
 
-extension XSEventEntity{
+extension XSEvent{
     
-    static func groupEventsByDate(events: FetchedResults<XSEventEntity>) ->[XSEventGroup]{
-        var eventsArray: [XSEventEntity] = []
+    static func groupEventsByDate(events: FetchedResults<XSEvent>) ->[XSEventGroup]{
+        var eventsArray: [XSEvent] = []
         for event in events{
             eventsArray.append(event)
         }
@@ -28,8 +28,8 @@ extension XSEventEntity{
     /**
         Returns a map where key is the date and val is array of events that happened on that date, sorted from newest to oldest date
      */
-    static func groupEventsByDate(events: [XSEventEntity]) ->[XSEventGroup]{
-        var eventsDict: [String: [XSEventEntity]] = [:]
+    static func groupEventsByDate(events: [XSEvent]) ->[XSEventGroup]{
+        var eventsDict: [String: [XSEvent]] = [:]
         for event in events {
             if var newVal = eventsDict[event.getPrintableDate()]{
                 newVal.append(event)
@@ -61,7 +61,7 @@ extension XSEventEntity{
     }
 }
 
-extension XSEventEntity{
+extension XSEvent{
     
     func getPrintableDate() ->String{
         if let unwrapped = timestamp{
@@ -82,9 +82,9 @@ extension XSEventEntity{
     }        
 }
 
-extension XSEventEntity{
-    static func fromData(typeOfEvent: XSEventType, intervalTimeStamp: TimeInterval, goal: String) -> XSEventEntity{
-        let event = XSEventEntity(context: CoreDataStore.shared.persistentContainer.viewContext)
+extension XSEvent{
+    static func fromData(typeOfEvent: XSEventType, intervalTimeStamp: TimeInterval, goal: String) -> XSEvent{
+        let event = XSEvent(context: CoreDataStore.shared.persistentContainer.viewContext)
         event.typeOfEvent = typeOfEvent.rawValue
         event.timestamp = Date(timeIntervalSince1970: intervalTimeStamp)
         event.goal = goal
@@ -92,29 +92,29 @@ extension XSEventEntity{
     }
 }
 
-extension XSEventEntity{ //Today's Timestamp: 1640923256. ~100,000 is a day
-    static let sampleData: [XSEventEntity] =
+extension XSEvent{ //Today's Timestamp: 1640923256. ~100,000 is a day
+    static let sampleData: [XSEvent] =
     [
-        XSEventEntity.fromData(typeOfEvent: XSEventType.atomicLapse, intervalTimeStamp: 1640923256, goal: "Biting nails"),
-        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640921256, goal: "Biting nails"),
-        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640913256, goal: "Biting nails"),
-        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640903256, goal: "Biting nails"),
-        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640901256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: XSEventType.atomicLapse, intervalTimeStamp: 1640923256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640921256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640913256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640903256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640901256, goal: "Biting nails"),
         //Previous day
-        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640823256, goal: "Biting nails"),
-        XSEventEntity.fromData(typeOfEvent: XSEventType.atomicLapse, intervalTimeStamp: 1640822256, goal: "Biting nails"),
-        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640821256, goal: "Biting nails"),
-        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640813256, goal: "Biting nails"),
-        XSEventEntity.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640810056, goal: "Biting nails")
+        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640823256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: XSEventType.atomicLapse, intervalTimeStamp: 1640822256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640821256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640813256, goal: "Biting nails"),
+        XSEvent.fromData(typeOfEvent: XSEventType.urge, intervalTimeStamp: 1640810056, goal: "Biting nails")
     ]
 }
 
 struct XSEventGroup: Identifiable{
     let id: UUID
-    var events: [XSEventEntity]
+    var events: [XSEvent]
     var groupDate: String = ""
     
-    init(id: UUID = UUID(), events: [XSEventEntity]){
+    init(id: UUID = UUID(), events: [XSEvent]){
         self.id = id
         self.events = events
         if(events.count > 0){
