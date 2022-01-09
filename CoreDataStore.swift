@@ -51,4 +51,16 @@ class CoreDataStore{
         event.goalKey = newEventRawData.goal
         saveContext()        
     }
+    
+    public func exportToJSON(){
+        let fetchRequest = XSEvent.fetchRequest()
+        do{
+            let allEvents = try persistentContainer.viewContext.fetch(fetchRequest)
+            XSEventExporter.exportToJSON(events: allEvents.map{XSEventRawData.fromXSEvent(event:$0)}){ result in                
+            }
+        }
+        catch{
+            print("JSON Export failed")
+        }
+    }
 }

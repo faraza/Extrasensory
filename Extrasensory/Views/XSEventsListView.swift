@@ -40,7 +40,7 @@ struct XSEventsListView: View {
             .toolbar{
                 ToolbarItemGroup(placement: .primaryAction){
                     Button("Export"){
-                        //TODO
+                        CoreDataStore.shared.exportToJSON()
                     }
                 }
             }

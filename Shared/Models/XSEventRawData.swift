@@ -42,3 +42,10 @@ extension XSEventRawData{
         }
     }
 }
+
+extension XSEventRawData{
+    static func fromXSEvent(event: XSEvent)->XSEventRawData{
+        let rawDataEvent = XSEventRawData(urgeFamilyType: UrgeFamilyType(rawValue: event.urgeFamilyType!)!, timestamp: event.timestamp!, goal: event.goalKey!)
+        return rawDataEvent
+    }
+}

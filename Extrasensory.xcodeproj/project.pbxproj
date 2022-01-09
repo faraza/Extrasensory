@@ -46,6 +46,8 @@
 		D2DF2854278A52300061E89B /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2852278A521F0061E89B /* CoreDataStore.swift */; };
 		D2DF285A278A7B490061E89B /* XSEventEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2859278A7B490061E89B /* XSEventEnums.swift */; };
 		D2DF285B278A7B490061E89B /* XSEventEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2859278A7B490061E89B /* XSEventEnums.swift */; };
+		D2DF285D278A98A40061E89B /* XSEventExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF285C278A98A40061E89B /* XSEventExporter.swift */; };
+		D2DF285E278A9D450061E89B /* XSEventExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF285C278A98A40061E89B /* XSEventExporter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,7 @@
 		D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTypes.swift; sourceTree = "<group>"; };
 		D2DF2852278A521F0061E89B /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = SOURCE_ROOT; };
 		D2DF2859278A7B490061E89B /* XSEventEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventEnums.swift; sourceTree = "<group>"; };
+		D2DF285C278A98A40061E89B /* XSEventExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventExporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,7 @@
 			children = (
 				D256500527890A6100C79FAE /* Model.xcdatamodeld */,
 				D2DF2852278A521F0061E89B /* CoreDataStore.swift */,
+				D2DF285C278A98A40061E89B /* XSEventExporter.swift */,
 				D2B28D2627813B730076EAC8 /* Shared */,
 				D2B0A431277EB17400ED1CBA /* Extrasensory */,
 				D2B0A441277EB17600ED1CBA /* Extrasensory WatchKit App */,
@@ -406,6 +410,7 @@
 			files = (
 				D21E74B327851E9100CA217F /* ContentView.swift in Sources */,
 				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
+				D2DF285D278A98A40061E89B /* XSEventExporter.swift in Sources */,
 				D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */,
 				D21E74B127851D5000CA217F /* GoalsModel.swift in Sources */,
 				D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */,
@@ -432,6 +437,7 @@
 				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
 				D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */,
 				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
+				D2DF285E278A9D450061E89B /* XSEventExporter.swift in Sources */,
 				D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */,
 				D256501127890F1A00C79FAE /* XSEvent.swift in Sources */,
 				D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */,
