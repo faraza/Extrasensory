@@ -27,7 +27,15 @@ class GoalCDInterface{
         newGoalEntity.identifierKey = String(Int(Date().timeIntervalSince1970) + Int.random(in: 0...1000000000))
         
         newGoalEntity.activeListPosition = 0
-        //TODO: Fetch all active goals. Position = activeGoals.length
+        let fetchAllActiveGoals = Goal.fetchRequest()
+        fetchAllActiveGoals.predicate = NSPredicate(format: "isActive == true")
+        do{
+            let activeGoalsList = try CoreDataStore.shared.persistentContainer.viewContext.fetch(fetchAllActiveGoals)
+            newGoalEntity.activeListPosition = Int16(activeGoalsList.count)
+        }
+        catch{
+            print("Failed to fetch active goals list")
+        }
                 
         CoreDataStore.shared.saveContext()
     }
@@ -36,7 +44,10 @@ class GoalCDInterface{
      Goal will not delete if there are events that reference its key
      */
     func deleteGoal(goalEntity: Goal)->Bool{
+        let fetchRequest = XSEvent.fetchRequest()
+        fetchRequest.fetchLimit = 1
         //TODO: If events reference the goal key, return false
+            
         CoreDataStore.shared.persistentContainer.viewContext.delete(goalEntity)
         CoreDataStore.shared.saveContext()
         return true
@@ -44,13 +55,14 @@ class GoalCDInterface{
     
     func updateGoal(goalEntity: Goal, goalDescription: String? = nil, isActiveGoal: Bool){
         let becameActive = (isActiveGoal && !goalEntity.isActive)
+        let becameInactive = (!isActiveGoal && goalEntity.isActive)
                         
         if let unwrapped = goalDescription {goalEntity.longDescription = unwrapped}
         goalEntity.isActive = isActiveGoal
         if(becameActive){
             //TODO: Fetch all active goals. Position = activeGoals.length
         }
-        else{
+        else if(becameInactive){
             reindex()
         }
         CoreDataStore.shared.saveContext()
