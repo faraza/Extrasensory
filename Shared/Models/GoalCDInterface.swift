@@ -18,7 +18,7 @@ import CoreData
  */
 class GoalCDInterface{
     static let shared = GoalCDInterface()
-        
+    
     
     func addGoal(goalName: String, goalDescription: String = "", isActiveGoal: Bool){
         let newGoalEntity = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
@@ -71,16 +71,13 @@ class GoalCDInterface{
     
     func updateGoal(goalEntity: Goal, goalDescription: String? = nil, isActiveGoal: Bool){
         let becameActive = (isActiveGoal && !goalEntity.isActive)
-        let becameInactive = (!isActiveGoal && goalEntity.isActive)
-                        
+        
         if let unwrapped = goalDescription {goalEntity.longDescription = unwrapped}
-        goalEntity.isActive = isActiveGoal
         if(becameActive){
-            goalEntity.activeListPosition = Int16(getActiveGoalsLength() - 1)
+            goalEntity.activeListPosition = Int16(getActiveGoalsLength())
         }
-        else if(becameInactive){
-            reindex()
-        }
+        goalEntity.isActive = isActiveGoal
+        reindex()
         CoreDataStore.shared.saveContext()
     }
     
@@ -98,7 +95,8 @@ class GoalCDInterface{
     
     private func reindex(){
         let activeGoals = fetchActiveGoals()
-        if let unwrapped = activeGoals{
+        if var unwrapped = activeGoals{
+            unwrapped.sort{$0.activeListPosition < $1.activeListPosition}
             for i in 0 ... (unwrapped.count - 1){
                 unwrapped[i].activeListPosition = Int16(i)
             }

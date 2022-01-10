@@ -42,9 +42,8 @@ struct GoalListView: View {
                 List{
                     Section(header: Text("Active Goals")){
                         ForEach(activeGoals, id: \.self){ goal in
-                            NavigationLink(destination: GoalDetailView(existingGoalEntity: goal)){ //TODO: Include param
-                                Text(goal.shortName ?? "NO SHORTNAME")
-                            }
+                            NavigationLink(destination: GoalDetailView(existingGoalEntity: goal)){
+                                Text(goal.shortName ?? "NO SHORTNAME")                            }
                         }
                         .onMove{sourceIndexSet, destinationIndex in
                             for sourceIndex in sourceIndexSet{
@@ -63,7 +62,7 @@ struct GoalListView: View {
                     }
                     Section(header: Text("Inactive Goals")){
                         ForEach(inactiveGoals, id: \.self){ goal in
-                            NavigationLink(destination: GoalDetailView(existingGoalEntity: goal)){ //TODO: pass param
+                            NavigationLink(destination: GoalDetailView(existingGoalEntity: goal)){
                                 Text(goal.shortName ?? "NO SHORTNAME")
                             }
                         }
