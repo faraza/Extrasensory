@@ -39,7 +39,9 @@ struct GoalListView: View {
                 List{
                     Section(header: Text("Active Goals")){
                         ForEach(activeGoals, id: \.self){ goal in
-                            Text(goal)
+                            NavigationLink(destination: GoalDetailView()){ //TODO: Include param
+                                Text(goal)
+                            }
                         }
                         .onMove{source, destination in
                             activeGoals.move(fromOffsets: source, toOffset: destination)
@@ -54,7 +56,9 @@ struct GoalListView: View {
                     }
                     Section(header: Text("Inactive Goals")){
                         ForEach(inactiveGoals, id: \.self){ goal in
-                            Text(goal)
+                            NavigationLink(destination: GoalDetailView()){ //TODO: pass param
+                                Text(goal)
+                            }
                         }
                         .onDelete(){ offsets in
                             for offset in offsets{
