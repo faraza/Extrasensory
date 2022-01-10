@@ -12,6 +12,7 @@ import CoreData
 struct ExtrasensoryApp: App {
     let session = WCSessionManager()
     let context = CoreDataStore.shared.persistentContainer.viewContext
+    let goalCDInterface = GoalCDInterface.shared
     
     var body: some Scene {
         WindowGroup {

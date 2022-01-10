@@ -16,11 +16,6 @@ struct GoalListView: View {
                   predicate: NSPredicate(format: "isActive == false"))
     private var inactiveGoals: FetchedResults<Goal>
     
-//    var _previewActiveGoals: [String]?
-//    var _previewInactiveGoals: [String]?
-    
-//    @State private var activeGoals: [Goal] = []
-//    @State private var inactiveGoals: [Goal] = []
     @State private var editMode: EditMode = EditMode.inactive
     
     @State private var addGoalNavAction: Int? = 0
@@ -51,15 +46,17 @@ struct GoalListView: View {
                                 Text(goal.shortName ?? "NO SHORTNAME")
                             }
                         }
-                        .onMove{source, destination in
-//                            activeGoals.move(fromOffsets: source, toOffset: destination)
-                            //TODO: Swap indices
+                        .onMove{sourceIndexSet, destinationIndex in
+                            for sourceIndex in sourceIndexSet{
+                                let first = activeGoals[sourceIndex]
+                                let second = activeGoals[destinationIndex]
+                                GoalCDInterface.shared.swapPositionsInActiveList(firstGoal: first, secondGoal: second)
+                            }
                         }
                         .onDelete(){ offsets in
                             for offset in offsets{
-                                let _ = activeGoals[offset]
-                                //TODO: Set the event to inactive
-                                //                            CoreDataStore.shared.saveContext()
+                                let goalToDeactivate = activeGoals[offset]
+                                GoalCDInterface.shared.updateGoal(goalEntity: goalToDeactivate, isActiveGoal: false)
                             }
                         }
                     }
@@ -71,9 +68,8 @@ struct GoalListView: View {
                         }
                         .onDelete(){ offsets in
                             for offset in offsets{
-                                let _ = inactiveGoals[offset]
-                                //                            managedObjectContext.delete(eventToDelete) //TODO
-                                //                            CoreDataStore.shared.saveContext()
+                                let goalToDelete = inactiveGoals[offset]
+                                let _ = GoalCDInterface.shared.deleteGoal(goalEntity: goalToDelete)
                             }
                         }
                     }
@@ -104,9 +100,6 @@ struct GoalListView: View {
         }
         
         .onAppear {
-//            activeGoals = _previewActiveGoals ?? activeGoals
-//            inactiveGoals = _previewInactiveGoals ?? inactiveGoals
-            
             //TODO: Sort goals first (?)
         }
     }
@@ -116,7 +109,7 @@ struct GoalListView_Previews: PreviewProvider {
     static let activeGoals = ["Biting Nails", "Browse", "Judgmental Thoughts"]
     static let inactiveGoals = ["Video Games", "Karate"]
     static var previews: some View {
-        GoalListView()
-//        GoalListView(_previewActiveGoals: activeGoals, _previewInactiveGoals: inactiveGoals)
+        GoalListView() //TODO: Get it working with preview list again
+        //        GoalListView(_previewActiveGoals: activeGoals, _previewInactiveGoals: inactiveGoals)
     }
 }

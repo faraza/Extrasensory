@@ -35,15 +35,15 @@ class GoalCDInterface{
      */
     func deleteGoal(goalEntity: Goal)->Bool{
         //TODO: If events reference the goal key, return false
-        reindex()
+        CoreDataStore.shared.persistentContainer.viewContext.delete(goalEntity)
         CoreDataStore.shared.saveContext()
         return true
     }
     
-    func updateGoal(goalEntity: Goal, goalDescription: String, isActiveGoal: Bool){
+    func updateGoal(goalEntity: Goal, goalDescription: String? = nil, isActiveGoal: Bool){
         let becameActive = (isActiveGoal && !goalEntity.isActive)
                         
-        goalEntity.longDescription = goalDescription
+        if let unwrapped = goalDescription {goalEntity.longDescription = unwrapped}
         goalEntity.isActive = isActiveGoal
         if(becameActive){
             //TODO: Fetch all active goals. Position = activeGoals.length
@@ -52,6 +52,14 @@ class GoalCDInterface{
             reindex()
         }
         CoreDataStore.shared.saveContext()
+    }
+    
+    /**
+            I'd rather do the swap logic in this class, but it requires weird stuff with offsets that are
+                a lot simpler to just do in the list class
+     */
+    func confirmPositionSwap(){
+        
     }
     
     func swapPositionsInActiveList(firstGoal: Goal, secondGoal: Goal){

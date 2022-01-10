@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GoalDetailView: View{
-    @Environment(\.managedObjectContext) var managedObjectContext //TODO: Delete this. Should be handled by manager
     @Environment(\.presentationMode) var presentationMode
     
     var existingGoalEntity: Goal? = nil
@@ -38,22 +37,10 @@ struct GoalDetailView: View{
     
     func updateCoreData(){ //TODO: Migrate all this stuff to manager
         if let unwrapped = existingGoalEntity{
-            unwrapped.shortName = goalName
-            unwrapped.isActive = isActiveGoal
-            unwrapped.longDescription = goalDescription
+            GoalCDInterface.shared.updateGoal(goalEntity: unwrapped, goalDescription: goalDescription, isActiveGoal: isActiveGoal)
         }
         else{
-            let newGoalEntity = Goal(context: managedObjectContext)
-            newGoalEntity.shortName = goalName
-            newGoalEntity.isActive = isActiveGoal
-            newGoalEntity.longDescription = goalDescription
-        }
-        do {
-            try managedObjectContext.save()
-            print("Goal saved successfully")
-        }
-        catch{
-            print("ERROR -- XSEventLoggerView. Unable to save")
+            GoalCDInterface.shared.addGoal(goalName: goalName, goalDescription: goalDescription, isActiveGoal: isActiveGoal)
         }
     }
     
