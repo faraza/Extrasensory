@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct GoalDetailView: View{
-    @Environment(\.presentationMode) var presentationMode    
+    @Environment(\.managedObjectContext) var managedObjectContext //TODO: Delete this. Should be handled by manager
+    @Environment(\.presentationMode) var presentationMode
     
-//    var existingGoalEntity: String? = nil //TODO: Make it the goal entity once that's been added
-    var existingGoalEntity: String? = "Sup"
+    var existingGoalEntity: Goal? = nil
+    //    var existingGoalEntity: String? = "Sup"
     @State private var goalName = ""
     @State private var goalDescription = ""
     @State private var isActiveGoal = true
-        
+    
     
     private var nameTextField: some View{
         if let unwrapped = existingGoalEntity{
-            return AnyView(Text("\(unwrapped)"))
+            return AnyView(Text("\(unwrapped.shortName!)"))
         }
         else{
             return AnyView(TextField("Goal Name", text: $goalName))
@@ -35,8 +36,25 @@ struct GoalDetailView: View{
         }
     }
     
-    func updateCoreData(){
-        //TODO
+    func updateCoreData(){ //TODO: Migrate all this stuff to manager
+        if let unwrapped = existingGoalEntity{
+            unwrapped.shortName = goalName
+            unwrapped.isActive = isActiveGoal
+            unwrapped.longDescription = goalDescription
+        }
+        else{
+            let newGoalEntity = Goal(context: managedObjectContext)
+            newGoalEntity.shortName = goalName
+            newGoalEntity.isActive = isActiveGoal
+            newGoalEntity.longDescription = goalDescription
+        }
+        do {
+            try managedObjectContext.save()
+            print("XSEventLogger. Saved successfully")
+        }
+        catch{
+            print("ERROR -- XSEventLoggerView. Unable to save")
+        }
     }
     
     var body: some View{
@@ -50,7 +68,7 @@ struct GoalDetailView: View{
         }
         .onAppear{
             if let unwrapped = existingGoalEntity{
-                goalName = unwrapped //TODO: Give it the prop
+                goalName = unwrapped.shortName ?? "SHORTNAME NOT SET"
             }
         }
         .navigationTitle(navBarText)

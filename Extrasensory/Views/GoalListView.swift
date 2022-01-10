@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct GoalListView: View {
-    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)])
-    private var goals: FetchedResults<Goal>
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)],
+                  predicate: NSPredicate(format: "isActive == true"))
+    private var activeGoals: FetchedResults<Goal>
+    
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)],
+                  predicate: NSPredicate(format: "isActive == false"))
+    private var inactiveGoals: FetchedResults<Goal>
     
 //    var _previewActiveGoals: [String]?
 //    var _previewInactiveGoals: [String]?
     
-    @State private var activeGoals: [Goal] = []
-    @State private var inactiveGoals: [Goal] = []
+//    @State private var activeGoals: [Goal] = []
+//    @State private var inactiveGoals: [Goal] = []
     @State private var editMode: EditMode = EditMode.inactive
     
     @State private var addGoalNavAction: Int? = 0
@@ -42,12 +47,13 @@ struct GoalListView: View {
                 List{
                     Section(header: Text("Active Goals")){
                         ForEach(activeGoals, id: \.self){ goal in
-                            NavigationLink(destination: GoalDetailView()){ //TODO: Include param
-//                                Text(goal)
+                            NavigationLink(destination: GoalDetailView(existingGoalEntity: goal)){ //TODO: Include param
+                                Text(goal.shortName ?? "NO SHORTNAME")
                             }
                         }
                         .onMove{source, destination in
-                            activeGoals.move(fromOffsets: source, toOffset: destination)
+//                            activeGoals.move(fromOffsets: source, toOffset: destination)
+                            //TODO: Swap indices
                         }
                         .onDelete(){ offsets in
                             for offset in offsets{
@@ -59,8 +65,8 @@ struct GoalListView: View {
                     }
                     Section(header: Text("Inactive Goals")){
                         ForEach(inactiveGoals, id: \.self){ goal in
-                            NavigationLink(destination: GoalDetailView()){ //TODO: pass param
-//                                Text(goal)
+                            NavigationLink(destination: GoalDetailView(existingGoalEntity: goal)){ //TODO: pass param
+                                Text(goal.shortName ?? "NO SHORTNAME")
                             }
                         }
                         .onDelete(){ offsets in
@@ -102,14 +108,6 @@ struct GoalListView: View {
 //            inactiveGoals = _previewInactiveGoals ?? inactiveGoals
             
             //TODO: Sort goals first (?)
-            for goal in goals{
-              /*  if(goal.isActive){
-                    $activeGoals.append(goal)
-                }
-                else{
-                    $inactiveGoals.append(goal)
-                } */
-            }
         }
     }
 }
