@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct GoalListView: View {
-    var _previewActiveGoals: [String]?
-    var _previewInactiveGoals: [String]?
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)])
+    private var goals: FetchedResults<Goal>
     
-    @State private var activeGoals: [String] = []
-    @State private var inactiveGoals: [String] = []
+//    var _previewActiveGoals: [String]?
+//    var _previewInactiveGoals: [String]?
+    
+    @State private var activeGoals: [Goal] = []
+    @State private var inactiveGoals: [Goal] = []
     @State private var editMode: EditMode = EditMode.inactive
     
     @State private var addGoalNavAction: Int? = 0
@@ -40,7 +43,7 @@ struct GoalListView: View {
                     Section(header: Text("Active Goals")){
                         ForEach(activeGoals, id: \.self){ goal in
                             NavigationLink(destination: GoalDetailView()){ //TODO: Include param
-                                Text(goal)
+//                                Text(goal)
                             }
                         }
                         .onMove{source, destination in
@@ -57,7 +60,7 @@ struct GoalListView: View {
                     Section(header: Text("Inactive Goals")){
                         ForEach(inactiveGoals, id: \.self){ goal in
                             NavigationLink(destination: GoalDetailView()){ //TODO: pass param
-                                Text(goal)
+//                                Text(goal)
                             }
                         }
                         .onDelete(){ offsets in
@@ -95,8 +98,18 @@ struct GoalListView: View {
         }
         
         .onAppear {
-            activeGoals = _previewActiveGoals ?? activeGoals
-            inactiveGoals = _previewInactiveGoals ?? inactiveGoals
+//            activeGoals = _previewActiveGoals ?? activeGoals
+//            inactiveGoals = _previewInactiveGoals ?? inactiveGoals
+            
+            //TODO: Sort goals first (?)
+            for goal in goals{
+              /*  if(goal.isActive){
+                    $activeGoals.append(goal)
+                }
+                else{
+                    $inactiveGoals.append(goal)
+                } */
+            }
         }
     }
 }
@@ -105,6 +118,7 @@ struct GoalListView_Previews: PreviewProvider {
     static let activeGoals = ["Biting Nails", "Browse", "Judgmental Thoughts"]
     static let inactiveGoals = ["Video Games", "Karate"]
     static var previews: some View {
-        GoalListView(_previewActiveGoals: activeGoals, _previewInactiveGoals: inactiveGoals)
+        GoalListView()
+//        GoalListView(_previewActiveGoals: activeGoals, _previewInactiveGoals: inactiveGoals)
     }
 }

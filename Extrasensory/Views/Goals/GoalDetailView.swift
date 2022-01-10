@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct GoalDetailView: View{
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode    
     
 //    var existingGoalEntity: String? = nil //TODO: Make it the goal entity once that's been added
-        var existingGoalEntity: String? = "Sup"
+    var existingGoalEntity: String? = "Sup"
     @State private var goalName = ""
     @State private var goalDescription = ""
     @State private var isActiveGoal = true
+        
     
     private var nameTextField: some View{
         if let unwrapped = existingGoalEntity{
