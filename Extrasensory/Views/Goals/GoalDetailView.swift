@@ -10,8 +10,8 @@ import SwiftUI
 struct GoalDetailView: View{
     @Environment(\.presentationMode) var presentationMode
     
-    var existingGoalEntity: String? = nil //TODO: Make it the goal entity once that's been added
-//        var existingGoalEntity: String? = "Sup"
+//    var existingGoalEntity: String? = nil //TODO: Make it the goal entity once that's been added
+        var existingGoalEntity: String? = "Sup"
     @State private var goalName = ""
     @State private var goalDescription = ""
     @State private var isActiveGoal = true
@@ -47,6 +47,11 @@ struct GoalDetailView: View{
                 Text("Active")
             }
         }
+        .onAppear{
+            if let unwrapped = existingGoalEntity{
+                goalName = unwrapped //TODO: Give it the prop
+            }
+        }
         .navigationTitle(navBarText)
         .toolbar{
             ToolbarItem(placement: .cancellationAction){
@@ -59,6 +64,7 @@ struct GoalDetailView: View{
             ToolbarItem(placement: .confirmationAction){
                 Button(action: {
                     updateCoreData()
+                    self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("Save")
                 })
@@ -66,7 +72,9 @@ struct GoalDetailView: View{
             }
         }
         .navigationBarBackButtonHidden(true)
+        
     }
+    
 }
 
 struct GoalDetailView_Previews: PreviewProvider {
