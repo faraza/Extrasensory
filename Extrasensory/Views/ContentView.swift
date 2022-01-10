@@ -27,7 +27,7 @@ struct ContentView: View{
                     Image(systemName: "book")
                     Text("Events")
                 }
-
+            
         }
     }
 }

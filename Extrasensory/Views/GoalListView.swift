@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GoalList: View {
+struct GoalListView: View {
     @State var activeGoals: [String]
     @State var inactiveGoals: [String]        
     
@@ -35,10 +35,10 @@ struct GoalList: View {
     }
 }
 
-struct GoalList_Previews: PreviewProvider {
+struct GoalListView_Previews: PreviewProvider {
     static let activeGoals = ["Biting Nails", "Browse", "Judgmental Thoughts"]
     static let inactiveGoals = ["Video Games", "Karate"]
     static var previews: some View {
-        GoalList(activeGoals: activeGoals, inactiveGoals: inactiveGoals)
+        GoalListView(activeGoals: activeGoals, inactiveGoals: inactiveGoals)
     }
 }
