@@ -49,6 +49,7 @@
 		D2DF285D278A98A40061E89B /* XSEventExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF285C278A98A40061E89B /* XSEventExporter.swift */; };
 		D2DF285E278A9D450061E89B /* XSEventExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF285C278A98A40061E89B /* XSEventExporter.swift */; };
 		D2DF2866278B97060061E89B /* GoalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2865278B97060061E89B /* GoalListView.swift */; };
+		D2DF286A278BC8400061E89B /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF2869278BC8400061E89B /* GoalDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		D2DF2859278A7B490061E89B /* XSEventEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventEnums.swift; sourceTree = "<group>"; };
 		D2DF285C278A98A40061E89B /* XSEventExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventExporter.swift; sourceTree = "<group>"; };
 		D2DF2865278B97060061E89B /* GoalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalListView.swift; sourceTree = "<group>"; };
+		D2DF2869278BC8400061E89B /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +164,7 @@
 				D221147F2783A85800859B53 /* XSEventDetailsView.swift */,
 				D21E74B227851E9100CA217F /* ContentView.swift */,
 				D21E74B42785240E00CA217F /* XSEventLoggerView.swift */,
-				D2DF2865278B97060061E89B /* GoalListView.swift */,
+				D2DF286B278BC8510061E89B /* Goals */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +280,15 @@
 				D2B28D2427813A200076EAC8 /* WCSessionManager.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		D2DF286B278BC8510061E89B /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				D2DF2869278BC8400061E89B /* GoalDetailView.swift */,
+				D2DF2865278B97060061E89B /* GoalListView.swift */,
+			);
+			path = Goals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +428,7 @@
 				D2DF285D278A98A40061E89B /* XSEventExporter.swift in Sources */,
 				D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */,
 				D21E74B127851D5000CA217F /* GoalsModel.swift in Sources */,
+				D2DF286A278BC8400061E89B /* GoalDetailView.swift in Sources */,
 				D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */,
 				D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */,
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,

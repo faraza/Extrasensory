@@ -23,8 +23,7 @@ struct GoalListView: View {
         default:
             return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
         }
-    }
-        
+    }        
     
     func onAdd(){
         //TODO
