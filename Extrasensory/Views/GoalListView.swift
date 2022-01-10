@@ -48,8 +48,9 @@ struct GoalListView: View {
                         }
                         .onMove{sourceIndexSet, destinationIndex in
                             for sourceIndex in sourceIndexSet{
+                                if(sourceIndex == destinationIndex) {continue}
                                 let first = activeGoals[sourceIndex]
-                                let second = activeGoals[destinationIndex]
+                                let second = activeGoals[sourceIndex < destinationIndex ? destinationIndex - 1: destinationIndex]
                                 GoalCDInterface.shared.swapPositionsInActiveList(firstGoal: first, secondGoal: second)
                             }
                         }

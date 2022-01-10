@@ -14,7 +14,7 @@ struct GoalDetailView: View{
     
     @State private var goalName = ""
     @State private var goalDescription = ""
-    @State private var isActiveGoal = false
+    @State private var isActiveGoal = true
     
     
     private var nameTextField: some View{

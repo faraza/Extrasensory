@@ -25,6 +25,8 @@ class GoalCDInterface{
         newGoalEntity.longDescription = goalDescription
         newGoalEntity.isActive = isActiveGoal
         newGoalEntity.identifierKey = String(Int(Date().timeIntervalSince1970) + Int.random(in: 0...1000000000))
+        
+        newGoalEntity.activeListPosition = 0
         //TODO: Fetch all active goals. Position = activeGoals.length
                 
         CoreDataStore.shared.saveContext()
