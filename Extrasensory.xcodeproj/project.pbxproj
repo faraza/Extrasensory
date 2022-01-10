@@ -164,6 +164,7 @@
 				D221147F2783A85800859B53 /* XSEventDetailsView.swift */,
 				D21E74B227851E9100CA217F /* ContentView.swift */,
 				D21E74B42785240E00CA217F /* XSEventLoggerView.swift */,
+				D2DF2865278B97060061E89B /* GoalListView.swift */,
 				D2DF286B278BC8510061E89B /* Goals */,
 			);
 			path = Views;
@@ -286,7 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				D2DF2869278BC8400061E89B /* GoalDetailView.swift */,
-				D2DF2865278B97060061E89B /* GoalListView.swift */,
 			);
 			path = Goals;
 			sourceTree = "<group>";
