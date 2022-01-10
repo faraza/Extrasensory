@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 /**
  Interface with core data.
@@ -24,12 +25,25 @@ class GoalCDInterface{
         newGoalEntity.shortName = goalName
         newGoalEntity.longDescription = goalDescription
         newGoalEntity.identifierKey = String(Int(Date().timeIntervalSince1970) + Int.random(in: 0...1000000000))
-        newGoalEntity.activeListPosition = Int16(getActiveGoalsLength())        
+        newGoalEntity.activeListPosition = Int16(getActiveGoalsLength())
         newGoalEntity.isActive = isActiveGoal
         CoreDataStore.shared.saveContext()
     }
     
-    private func getActiveGoalsLength()->Int{
+    private func fetchActiveGoals()->[Goal]?{
+        let fetchAllActiveGoals = Goal.fetchRequest()
+        fetchAllActiveGoals.predicate = NSPredicate(format: "isActive == true")
+        do{
+            let activeGoalsList = try CoreDataStore.shared.persistentContainer.viewContext.fetch(fetchAllActiveGoals)
+            return activeGoalsList
+        }
+        catch{
+            print("Failed to fetch active goals list")
+            return nil
+        }
+    }
+    
+    private func getActiveGoalsLength()->Int{ //TODO: Refactor to follow DRY
         let fetchAllActiveGoals = Goal.fetchRequest()
         fetchAllActiveGoals.predicate = NSPredicate(format: "isActive == true")
         do{
@@ -49,8 +63,8 @@ class GoalCDInterface{
         let fetchRequest = XSEvent.fetchRequest()
         fetchRequest.fetchLimit = 1
         //TODO: If events reference the goal key, return false
-            
         CoreDataStore.shared.persistentContainer.viewContext.delete(goalEntity)
+        reindex()
         CoreDataStore.shared.saveContext()
         return true
     }
@@ -63,7 +77,6 @@ class GoalCDInterface{
         goalEntity.isActive = isActiveGoal
         if(becameActive){
             goalEntity.activeListPosition = Int16(getActiveGoalsLength() - 1)
-            print("Update goals. new pos: \(goalEntity.activeListPosition)")
         }
         else if(becameInactive){
             reindex()
@@ -84,6 +97,11 @@ class GoalCDInterface{
     }
     
     private func reindex(){
-        //TODO
+        let activeGoals = fetchActiveGoals()
+        if let unwrapped = activeGoals{
+            for i in 0 ... (unwrapped.count - 1){
+                unwrapped[i].activeListPosition = Int16(i)
+            }
+        }
     }
 }
