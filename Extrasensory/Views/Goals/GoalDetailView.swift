@@ -11,7 +11,7 @@ struct GoalDetailView: View{
     @Environment(\.presentationMode) var presentationMode
     
     var existingGoalEntity: String? = nil //TODO: Make it the goal entity once that's been added
-    //    var existingGoalEntity: String? = "Sup"
+//        var existingGoalEntity: String? = "Sup"
     @State private var goalName = ""
     @State private var goalDescription = ""
     @State private var isActiveGoal = true
@@ -68,6 +68,8 @@ struct GoalDetailView: View{
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView()
+        NavigationView{
+            GoalDetailView()
+        }
     }
 }
