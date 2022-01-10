@@ -23,21 +23,23 @@ class GoalCDInterface{
         let newGoalEntity = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
         newGoalEntity.shortName = goalName
         newGoalEntity.longDescription = goalDescription
-        newGoalEntity.isActive = isActiveGoal
         newGoalEntity.identifierKey = String(Int(Date().timeIntervalSince1970) + Int.random(in: 0...1000000000))
-        
-        newGoalEntity.activeListPosition = 0
+        newGoalEntity.activeListPosition = Int16(getActiveGoalsLength())        
+        newGoalEntity.isActive = isActiveGoal
+        CoreDataStore.shared.saveContext()
+    }
+    
+    private func getActiveGoalsLength()->Int{
         let fetchAllActiveGoals = Goal.fetchRequest()
         fetchAllActiveGoals.predicate = NSPredicate(format: "isActive == true")
         do{
             let activeGoalsList = try CoreDataStore.shared.persistentContainer.viewContext.fetch(fetchAllActiveGoals)
-            newGoalEntity.activeListPosition = Int16(activeGoalsList.count)
+            return activeGoalsList.count
         }
         catch{
             print("Failed to fetch active goals list")
+            return 0
         }
-                
-        CoreDataStore.shared.saveContext()
     }
     
     /**
@@ -60,7 +62,8 @@ class GoalCDInterface{
         if let unwrapped = goalDescription {goalEntity.longDescription = unwrapped}
         goalEntity.isActive = isActiveGoal
         if(becameActive){
-            //TODO: Fetch all active goals. Position = activeGoals.length
+            goalEntity.activeListPosition = Int16(getActiveGoalsLength() - 1)
+            print("Update goals. new pos: \(goalEntity.activeListPosition)")
         }
         else if(becameInactive){
             reindex()

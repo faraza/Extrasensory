@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct GoalListView: View {
-    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)],
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)],
                   predicate: NSPredicate(format: "isActive == true"))
     private var activeGoals: FetchedResults<Goal>
     
-    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)],
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)],
                   predicate: NSPredicate(format: "isActive == false"))
     private var inactiveGoals: FetchedResults<Goal>
     
