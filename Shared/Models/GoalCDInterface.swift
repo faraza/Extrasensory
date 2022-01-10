@@ -56,14 +56,6 @@ class GoalCDInterface{
         CoreDataStore.shared.saveContext()
     }
     
-    /**
-            I'd rather do the swap logic in this class, but it requires weird stuff with offsets that are
-                a lot simpler to just do in the list class
-     */
-    func confirmPositionSwap(){
-        
-    }
-    
     func swapPositionsInActiveList(firstGoal: Goal, secondGoal: Goal){
         guard (firstGoal.isActive) else {return}
         guard (secondGoal.isActive) else {return}
