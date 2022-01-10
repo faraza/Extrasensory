@@ -69,6 +69,8 @@ struct GoalDetailView: View{
         .onAppear{
             if let unwrapped = existingGoalEntity{
                 goalName = unwrapped.shortName ?? "SHORTNAME NOT SET"
+                goalDescription = unwrapped.shortName ?? ""
+                isActiveGoal = unwrapped.isActive
             }
         }
         .navigationTitle(navBarText)
