@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct GoalListView: View {
+    var _previewActiveGoals: [String]?
+    var _previewInactiveGoals: [String]?
     
-    @State private var activeGoals: [String]
-    @State private var inactiveGoals: [String]
+    @State private var activeGoals: [String] = []
+    @State private var inactiveGoals: [String] = []
+    @State private var editMode: EditMode = EditMode.inactive
+        
     
-    init(_previewActiveGoals: [String]? = nil, _previewInactiveGoals: [String]? = nil){
-        activeGoals = _previewActiveGoals ?? []
-        inactiveGoals = _previewInactiveGoals ?? []
+    func onAdd(){
+        //TODO
     }
     
     var body: some View {
@@ -27,16 +30,35 @@ struct GoalListView: View {
                     .onMove{source, destination in
                         activeGoals.move(fromOffsets: source, toOffset: destination)
                     }
+                    .onDelete(){ offsets in
+                        for offset in offsets{
+                            let eventToInactivate = activeGoals[offset]
+                            //TODO: Set to inactive
+//                            CoreDataStore.shared.saveContext()
+                        }
+                    }
                 }
                 Section(header: Text("Inactive Goals")){
                     ForEach(inactiveGoals, id: \.self){ goal in
                         Text(goal)
                     }
+                    .onDelete(){ offsets in
+                        for offset in offsets{
+                            let eventToDelete = inactiveGoals[offset]
+//                            managedObjectContext.delete(eventToDelete) //TODO
+//                            CoreDataStore.shared.saveContext()
+                        }
+                    }
                 }
             }
-            .toolbar{
-                EditButton()
-            }
+            .navigationBarItems(trailing: EditButton())
+            .environment(\.editMode, $editMode)
+
+        }
+        
+        .onAppear {
+            activeGoals = _previewActiveGoals ?? activeGoals
+            inactiveGoals = _previewInactiveGoals ?? inactiveGoals
         }
     }
 }
