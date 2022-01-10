@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct GoalListView: View {
-    @State var activeGoals: [String]
-    @State var inactiveGoals: [String]        
+    
+    @State private var activeGoals: [String]
+    @State private var inactiveGoals: [String]
+    
+    init(_previewActiveGoals: [String]? = nil, _previewInactiveGoals: [String]? = nil){
+        activeGoals = _previewActiveGoals ?? []
+        inactiveGoals = _previewInactiveGoals ?? []
+    }
     
     var body: some View {
         NavigationView{
@@ -39,6 +45,6 @@ struct GoalListView_Previews: PreviewProvider {
     static let activeGoals = ["Biting Nails", "Browse", "Judgmental Thoughts"]
     static let inactiveGoals = ["Video Games", "Karate"]
     static var previews: some View {
-        GoalListView(activeGoals: activeGoals, inactiveGoals: inactiveGoals)
+        GoalListView(_previewActiveGoals: activeGoals, _previewInactiveGoals: inactiveGoals)
     }
 }

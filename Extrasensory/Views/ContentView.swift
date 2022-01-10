@@ -27,7 +27,11 @@ struct ContentView: View{
                     Image(systemName: "book")
                     Text("Events")
                 }
-            
+            GoalListView()
+                .tabItem{
+                    Image(systemName: "book")
+                    Text("Goals")
+                }
         }
     }
 }
