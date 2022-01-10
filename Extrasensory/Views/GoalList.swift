@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GoalsList: View {
+struct GoalList: View {
     @State var activeGoals: [String]
     @State var inactiveGoals: [String]        
     
@@ -26,9 +26,6 @@ struct GoalsList: View {
                     ForEach(inactiveGoals, id: \.self){ goal in
                         Text(goal)
                     }
-                    .onMove{source, destination in
-                        inactiveGoals.move(fromOffsets: source, toOffset: destination)
-                    }
                 }
             }
             .toolbar{
@@ -38,10 +35,10 @@ struct GoalsList: View {
     }
 }
 
-struct GoalsList_Previews: PreviewProvider {
+struct GoalList_Previews: PreviewProvider {
     static let activeGoals = ["Biting Nails", "Browse", "Judgmental Thoughts"]
     static let inactiveGoals = ["Video Games", "Karate"]
     static var previews: some View {
-        GoalsList(activeGoals: activeGoals, inactiveGoals: inactiveGoals)
+        GoalList(activeGoals: activeGoals, inactiveGoals: inactiveGoals)
     }
 }
