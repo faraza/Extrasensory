@@ -35,11 +35,11 @@ TODO: Figure out a superclass name
 
 Goal {
 	goalDirection: .encourage, .discourage
-	goalKey: String
-	goalLongDescription: String
+	identifierKey: String
+	longDescription: String
 	isActive: Bool
-	activeGoalIndex: Int
-
+	activeListPosition: Int
+	shortName: String
 	//Later
 		//difficulty
 		//reminderInterval (for encourage goals)
