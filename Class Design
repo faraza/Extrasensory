@@ -34,7 +34,6 @@ TODO: Figure out a superclass name
 **/
 
 Goal {
-	goalDirection: .encourage, .discourage
 	identifierKey: String
 	longDescription: String
 	isActive: Bool
@@ -44,6 +43,7 @@ Goal {
 		//difficulty
 		//reminderInterval (for encourage goals)
 		//nudgeLevel
+		//goalDirection: .encourage, .discourage
 }
 
 Mood {

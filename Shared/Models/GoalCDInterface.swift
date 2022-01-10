@@ -17,8 +17,7 @@ import CoreData
  Core data doesn't cleanly support this out of the box, so we have an index variable that gets recalculated for everyone once the list is updated.
  */
 class GoalCDInterface{
-    static let shared = GoalCDInterface()
-    
+    static let shared = GoalCDInterface()    
     
     func addGoal(goalName: String, goalDescription: String = "", isActiveGoal: Bool){
         let newGoalEntity = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
@@ -101,5 +100,56 @@ class GoalCDInterface{
                 unwrapped[i].activeListPosition = Int16(i)
             }
         }
+    }
+}
+
+extension GoalCDInterface{
+    /**
+            Only call on first run
+     */
+    static func populateOnFirstRun(){
+        let biteNails = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        biteNails.shortName = "Bite Nails"
+        biteNails.identifierKey = "Bite Nails"
+        biteNails.isActive = true
+        biteNails.activeListPosition = 0
+        
+        let browse = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        browse.shortName = "Browse"
+        browse.identifierKey = "Browse"
+        browse.isActive = true
+        browse.activeListPosition = 1
+        
+        let browse_g = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        browse_g.shortName = "Browse_g"
+        browse_g.identifierKey = "Browse_g"
+        browse_g.isActive = true
+        browse_g.activeListPosition = 2
+        
+        let judgment = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        judgment.shortName = "Judgment"
+        judgment.identifierKey = "Judgment"
+        judgment.isActive = true
+        judgment.activeListPosition = 3
+        
+        let sugar = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        sugar.shortName = "Sugar"
+        sugar.identifierKey = "Sugar"
+        sugar.isActive = true
+        sugar.activeListPosition = 4
+        
+        let keepBinging = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        keepBinging.shortName = "Keep Binging"
+        keepBinging.identifierKey = "Keep Binging"
+        keepBinging.isActive = true
+        keepBinging.activeListPosition = 5
+        
+        let unrelatedWork = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        unrelatedWork.shortName = "Unrelated Work"
+        unrelatedWork.identifierKey = "Unrelated Work"
+        unrelatedWork.isActive = true
+        unrelatedWork.activeListPosition = 6
+        
+        CoreDataStore.shared.saveContext()
     }
 }
