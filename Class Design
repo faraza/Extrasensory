@@ -37,11 +37,13 @@ Goal {
 	goalDirection: .encourage, .discourage
 	goalKey: String
 	goalLongDescription: String
+	isActive: Bool
+	activeGoalIndex: Int
 
 	//Later
-	//difficulty
-	//reminderInterval (for encourage goals)
-	//nudgeLevel
+		//difficulty
+		//reminderInterval (for encourage goals)
+		//nudgeLevel
 }
 
 Mood {
