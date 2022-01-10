@@ -15,6 +15,7 @@ struct GoalListView: View {
     @State private var inactiveGoals: [String] = []
     @State private var editMode: EditMode = EditMode.inactive
     
+    @State private var addGoalNavAction: Int? = 0
     
     private var addButton: some View {
         switch editMode {
@@ -26,11 +27,15 @@ struct GoalListView: View {
     }        
     
     func onAdd(){
-        //TODO
+        self.addGoalNavAction = 1
     }
     
     var body: some View {
         NavigationView{
+            VStack{
+                NavigationLink(destination: GoalDetailView(), tag: 1, selection: $addGoalNavAction){
+                    EmptyView()
+                }
             List{
                 Section(header: Text("Active Goals")){
                     ForEach(activeGoals, id: \.self){ goal in
@@ -59,6 +64,7 @@ struct GoalListView: View {
                         }
                     }
                 }
+            }
             }
             .navigationBarItems(leading: EditButton(), trailing: addButton)
             .environment(\.editMode, $editMode)
