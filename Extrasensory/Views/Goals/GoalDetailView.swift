@@ -43,6 +43,9 @@ struct GoalDetailView: View{
         Form{
             nameTextField
             TextField("Description", text: $goalDescription)
+            Toggle(isOn: $isActiveGoal){
+                Text("Active")
+            }
         }
         .navigationTitle(navBarText)
         .toolbar{
