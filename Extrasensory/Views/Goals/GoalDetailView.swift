@@ -12,7 +12,6 @@ struct GoalDetailView: View{
     @Environment(\.presentationMode) var presentationMode
     
     var existingGoalEntity: Goal? = nil
-    //    var existingGoalEntity: String? = "Sup"
     @State private var goalName = ""
     @State private var goalDescription = ""
     @State private var isActiveGoal = true
@@ -69,7 +68,7 @@ struct GoalDetailView: View{
         .onAppear{
             if let unwrapped = existingGoalEntity{
                 goalName = unwrapped.shortName ?? "SHORTNAME NOT SET"
-                goalDescription = unwrapped.shortName ?? ""
+                goalDescription = unwrapped.longDescription ?? ""
                 isActiveGoal = unwrapped.isActive
             }
         }
