@@ -50,7 +50,7 @@ struct GoalDetailView: View{
         }
         do {
             try managedObjectContext.save()
-            print("XSEventLogger. Saved successfully")
+            print("Goal saved successfully")
         }
         catch{
             print("ERROR -- XSEventLoggerView. Unable to save")
@@ -74,7 +74,6 @@ struct GoalDetailView: View{
                 goalName = unwrapped.shortName ?? "SHORTNAME NOT SET"
                 goalDescription = unwrapped.longDescription ?? ""
                 isActiveGoal = unwrapped.isActive
-                print("Goal description set")
             }
         }
         .navigationTitle(navBarText)
