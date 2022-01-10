@@ -24,7 +24,7 @@ struct GoalListView: View {
         default:
             return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
         }
-    }        
+    }
     
     func onAdd(){
         self.addGoalNavAction = 1
@@ -36,39 +36,58 @@ struct GoalListView: View {
                 NavigationLink(destination: GoalDetailView(), tag: 1, selection: $addGoalNavAction){
                     EmptyView()
                 }
-            List{
-                Section(header: Text("Active Goals")){
-                    ForEach(activeGoals, id: \.self){ goal in
-                        Text(goal)
-                    }
-                    .onMove{source, destination in
-                        activeGoals.move(fromOffsets: source, toOffset: destination)
-                    }
-                    .onDelete(){ offsets in
-                        for offset in offsets{
-                            let _ = activeGoals[offset]
-                            //TODO: Set the event to inactive
-//                            CoreDataStore.shared.saveContext()
+                List{
+                    Section(header: Text("Active Goals")){
+                        ForEach(activeGoals, id: \.self){ goal in
+                            Text(goal)
+                        }
+                        .onMove{source, destination in
+                            activeGoals.move(fromOffsets: source, toOffset: destination)
+                        }
+                        .onDelete(){ offsets in
+                            for offset in offsets{
+                                let _ = activeGoals[offset]
+                                //TODO: Set the event to inactive
+                                //                            CoreDataStore.shared.saveContext()
+                            }
                         }
                     }
-                }
-                Section(header: Text("Inactive Goals")){
-                    ForEach(inactiveGoals, id: \.self){ goal in
-                        Text(goal)
-                    }
-                    .onDelete(){ offsets in
-                        for offset in offsets{
-                            let _ = inactiveGoals[offset]
-//                            managedObjectContext.delete(eventToDelete) //TODO
-//                            CoreDataStore.shared.saveContext()
+                    Section(header: Text("Inactive Goals")){
+                        ForEach(inactiveGoals, id: \.self){ goal in
+                            Text(goal)
+                        }
+                        .onDelete(){ offsets in
+                            for offset in offsets{
+                                let _ = inactiveGoals[offset]
+                                //                            managedObjectContext.delete(eventToDelete) //TODO
+                                //                            CoreDataStore.shared.saveContext()
+                            }
                         }
                     }
                 }
             }
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button(action: {
+                        withAnimation{
+                            if(editMode == .inactive){
+                                editMode = .active
+                            }
+                            else{
+                                editMode = .inactive
+                            }
+                        }
+                    }) {
+                        Text((editMode == .active) ? "Done" : "Edit")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing){
+                    addButton
+                }
+                
             }
-            .navigationBarItems(leading: EditButton(), trailing: addButton)
             .environment(\.editMode, $editMode)
-
+            
         }
         
         .onAppear {
