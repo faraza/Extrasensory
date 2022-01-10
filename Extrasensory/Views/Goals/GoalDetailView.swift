@@ -12,9 +12,10 @@ struct GoalDetailView: View{
     @Environment(\.presentationMode) var presentationMode
     
     var existingGoalEntity: Goal? = nil
+    
     @State private var goalName = ""
     @State private var goalDescription = ""
-    @State private var isActiveGoal = true
+    @State private var isActiveGoal = false
     
     
     private var nameTextField: some View{
@@ -60,9 +61,12 @@ struct GoalDetailView: View{
         
         Form{
             nameTextField
-            TextField("Description", text: $goalDescription)
             Toggle(isOn: $isActiveGoal){
                 Text("Active")
+            }
+            Section(header: Text("Description")){
+                TextEditor(text: $goalDescription)
+                    .frame(minHeight: 200)
             }
         }
         .onAppear{
@@ -70,6 +74,7 @@ struct GoalDetailView: View{
                 goalName = unwrapped.shortName ?? "SHORTNAME NOT SET"
                 goalDescription = unwrapped.longDescription ?? ""
                 isActiveGoal = unwrapped.isActive
+                print("Goal description set")
             }
         }
         .navigationTitle(navBarText)
