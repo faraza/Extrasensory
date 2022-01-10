@@ -59,8 +59,8 @@ struct GoalDetailView: View{
                 }, label: {
                     Text("Save")
                 })
+                    .disabled(goalName.isEmpty)
             }
-            //save button. Disabled if goalName.length === 0
         }
         .navigationBarBackButtonHidden(true)
     }
