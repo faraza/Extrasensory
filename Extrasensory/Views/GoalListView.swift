@@ -14,6 +14,16 @@ struct GoalListView: View {
     @State private var activeGoals: [String] = []
     @State private var inactiveGoals: [String] = []
     @State private var editMode: EditMode = EditMode.inactive
+    
+    
+    private var addButton: some View {
+        switch editMode {
+        case .inactive:
+            return AnyView(EmptyView())
+        default:
+            return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
+        }
+    }
         
     
     func onAdd(){
@@ -32,8 +42,8 @@ struct GoalListView: View {
                     }
                     .onDelete(){ offsets in
                         for offset in offsets{
-                            let eventToInactivate = activeGoals[offset]
-                            //TODO: Set to inactive
+                            let _ = activeGoals[offset]
+                            //TODO: Set the event to inactive
 //                            CoreDataStore.shared.saveContext()
                         }
                     }
@@ -44,14 +54,14 @@ struct GoalListView: View {
                     }
                     .onDelete(){ offsets in
                         for offset in offsets{
-                            let eventToDelete = inactiveGoals[offset]
+                            let _ = inactiveGoals[offset]
 //                            managedObjectContext.delete(eventToDelete) //TODO
 //                            CoreDataStore.shared.saveContext()
                         }
                     }
                 }
             }
-            .navigationBarItems(trailing: EditButton())
+            .navigationBarItems(leading: EditButton(), trailing: addButton)
             .environment(\.editMode, $editMode)
 
         }
