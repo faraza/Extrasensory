@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreData
-
+import SwiftUI
 /**
  Interface with core data.
  
@@ -27,6 +27,16 @@ class GoalCDInterface{
         newGoalEntity.activeListPosition = Int16(getActiveGoalsLength())
         newGoalEntity.isActive = isActiveGoal
         CoreDataStore.shared.saveContext()
+    }
+    
+    static func getGoalNameFromKey(goalKey: String? = nil, goalsList: FetchedResults<Goal>)->String{
+        if let unwrappedKey = goalKey{
+            return goalsList.first(where: {
+                $0.identifierKey == unwrappedKey
+            })?.shortName ?? "GOAL NAME NOT FOUND"
+        }
+        
+        return "GOAL NAME NOT FOUND"
     }
     
     private func fetchActiveGoals()->[Goal]?{
