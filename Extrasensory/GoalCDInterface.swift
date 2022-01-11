@@ -92,13 +92,7 @@ class GoalCDInterface{
         reindex()
         CoreDataStore.shared.saveContext()
     }
-    
-    func printContents(goals: [Goal]){
-        for goal in goals{
-            print("\(goal.shortName) \(goal.activeListPosition)")
-        }
-    }
-    
+
     func moveGoalToOffset(goalIndex: Int, offset: Int){
         var activeGoals = fetchActiveGoals()
         guard(activeGoals != nil) else {return}
@@ -107,7 +101,7 @@ class GoalCDInterface{
         
         activeGoals!.sort{$0.activeListPosition < $1.activeListPosition}
 
-        if(goalIndex == (offset - 1) || goalIndex == offset){            
+        if(goalIndex == (offset - 1) || goalIndex == offset){
             return
         }
         else if(goalIndex < offset - 1){
