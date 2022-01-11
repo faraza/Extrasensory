@@ -8,18 +8,21 @@
 import SwiftUI
 
 struct XSEventLoggerView: View {
-    @StateObject var goalsModel = GoalsModel()
     @State var isLapseInProgress = false
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
     private var events: FetchedResults<XSEvent>
             
     func addEvent(eventType: UrgeFamilyType){
+        guard SelectedGoalModel.shared.goal != nil else{
+            print("Error adding event from iOS loggerView. No goal currently set")
+            return
+        }
         let newEventEntity = XSEvent(context: managedObjectContext)
         newEventEntity.eventFamily = XSEventFamily.urgeFamily.rawValue
         newEventEntity.urgeFamilyType = eventType.rawValue
         newEventEntity.timestamp = Date()
-        newEventEntity.goalKey = goalsModel.currentGoal
+        newEventEntity.goalKey = SelectedGoalModel.shared.goal!.identifierKey
         do {
             try managedObjectContext.save()
             print("XSEventLogger. Saved successfully")
@@ -34,8 +37,6 @@ struct XSEventLoggerView: View {
             VStack{                
                 
                 GoalsPicker()
-                    .environmentObject(goalsModel)
-                                
                 
                 Button(action: {}){
                     Text(UrgeFamilyType.urge.rawValue)

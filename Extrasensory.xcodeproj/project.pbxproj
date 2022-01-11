@@ -13,7 +13,6 @@
 		D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B72785434200CA217F /* GoalsPicker.swift */; };
 		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
 		D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE6278BF419003B925F /* GoalCDInterface.swift */; };
-		D23DFBE8278BF419003B925F /* GoalCDInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE6278BF419003B925F /* GoalCDInterface.swift */; };
 		D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
 		D256500827890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
 		D256501027890F1A00C79FAE /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEvent.swift */; };
@@ -203,6 +202,7 @@
 				D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */,
 				D21E74B72785434200CA217F /* GoalsPicker.swift */,
 				D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */,
+				D23DFBE6278BF419003B925F /* GoalCDInterface.swift */,
 				D221147E2783A82100859B53 /* Views */,
 				D2B0A436277EB17600ED1CBA /* Assets.xcassets */,
 				D2B0A438277EB17600ED1CBA /* Preview Content */,
@@ -261,7 +261,6 @@
 				D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */,
 				D256500F27890F1A00C79FAE /* XSEvent.swift */,
 				D2DF2859278A7B490061E89B /* XSEventEnums.swift */,
-				D23DFBE6278BF419003B925F /* GoalCDInterface.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -460,7 +459,6 @@
 				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
 				D2DF285E278A9D450061E89B /* XSEventExporter.swift in Sources */,
 				D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */,
-				D23DFBE8278BF419003B925F /* GoalCDInterface.swift in Sources */,
 				D256501127890F1A00C79FAE /* XSEvent.swift in Sources */,
 				D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */,
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,

@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct GoalsPicker: View {
-    @EnvironmentObject var goalsModel: GoalsModel
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)],
+                  predicate: NSPredicate(format: "isActive == true"))
+    private var goals: FetchedResults<Goal>
     
+    @State private var selectedGoalModel = SelectedGoalModel.shared
     
     var body: some View {
-        let goalsList = goalsModel.goalsList //TODO: If picker doesn't update when goalsList changes, this is why        
         
-        Picker("Goal", selection: $goalsModel.currentGoal){
-            ForEach(goalsList, id: \.self){ goal in
-                Text("\(goal)")
+        Picker("Goal", selection: $selectedGoalModel.goal){
+            ForEach(goals, id: \.self){ goal in
+                Text("\(goal.shortName ?? "NOSHORTNAMESET")")
             }
         }
         .pickerStyle(.wheel)
     }
+}
+
+class SelectedGoalModel: ObservableObject{
+    static let shared = SelectedGoalModel()
+    @Published var goal: Goal?
 }
 
 struct GoalsPicker_Previews: PreviewProvider {
