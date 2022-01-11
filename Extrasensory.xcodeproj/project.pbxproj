@@ -10,7 +10,7 @@
 		D21E74B127851D5000CA217F /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A481278009F100ED1CBA /* GoalsModel.swift */; };
 		D21E74B327851E9100CA217F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B227851E9100CA217F /* ContentView.swift */; };
 		D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B42785240E00CA217F /* XSEventLoggerView.swift */; };
-		D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B72785434200CA217F /* GoalsPicker.swift */; };
+		D21E74B82785434200CA217F /* GoalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B72785434200CA217F /* GoalPicker.swift */; };
 		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
 		D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE6278BF419003B925F /* GoalCDInterface.swift */; };
 		D23DFBEA278D3C16003B925F /* GoalsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */; };
@@ -102,7 +102,7 @@
 /* Begin PBXFileReference section */
 		D21E74B227851E9100CA217F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D21E74B42785240E00CA217F /* XSEventLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventLoggerView.swift; sourceTree = "<group>"; };
-		D21E74B72785434200CA217F /* GoalsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsPicker.swift; sourceTree = "<group>"; };
+		D21E74B72785434200CA217F /* GoalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalPicker.swift; sourceTree = "<group>"; };
 		D21E74BB2786959000CA217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D221147F2783A85800859B53 /* XSEventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventDetailsView.swift; sourceTree = "<group>"; };
 		D23DFBE6278BF419003B925F /* GoalCDInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCDInterface.swift; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 			children = (
 				D21E74BB2786959000CA217F /* Info.plist */,
 				D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */,
-				D21E74B72785434200CA217F /* GoalsPicker.swift */,
+				D21E74B72785434200CA217F /* GoalPicker.swift */,
 				D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */,
 				D23DFBE6278BF419003B925F /* GoalCDInterface.swift */,
 				D221147E2783A82100859B53 /* Views */,
@@ -440,7 +440,7 @@
 				D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */,
 				D21E74B127851D5000CA217F /* GoalsModel.swift in Sources */,
 				D2DF286A278BC8400061E89B /* GoalDetailView.swift in Sources */,
-				D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */,
+				D21E74B82785434200CA217F /* GoalPicker.swift in Sources */,
 				D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */,
 				D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */,
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,

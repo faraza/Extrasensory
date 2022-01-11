@@ -38,7 +38,7 @@ struct XSEventLoggerView: View {
         NavigationView{
             VStack{                
                 
-                GoalsPicker(selectedGoal: $selectedGoal)
+                GoalPicker(selectedGoal: $selectedGoal)
                     .onAppear{
                         if(activeGoals.count > 0){
                             if(selectedGoal == nil){

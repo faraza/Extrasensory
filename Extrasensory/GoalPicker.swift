@@ -1,5 +1,5 @@
 //
-//  GoalsPicker.swift
+//  GoalPicker.swift
 //  Extrasensory
 //
 //  Created by Faraz Abidi on 1/4/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GoalsPicker: View {
+struct GoalPicker: View {
     @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)],
                   predicate: NSPredicate(format: "isActive == true"))
     private var goals: FetchedResults<Goal>
@@ -25,9 +25,9 @@ struct GoalsPicker: View {
     }
 }
 
-struct GoalsPicker_Previews: PreviewProvider {
+struct GoalPicker_Previews: PreviewProvider {
     @State static var selectedGoal: Goal? = Goal()
     static var previews: some View {
-        GoalsPicker(selectedGoal: $selectedGoal)
+        GoalPicker(selectedGoal: $selectedGoal)
     }
 }

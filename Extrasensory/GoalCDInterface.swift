@@ -53,16 +53,8 @@ class GoalCDInterface{
     }
     
     private func getActiveGoalsLength()->Int{ //TODO: Refactor to follow DRY
-        let fetchAllActiveGoals = Goal.fetchRequest()
-        fetchAllActiveGoals.predicate = NSPredicate(format: "isActive == true")
-        do{
-            let activeGoalsList = try CoreDataStore.shared.persistentContainer.viewContext.fetch(fetchAllActiveGoals)
-            return activeGoalsList.count
-        }
-        catch{
-            print("Failed to fetch active goals list")
-            return 0
-        }
+        let activeGoalList = fetchActiveGoals() ?? []
+        return activeGoalList.count
     }
     
     /**
@@ -123,6 +115,11 @@ class GoalCDInterface{
                 unwrapped[i].activeListPosition = Int16(i)
             }
         }
+    }
+    
+    private func transmitUpdatedGoalList(){
+        let activeGoals = fetchActiveGoals()
+        //TODO
     }
 }
 
