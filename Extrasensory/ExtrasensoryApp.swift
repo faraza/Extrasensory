@@ -10,7 +10,7 @@ import CoreData
 
 @main
 struct ExtrasensoryApp: App {
-    let session = WCSessionManager()
+    let session = WCSessionPhoneManager()
     let context = CoreDataStore.shared.persistentContainer.viewContext
     let goalCDInterface = GoalCDInterface.shared
     

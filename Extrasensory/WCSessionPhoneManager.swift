@@ -7,17 +7,17 @@
 import Foundation
 import WatchConnectivity
 
-class WCSessionManager: NSObject {
+class WCSessionPhoneManager: NSObject {
     
     static var session: WCSession?
     static var delegate: SessionDelegate?
     
     init(session: WCSession = .default){
         super.init()
-        WCSessionManager.session = session
-        WCSessionManager.delegate = SessionDelegate()
-        if let unwrapped = WCSessionManager.session{
-            unwrapped.delegate = WCSessionManager.delegate
+        WCSessionPhoneManager.session = session
+        WCSessionPhoneManager.delegate = SessionDelegate()
+        if let unwrapped = WCSessionPhoneManager.session{
+            unwrapped.delegate = WCSessionPhoneManager.delegate
             unwrapped.activate()
         }
     }

@@ -15,7 +15,7 @@ class GoalsTransmitter{
             appContext[String(goal.activeListPosition)] = goal.encode()
         }
         
-        if let session = WCSessionManager.session{
+        if let session = WCSessionPhoneManager.session{
             do{
                 print("GoalsTransmitter::sent App context")
                 try session.updateApplicationContext(appContext)
@@ -28,7 +28,7 @@ class GoalsTransmitter{
     }
     
     static func _testTransmitMessage(){
-        if let unwrapped = WCSessionManager.session{
+        if let unwrapped = WCSessionPhoneManager.session{
             unwrapped.sendMessage(["testMessage" : "Test message from phone to watch"], replyHandler: nil) { (error) in
                 print(error.localizedDescription)
             }
