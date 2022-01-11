@@ -17,6 +17,8 @@
 		D23DFBEB278D3C16003B925F /* GoalsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */; };
 		D23DFBED278D41D0003B925F /* GoalRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBEC278D41D0003B925F /* GoalRawData.swift */; };
 		D23DFBEE278D41D0003B925F /* GoalRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBEC278D41D0003B925F /* GoalRawData.swift */; };
+		D23DFBF6278E2C9F003B925F /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBF5278E2C9F003B925F /* SessionDelegate.swift */; };
+		D23DFBF7278E2C9F003B925F /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBF5278E2C9F003B925F /* SessionDelegate.swift */; };
 		D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
 		D256500827890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
 		D256501027890F1A00C79FAE /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEvent.swift */; };
@@ -108,6 +110,7 @@
 		D23DFBE6278BF419003B925F /* GoalCDInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCDInterface.swift; sourceTree = "<group>"; };
 		D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTransmitter.swift; sourceTree = "<group>"; };
 		D23DFBEC278D41D0003B925F /* GoalRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalRawData.swift; sourceTree = "<group>"; };
+		D23DFBF5278E2C9F003B925F /* SessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
 		D256500627890A6100C79FAE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D256500F27890F1A00C79FAE /* XSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEvent.swift; sourceTree = "<group>"; };
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,6 +293,7 @@
 			children = (
 				D2B0A46D277EB29F00ED1CBA /* Models */,
 				D2B28D2427813A200076EAC8 /* WCSessionManager.swift */,
+				D23DFBF5278E2C9F003B925F /* SessionDelegate.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -454,6 +458,7 @@
 				D256501027890F1A00C79FAE /* XSEvent.swift in Sources */,
 				D2DF2853278A521F0061E89B /* CoreDataStore.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* XSEventRawData.swift in Sources */,
+				D23DFBF6278E2C9F003B925F /* SessionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +472,7 @@
 				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
 				D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */,
 				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
+				D23DFBF7278E2C9F003B925F /* SessionDelegate.swift in Sources */,
 				D2DF285E278A9D450061E89B /* XSEventExporter.swift in Sources */,
 				D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */,
 				D256501127890F1A00C79FAE /* XSEvent.swift in Sources */,

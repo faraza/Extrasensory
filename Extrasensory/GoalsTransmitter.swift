@@ -24,5 +24,14 @@ class GoalsTransmitter{
                 print("GoalsTransmitter. Unable to update app context")
             }
         }
-    }    
+        _testTransmitMessage()
+    }
+    
+    static func _testTransmitMessage(){
+        if let unwrapped = WCSessionManager.session{
+            unwrapped.sendMessage(["testMessage" : "Test message from phone to watch"], replyHandler: nil) { (error) in
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
