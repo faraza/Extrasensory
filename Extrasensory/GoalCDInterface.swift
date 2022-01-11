@@ -106,25 +106,21 @@ class GoalCDInterface{
         guard (activeGoals![goalIndex].isActive) else {return}
         
         activeGoals!.sort{$0.activeListPosition < $1.activeListPosition}
-        
-        print("Initial: \(goalIndex) Offset: \(offset)")
 
-        if(goalIndex == (offset - 1) || goalIndex == offset){
-            print("***Clear")
-            reindex()
+        if(goalIndex == (offset - 1) || goalIndex == offset){            
             return
         }
         else if(goalIndex < offset - 1){
             for i in Int(goalIndex) + 1...Int(offset) - 1{
-                activeGoals![Int(i)].activeListPosition -= 1                
+                activeGoals![Int(i)].activeListPosition -= 1
             }
             activeGoals![goalIndex].activeListPosition = Int16(offset - 1)
         }
         else{
-            for i in 0...goalIndex{
-//                activeGoals![Int(i)].activeListPosition += 1// activeGoals![Int(i)].activeListPosition + 1
+            for i in offset...goalIndex{
+                activeGoals![Int(i)].activeListPosition += 1
             }
-//            goal.activeListPosition = Int16(offset)
+            activeGoals![goalIndex].activeListPosition = Int16(offset)
         }
         
         reindex()
