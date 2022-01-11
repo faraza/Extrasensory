@@ -9,20 +9,22 @@ import SwiftUI
 
 struct XSEventLoggerView: View {
     @State var isLapseInProgress = false
+    @State private var selectedGoal: Goal? = nil
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
-    private var events: FetchedResults<XSEvent>
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)],
+                  predicate: NSPredicate(format: "isActive == true"))
+    private var activeGoals: FetchedResults<Goal>
             
     func addEvent(eventType: UrgeFamilyType){
-        guard SelectedGoalModel.shared.goal != nil else{
-            print("Error adding event from iOS loggerView. No goal currently set")
+        guard selectedGoal != nil else{
+            print("ERROR - XSEventLoggerView. Selected goal is nil. Not adding event")
             return
         }
         let newEventEntity = XSEvent(context: managedObjectContext)
         newEventEntity.eventFamily = XSEventFamily.urgeFamily.rawValue
         newEventEntity.urgeFamilyType = eventType.rawValue
         newEventEntity.timestamp = Date()
-        newEventEntity.goalKey = SelectedGoalModel.shared.goal!.identifierKey
+        newEventEntity.goalKey = selectedGoal!.identifierKey
         do {
             try managedObjectContext.save()
             print("XSEventLogger. Saved successfully")
@@ -36,7 +38,12 @@ struct XSEventLoggerView: View {
         NavigationView{
             VStack{                
                 
-                GoalsPicker()
+                GoalsPicker(selectedGoal: $selectedGoal)
+                    .onAppear{
+                        if(activeGoals.count > 0){
+                            selectedGoal = activeGoals[0]
+                        }
+                    }
                 
                 Button(action: {}){
                     Text(UrgeFamilyType.urge.rawValue)

@@ -23,7 +23,7 @@ class GoalCDInterface{
         let newGoalEntity = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
         newGoalEntity.shortName = goalName
         newGoalEntity.longDescription = goalDescription
-        newGoalEntity.identifierKey = String(Int(Date().timeIntervalSince1970) + Int.random(in: 0...1000000000))
+        newGoalEntity.identifierKey = String((Date().timeIntervalSince1970) + Double(Int.random(in: 0...1000000000)))
         newGoalEntity.activeListPosition = Int16(getActiveGoalsLength())
         newGoalEntity.isActive = isActiveGoal
         CoreDataStore.shared.saveContext()

@@ -12,11 +12,11 @@ struct GoalsPicker: View {
                   predicate: NSPredicate(format: "isActive == true"))
     private var goals: FetchedResults<Goal>
     
-    @State private var selectedGoalModel = SelectedGoalModel.shared
+    @Binding var selectedGoal: Goal?
     
     var body: some View {
         
-        Picker("Goal", selection: $selectedGoalModel.goal){
+        Picker("Goal", selection: $selectedGoal){
             ForEach(goals, id: \.self){ goal in
                 Text("\(goal.shortName ?? "NOSHORTNAMESET")")
             }
@@ -25,15 +25,9 @@ struct GoalsPicker: View {
     }
 }
 
-class SelectedGoalModel: ObservableObject{
-    static let shared = SelectedGoalModel()
-    @Published var goal: Goal?
-}
-
 struct GoalsPicker_Previews: PreviewProvider {
-    @StateObject static var goalsModel = GoalsModel()
+    @State static var selectedGoal: Goal? = Goal()
     static var previews: some View {
-        GoalsPicker()
-            .environmentObject(goalsModel)
+        GoalsPicker(selectedGoal: $selectedGoal)
     }
 }
