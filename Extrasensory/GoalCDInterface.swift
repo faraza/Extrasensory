@@ -117,14 +117,10 @@ class GoalCDInterface{
         else if(goalIndex < offset - 1){
             for i in Int(goalIndex) + 1...Int(offset) - 1{
                 activeGoals![Int(i)].activeListPosition -= 1                
-                printContents(goals: activeGoals!)
             }
             activeGoals![goalIndex].activeListPosition = Int16(offset - 1)
-            print("Final")
-            printContents(goals: activeGoals!)
         }
         else{
-            print("***Warning. Other end")
             for i in 0...goalIndex{
 //                activeGoals![Int(i)].activeListPosition += 1// activeGoals![Int(i)].activeListPosition + 1
             }
