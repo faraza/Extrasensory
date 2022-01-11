@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GoalListView: View {
+struct GoalsListView: View {
     @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)],
                   predicate: NSPredicate(format: "isActive == true"))
     private var activeGoals: FetchedResults<Goal>
@@ -104,11 +104,11 @@ struct GoalListView: View {
     }
 }
 
-struct GoalListView_Previews: PreviewProvider {
+struct GoalsListView_Previews: PreviewProvider {
     static let activeGoals = ["Biting Nails", "Browse", "Judgmental Thoughts"]
     static let inactiveGoals = ["Video Games", "Karate"]
     static var previews: some View {
-        GoalListView() //TODO: Get it working with preview list again
+        GoalsListView() //TODO: Get it working with preview list again
         //        GoalListView(_previewActiveGoals: activeGoals, _previewInactiveGoals: inactiveGoals)
     }
 }

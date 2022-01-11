@@ -27,7 +27,7 @@ struct ContentView: View{
                     Image(systemName: "book")
                     Text("Events")
                 }
-            GoalListView()
+            GoalsListView()
                 .tabItem{
                     Image(systemName: "brain.head.profile")
                     Text("Goals")

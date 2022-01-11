@@ -43,9 +43,12 @@ class WCSessionManager: NSObject, WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         DispatchQueue.main.async() {
-            //TODO: process applicationData
-            let nc = NotificationCenter.default
-//            nc.post(name: NSNotification.name(NotificationTypes.goalListReceivedFromPhone.rawValue)) //TODO
+            print("Application Context received.")
+            /*if let goalsList = applicationContext["goal"] as? [GoalRawData]{
+                print("Goals list found: \(goalsList)")
+                let nc = NotificationCenter.default
+                nc.post(name: NSNotification.Name(NotificationTypes.goalsListReceivedFromPhone.rawValue), object: goalsList)
+            } */
         }
     }
     

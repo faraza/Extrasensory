@@ -24,3 +24,22 @@ class GoalRawData: Identifiable, Codable{
         self.activeListPosition = activeListPosition
     }
 }
+
+extension GoalRawData{
+    func encode() -> Data?{
+        let encoder = JSONEncoder()
+        do{
+            let data = try encoder.encode(self)
+            return data
+        }
+        catch{
+            return nil
+        }
+    }        
+}
+
+extension GoalRawData{
+    enum DictionaryKeys: String{
+        case numberOfGoals = "numberOfGoals"
+    }
+}

@@ -150,7 +150,7 @@ extension GoalCDInterface{
                 let rawData = GoalRawData(shortName: goal.shortName ?? "NOSHORTNAME", identifierKey: goal.identifierKey ?? "NOIDKEY", activeListPosition: Int(goal.activeListPosition))
                 rawDataList.append(rawData)
             }
-            GoalsTransmitter.transmitGoalList(goalList: rawDataList)
+            GoalsTransmitter.transmitGoalsList(goalsList: rawDataList)
         }
     }
 }

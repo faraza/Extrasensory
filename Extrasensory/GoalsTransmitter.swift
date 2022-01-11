@@ -8,16 +8,20 @@
 import Foundation
 
 class GoalsTransmitter{
-    static func transmitGoalList(goalList: [GoalRawData]){
-        var appContext: [String: [GoalRawData]] = [:] //TODO: Get this
-        appContext["goals"] = goalList
+    static func transmitGoalsList(goalsList: [GoalRawData]){
+        var appContext: [String: Data?] = [:]
+        appContext[GoalRawData.DictionaryKeys.numberOfGoals.rawValue] = String(goalsList.count).data(using: .utf8)
+        for goal in goalsList{
+            appContext[String(goal.activeListPosition)] = goal.encode()
+        }
         
         if let session = WCSessionManager.session{
             do{
+                print("GoalsTransmitter::sent App context")
                 try session.updateApplicationContext(appContext)
             }
             catch{
-                print("GoalsTransimtter. Unable to update app context")
+                print("GoalsTransmitter. Unable to update app context")
             }
         }
     }    
