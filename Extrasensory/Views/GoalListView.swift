@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalListView: View {
-    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)],
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)],
                   predicate: NSPredicate(format: "isActive == true"))
     private var activeGoals: FetchedResults<Goal>
     
@@ -43,14 +43,12 @@ struct GoalListView: View {
                     Section(header: Text("Active Goals")){
                         ForEach(activeGoals, id: \.self){ goal in
                             NavigationLink(destination: GoalDetailView(existingGoalEntity: goal)){
-                                Text(goal.shortName ?? "NO SHORTNAME")                            }
+                                Text((goal.shortName ?? "NO SHORTNAME") + String(goal.activeListPosition))                                
+                            }
                         }
-                        .onMove{sourceIndexSet, destinationIndex in
+                        .onMove{sourceIndexSet, destinationOffset in
                             for sourceIndex in sourceIndexSet{
-                                if(sourceIndex == destinationIndex) {continue}
-                                let first = activeGoals[sourceIndex]
-                                let second = activeGoals[sourceIndex < destinationIndex ? destinationIndex - 1: destinationIndex]
-                                GoalCDInterface.shared.swapPositionsInActiveList(firstGoal: first, secondGoal: second)
+                                GoalCDInterface.shared.moveGoalToOffset(goalIndex: sourceIndex, offset: destinationOffset)
                             }
                         }
                         .onDelete(){ offsets in

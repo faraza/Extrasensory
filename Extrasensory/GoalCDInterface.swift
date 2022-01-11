@@ -93,15 +93,45 @@ class GoalCDInterface{
         CoreDataStore.shared.saveContext()
     }
     
-    func swapPositionsInActiveList(firstGoal: Goal, secondGoal: Goal){
-        guard (firstGoal.isActive) else {return}
-        guard (secondGoal.isActive) else {return}
+    func printContents(goals: [Goal]){
+        for goal in goals{
+            print("\(goal.shortName) \(goal.activeListPosition)")
+        }
+    }
+    
+    func moveGoalToOffset(goalIndex: Int, offset: Int){
+        var activeGoals = fetchActiveGoals()
+        guard(activeGoals != nil) else {return}
+                
+        guard (activeGoals![goalIndex].isActive) else {return}
         
-        let position1 = firstGoal.activeListPosition
-        let position2 = secondGoal.activeListPosition
+        activeGoals!.sort{$0.activeListPosition < $1.activeListPosition}
         
-        firstGoal.activeListPosition = position2
-        secondGoal.activeListPosition = position1
+        print("Initial: \(goalIndex) Offset: \(offset)")
+
+        if(goalIndex == (offset - 1) || goalIndex == offset){
+            print("***Clear")
+            reindex()
+            return
+        }
+        else if(goalIndex < offset - 1){
+            for i in Int(goalIndex) + 1...Int(offset) - 1{
+                activeGoals![Int(i)].activeListPosition -= 1                
+                printContents(goals: activeGoals!)
+            }
+            activeGoals![goalIndex].activeListPosition = Int16(offset - 1)
+            print("Final")
+            printContents(goals: activeGoals!)
+        }
+        else{
+            print("***Warning. Other end")
+            for i in 0...goalIndex{
+//                activeGoals![Int(i)].activeListPosition += 1// activeGoals![Int(i)].activeListPosition + 1
+            }
+//            goal.activeListPosition = Int16(offset)
+        }
+        
+        reindex()
         CoreDataStore.shared.saveContext()
     }
     
