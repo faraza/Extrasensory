@@ -52,7 +52,7 @@ class GoalCDInterface{
         }
     }
     
-    private func getActiveGoalsLength()->Int{ //TODO: Refactor to follow DRY
+    private func getActiveGoalsLength()->Int{
         let activeGoalList = fetchActiveGoals() ?? []
         return activeGoalList.count
     }
