@@ -8,7 +8,7 @@
 import Foundation
 
 class GoalsTransmitter{
-    private static func transmitGoalList(goalList: [GoalRawData]){
+    static func transmitGoalList(goalList: [GoalRawData]){
         var appContext: [String: [GoalRawData]] = [:] //TODO: Get this
         appContext["goals"] = goalList
         

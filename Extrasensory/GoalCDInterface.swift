@@ -27,34 +27,7 @@ class GoalCDInterface{
         newGoalEntity.activeListPosition = Int16(getActiveGoalsLength())
         newGoalEntity.isActive = isActiveGoal
         CoreDataStore.shared.saveContext()
-    }
-    
-    static func getGoalNameFromKey(goalKey: String? = nil, goalsList: FetchedResults<Goal>)->String{
-        if let unwrappedKey = goalKey{
-            return goalsList.first(where: {
-                $0.identifierKey == unwrappedKey
-            })?.shortName ?? "GOAL NAME NOT FOUND"
-        }
-        
-        return "GOAL NAME NOT FOUND"
-    }
-    
-    private func fetchActiveGoals()->[Goal]?{
-        let fetchAllActiveGoals = Goal.fetchRequest()
-        fetchAllActiveGoals.predicate = NSPredicate(format: "isActive == true")
-        do{
-            let activeGoalsList = try CoreDataStore.shared.persistentContainer.viewContext.fetch(fetchAllActiveGoals)
-            return activeGoalsList
-        }
-        catch{
-            print("Failed to fetch active goals list")
-            return nil
-        }
-    }
-    
-    private func getActiveGoalsLength()->Int{
-        let activeGoalList = fetchActiveGoals() ?? []
-        return activeGoalList.count
+        transmitUpdatedGoalList()
     }
     
     /**
@@ -78,6 +51,7 @@ class GoalCDInterface{
         CoreDataStore.shared.persistentContainer.viewContext.delete(goalEntity)
         reindex()
         CoreDataStore.shared.saveContext()
+        transmitUpdatedGoalList()
         return true
     }
     
@@ -91,6 +65,7 @@ class GoalCDInterface{
         goalEntity.isActive = isActiveGoal
         reindex()
         CoreDataStore.shared.saveContext()
+        transmitUpdatedGoalList()
     }
 
     func moveGoalToOffset(goalIndex: Int, offset: Int){
@@ -119,6 +94,39 @@ class GoalCDInterface{
         
         reindex()
         CoreDataStore.shared.saveContext()
+        transmitUpdatedGoalList()
+    }
+}
+
+extension GoalCDInterface{
+    static func getGoalNameFromKey(goalKey: String? = nil, goalsList: FetchedResults<Goal>)->String{
+        if let unwrappedKey = goalKey{
+            return goalsList.first(where: {
+                $0.identifierKey == unwrappedKey
+            })?.shortName ?? "GOAL NAME NOT FOUND"
+        }
+        
+        return "GOAL NAME NOT FOUND"
+    }
+}
+
+extension GoalCDInterface{
+    private func fetchActiveGoals()->[Goal]?{
+        let fetchAllActiveGoals = Goal.fetchRequest()
+        fetchAllActiveGoals.predicate = NSPredicate(format: "isActive == true")
+        do{
+            let activeGoalsList = try CoreDataStore.shared.persistentContainer.viewContext.fetch(fetchAllActiveGoals)
+            return activeGoalsList
+        }
+        catch{
+            print("Failed to fetch active goals list")
+            return nil
+        }
+    }
+    
+    private func getActiveGoalsLength()->Int{
+        let activeGoalList = fetchActiveGoals() ?? []
+        return activeGoalList.count
     }
     
     private func reindex(){
@@ -135,7 +143,15 @@ class GoalCDInterface{
     
     private func transmitUpdatedGoalList(){
         let activeGoals = fetchActiveGoals()
-        //TODO
+        if var goals = activeGoals{
+            goals.sort{$0.activeListPosition < $1.activeListPosition}
+            var rawDataList: [GoalRawData] = []
+            for goal in goals{
+                let rawData = GoalRawData(shortName: goal.shortName ?? "NOSHORTNAME", identifierKey: goal.identifierKey ?? "NOIDKEY", activeListPosition: Int(goal.activeListPosition))
+                rawDataList.append(rawData)
+            }
+            GoalsTransmitter.transmitGoalList(goalList: rawDataList)
+        }
     }
 }
 
