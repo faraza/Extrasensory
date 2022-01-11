@@ -69,9 +69,20 @@ class GoalCDInterface{
      Goal will not delete if there are events that reference its key
      */
     func deleteGoal(goalEntity: Goal)->Bool{
-        let fetchRequest = XSEvent.fetchRequest()
-        fetchRequest.fetchLimit = 1
-        //TODO: If events reference the goal key, return false
+        do{
+            if let goalKey = goalEntity.identifierKey {
+                let fetchRequest = XSEvent.fetchRequest()
+                fetchRequest.fetchLimit = 1
+                fetchRequest.predicate = NSPredicate(format: "goalKey == %@", goalKey)
+
+                let eventList = try CoreDataStore.shared.persistentContainer.viewContext.fetch(fetchRequest)
+                if (eventList.count > 0){ return false}
+            }
+        }
+        catch{
+            print("Failed to fetch single goal for deletion. Note - this doesn't there were no goals. Just that fetch didn't work.")
+            return false
+        }
         CoreDataStore.shared.persistentContainer.viewContext.delete(goalEntity)
         reindex()
         CoreDataStore.shared.saveContext()

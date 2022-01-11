@@ -69,6 +69,7 @@ struct GoalListView: View {
                         .onDelete(){ offsets in
                             for offset in offsets{
                                 let goalToDelete = inactiveGoals[offset]
+                                //TODO
                                 let _ = GoalCDInterface.shared.deleteGoal(goalEntity: goalToDelete)
                             }
                         }
