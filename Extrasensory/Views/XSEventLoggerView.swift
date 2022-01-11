@@ -41,7 +41,9 @@ struct XSEventLoggerView: View {
                 GoalsPicker(selectedGoal: $selectedGoal)
                     .onAppear{
                         if(activeGoals.count > 0){
-                            selectedGoal = activeGoals[0]
+                            if(selectedGoal == nil){
+                                selectedGoal = activeGoals[0]
+                            }
                         }
                         else{
                             selectedGoal = nil
