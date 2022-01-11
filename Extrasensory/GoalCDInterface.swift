@@ -95,6 +95,8 @@ class GoalCDInterface{
     private func reindex(){
         let activeGoals = fetchActiveGoals()
         if var unwrapped = activeGoals{
+            guard unwrapped.count > 0 else{return}
+            
             unwrapped.sort{$0.activeListPosition < $1.activeListPosition}
             for i in 0 ... (unwrapped.count - 1){
                 unwrapped[i].activeListPosition = Int16(i)
