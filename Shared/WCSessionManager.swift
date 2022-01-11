@@ -24,7 +24,6 @@ class WCSessionManager: NSObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("Message receive start")
         DispatchQueue.main.async {
             
             if let encodedEvent = message["event"] as? Data{
@@ -41,7 +40,15 @@ class WCSessionManager: NSObject, WCSessionDelegate {
             }
         }
     }
-        
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        DispatchQueue.main.async() {
+            //TODO: process applicationData
+            let nc = NotificationCenter.default
+//            nc.post(name: NSNotification.name(NotificationTypes.goalListReceivedFromPhone.rawValue)) //TODO
+        }
+    }
+    
     
 #if os(iOS)
     func sessionDidBecomeInactive(_ session: WCSession) {

@@ -13,6 +13,10 @@
 		D21E74B82785434200CA217F /* GoalsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B72785434200CA217F /* GoalsPicker.swift */; };
 		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
 		D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE6278BF419003B925F /* GoalCDInterface.swift */; };
+		D23DFBEA278D3C16003B925F /* GoalsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */; };
+		D23DFBEB278D3C16003B925F /* GoalsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */; };
+		D23DFBED278D41D0003B925F /* GoalRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBEC278D41D0003B925F /* GoalRawData.swift */; };
+		D23DFBEE278D41D0003B925F /* GoalRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBEC278D41D0003B925F /* GoalRawData.swift */; };
 		D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
 		D256500827890A6100C79FAE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D256500527890A6100C79FAE /* Model.xcdatamodeld */; };
 		D256501027890F1A00C79FAE /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEvent.swift */; };
@@ -102,6 +106,8 @@
 		D21E74BB2786959000CA217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D221147F2783A85800859B53 /* XSEventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventDetailsView.swift; sourceTree = "<group>"; };
 		D23DFBE6278BF419003B925F /* GoalCDInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCDInterface.swift; sourceTree = "<group>"; };
+		D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTransmitter.swift; sourceTree = "<group>"; };
+		D23DFBEC278D41D0003B925F /* GoalRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalRawData.swift; sourceTree = "<group>"; };
 		D256500627890A6100C79FAE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D256500F27890F1A00C79FAE /* XSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEvent.swift; sourceTree = "<group>"; };
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +212,7 @@
 				D221147E2783A82100859B53 /* Views */,
 				D2B0A436277EB17600ED1CBA /* Assets.xcassets */,
 				D2B0A438277EB17600ED1CBA /* Preview Content */,
+				D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */,
 			);
 			path = Extrasensory;
 			sourceTree = "<group>";
@@ -261,6 +268,7 @@
 				D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */,
 				D256500F27890F1A00C79FAE /* XSEvent.swift */,
 				D2DF2859278A7B490061E89B /* XSEventEnums.swift */,
+				D23DFBEC278D41D0003B925F /* GoalRawData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -437,10 +445,12 @@
 				D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */,
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A475277EB94200ED1CBA /* XSEventCardView.swift in Sources */,
+				D23DFBEA278D3C16003B925F /* GoalsTransmitter.swift in Sources */,
 				D2B28D2A278140F80076EAC8 /* WCSessionManager.swift in Sources */,
 				D2DF285A278A7B490061E89B /* XSEventEnums.swift in Sources */,
 				D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */,
 				D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */,
+				D23DFBED278D41D0003B925F /* GoalRawData.swift in Sources */,
 				D256501027890F1A00C79FAE /* XSEvent.swift in Sources */,
 				D2DF2853278A521F0061E89B /* CoreDataStore.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* XSEventRawData.swift in Sources */,
@@ -461,6 +471,7 @@
 				D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */,
 				D256501127890F1A00C79FAE /* XSEvent.swift in Sources */,
 				D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */,
+				D23DFBEB278D3C16003B925F /* GoalsTransmitter.swift in Sources */,
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,
 				D2B0A454277EB17600ED1CBA /* NotificationView.swift in Sources */,
 				D256500827890A6100C79FAE /* Model.xcdatamodeld in Sources */,
@@ -469,6 +480,7 @@
 				D2DF285B278A7B490061E89B /* XSEventEnums.swift in Sources */,
 				D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */,
 				D2B28D2527813A200076EAC8 /* WCSessionManager.swift in Sources */,
+				D23DFBEE278D41D0003B925F /* GoalRawData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
