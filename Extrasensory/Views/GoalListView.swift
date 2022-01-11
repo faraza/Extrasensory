@@ -43,7 +43,7 @@ struct GoalListView: View {
                     Section(header: Text("Active Goals")){
                         ForEach(activeGoals, id: \.self){ goal in
                             NavigationLink(destination: GoalDetailView(existingGoalEntity: goal)){
-                                Text((goal.shortName ?? "NO SHORTNAME") + String(goal.activeListPosition))                                
+                                Text(goal.shortName ?? "NO SHORTNAME")                                
                             }
                         }
                         .onMove{sourceIndexSet, destinationOffset in
