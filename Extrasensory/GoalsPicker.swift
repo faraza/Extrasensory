@@ -18,7 +18,7 @@ struct GoalsPicker: View {
         
         Picker("Goal", selection: $selectedGoal){
             ForEach(goals, id: \.self){ goal in
-                Text("\(goal.shortName ?? "NOSHORTNAMESET")")
+                Text("\(goal.shortName ?? "NOSHORTNAMESET")").tag(goal as Goal?)
             }
         }
         .pickerStyle(.wheel)

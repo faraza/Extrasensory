@@ -43,6 +43,9 @@ struct XSEventLoggerView: View {
                         if(activeGoals.count > 0){
                             selectedGoal = activeGoals[0]
                         }
+                        else{
+                            selectedGoal = nil
+                        }
                     }
                 
                 Button(action: {}){
