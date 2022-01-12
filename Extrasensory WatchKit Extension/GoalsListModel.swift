@@ -12,14 +12,14 @@ import Foundation
  Listens for updates from the network and updates the list accordingly
  */
 class GoalsListModel: ObservableObject{
-    @Published var currentGoal: GoalRawData?
     @Published var goalsList: [GoalRawData] = []
+    static var currentlySelectedGoal: GoalRawData?
     
     init(){
         goalsList = GoalsListModel.sampleGoalsList //TODO
         guard goalsList.count > 0 else{return}
         
-        currentGoal = goalsList[0]
+        GoalsListModel.currentlySelectedGoal = goalsList[0]
 
         //        let nc = NotificationCenter.default
 //        nc.addObserver(self, selector: #selector(xsEventAddedFromWatch(notification:)), name: Notification.Name(NotificationTypes.xsEventReceivedFromWatch.rawValue), object: nil)

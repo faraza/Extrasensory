@@ -9,12 +9,13 @@ import SwiftUI
 
 struct GoalsPicker: View {
     @EnvironmentObject var goalsModel: GoalsListModel
+    @State var currentGoal: GoalRawData?
     
     
     var body: some View {
         let goalsList = goalsModel.goalsList //TODO: If picker doesn't update when goalsList changes, this is why
 
-        Picker("", selection: $goalsModel.currentGoal){
+        Picker("", selection: $currentGoal){
             ForEach(goalsList, id: \.self){ goal in
                 Text("\(goal.shortName)")
             }
