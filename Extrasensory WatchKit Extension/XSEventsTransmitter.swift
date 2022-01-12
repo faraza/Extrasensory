@@ -10,16 +10,7 @@ import Foundation
 class XSEventsTransmitter {
     
     
-    private static func transmitEvent(event: XSEventRawData){
-        if let unwrapped = WCSessionWatchManager.session{
-            print("EventTransmitter::_testTransmitMessage")
-            unwrapped.sendMessage(["testMessage" : "Test message from phone to watch"], replyHandler: nil) { (error) in
-                print(error.localizedDescription)
-            }
-        }
-        return
-        
-        
+    private static func transmitEvent(event: XSEventRawData){        
         let encodedEvent = event.encode()
         guard encodedEvent != nil else{
             print("Failed to encode event.")
