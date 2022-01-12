@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalPicker: View {
-    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)],
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)],
                   predicate: NSPredicate(format: "isActive == true"))
     private var goals: FetchedResults<Goal>
     

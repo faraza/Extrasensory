@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    var session = WCSessionWatchManager()
     
     @StateObject var goalsModel = GoalsModel()
     
