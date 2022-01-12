@@ -17,8 +17,8 @@ class GoalsTransmitter{
         
         if let session = WCSessionPhoneManager.session{
             do{
-//                print("GoalsTransmitter::sent App context")
-//                try session.updateApplicationContext(appContext)
+                print("GoalsTransmitter::sent App context")
+                try session.updateApplicationContext(appContext)
 //                _testTransmitMessage()
             }
             catch{

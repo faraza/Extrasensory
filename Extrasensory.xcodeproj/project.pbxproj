@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D21E74B127851D5000CA217F /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A481278009F100ED1CBA /* GoalsModel.swift */; };
 		D21E74B327851E9100CA217F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B227851E9100CA217F /* ContentView.swift */; };
 		D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B42785240E00CA217F /* XSEventLoggerView.swift */; };
 		D21E74B82785434200CA217F /* GoalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B72785434200CA217F /* GoalPicker.swift */; };
+		D220B91C278F6FDC00223BDB /* GoalsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220B91B278F6FDC00223BDB /* GoalsListModel.swift */; };
 		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
 		D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE6278BF419003B925F /* GoalCDInterface.swift */; };
 		D23DFBEA278D3C16003B925F /* GoalsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */; };
@@ -42,7 +42,6 @@
 		D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A476277FFA5200ED1CBA /* UrgeView.swift */; };
 		D2B0A479277FFACC00ED1CBA /* MoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */; };
 		D2B0A47D278004E000ED1CBA /* GoalsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A47C278004E000ED1CBA /* GoalsPicker.swift */; };
-		D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A481278009F100ED1CBA /* GoalsModel.swift */; };
 		D2B0A48427801AD600ED1CBA /* XSEventsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */; };
 		D2B28D2A278140F80076EAC8 /* WCSessionPhoneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B28D2427813A200076EAC8 /* WCSessionPhoneManager.swift */; };
 		D2DF0BFA27823E4000AE6D99 /* XSEventRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A46E277EB2E400ED1CBA /* XSEventRawData.swift */; };
@@ -105,6 +104,7 @@
 		D21E74B42785240E00CA217F /* XSEventLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventLoggerView.swift; sourceTree = "<group>"; };
 		D21E74B72785434200CA217F /* GoalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalPicker.swift; sourceTree = "<group>"; };
 		D21E74BB2786959000CA217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D220B91B278F6FDC00223BDB /* GoalsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListModel.swift; sourceTree = "<group>"; };
 		D221147F2783A85800859B53 /* XSEventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventDetailsView.swift; sourceTree = "<group>"; };
 		D23DFBE6278BF419003B925F /* GoalCDInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCDInterface.swift; sourceTree = "<group>"; };
 		D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTransmitter.swift; sourceTree = "<group>"; };
@@ -135,7 +135,6 @@
 		D2B0A476277FFA5200ED1CBA /* UrgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrgeView.swift; sourceTree = "<group>"; };
 		D2B0A478277FFACC00ED1CBA /* MoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButtonsView.swift; sourceTree = "<group>"; };
 		D2B0A47C278004E000ED1CBA /* GoalsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsPicker.swift; sourceTree = "<group>"; };
-		D2B0A481278009F100ED1CBA /* GoalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsModel.swift; sourceTree = "<group>"; };
 		D2B0A48327801AD600ED1CBA /* XSEventsTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventsTransmitter.swift; sourceTree = "<group>"; };
 		D2B28D2427813A200076EAC8 /* WCSessionPhoneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WCSessionPhoneManager.swift; path = Extrasensory/WCSessionPhoneManager.swift; sourceTree = SOURCE_ROOT; };
 		D2B28D2727813DF80076EAC8 /* Extrasensory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extrasensory.entitlements; sourceTree = "<group>"; };
@@ -252,6 +251,7 @@
 				D2B0A45C277EB17700ED1CBA /* Info.plist */,
 				D2B0A45D277EB17700ED1CBA /* PushNotificationPayload.apns */,
 				D2B0A459277EB17700ED1CBA /* Preview Content */,
+				D220B91B278F6FDC00223BDB /* GoalsListModel.swift */,
 			);
 			path = "Extrasensory WatchKit Extension";
 			sourceTree = "<group>";
@@ -268,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				D2DF285C278A98A40061E89B /* XSEventExporter.swift */,
-				D2B0A481278009F100ED1CBA /* GoalsModel.swift */,
 				D2B0A46E277EB2E400ED1CBA /* XSEventRawData.swift */,
 				D2DF0BFF27828F0000AE6D99 /* NotificationTypes.swift */,
 				D256500F27890F1A00C79FAE /* XSEvent.swift */,
@@ -443,7 +442,6 @@
 				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
 				D2DF285D278A98A40061E89B /* XSEventExporter.swift in Sources */,
 				D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */,
-				D21E74B127851D5000CA217F /* GoalsModel.swift in Sources */,
 				D2DF286A278BC8400061E89B /* GoalDetailView.swift in Sources */,
 				D21E74B82785434200CA217F /* GoalPicker.swift in Sources */,
 				D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */,
@@ -470,12 +468,12 @@
 				D2DF2854278A52300061E89B /* CoreDataStore.swift in Sources */,
 				D2B0A47D278004E000ED1CBA /* GoalsPicker.swift in Sources */,
 				D2B0A48427801AD600ED1CBA /* XSEventsTransmitter.swift in Sources */,
+				D220B91C278F6FDC00223BDB /* GoalsListModel.swift in Sources */,
 				D2B0A452277EB17600ED1CBA /* NotificationController.swift in Sources */,
 				D2B0A450277EB17600ED1CBA /* ContentView.swift in Sources */,
 				D2B0A456277EB17600ED1CBA /* ComplicationController.swift in Sources */,
 				D23DFBF7278E2C9F003B925F /* SessionDelegate.swift in Sources */,
 				D2DF285E278A9D450061E89B /* XSEventExporter.swift in Sources */,
-				D2B0A482278009F100ED1CBA /* GoalsModel.swift in Sources */,
 				D256501127890F1A00C79FAE /* XSEvent.swift in Sources */,
 				D2B0A477277FFA5200ED1CBA /* UrgeView.swift in Sources */,
 				D2B0A44E277EB17600ED1CBA /* ExtrasensoryApp.swift in Sources */,

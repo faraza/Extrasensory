@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UrgeView: View {
-    @EnvironmentObject var goalsModel: GoalsModel
+    @EnvironmentObject var goalsModel: GoalsListModel
     var body: some View {
         VStack{
             GoalsPicker()                
@@ -21,10 +21,14 @@ struct UrgeView: View {
                     .padding(.vertical, 40) //TODO: Don't hardcode the number - make it a % of screen size
             }
             .simultaneousGesture(LongPressGesture().onEnded { _ in
-                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .dangerZone)
+                if let currentGoal = goalsModel.currentGoal{
+                    XSEventsTransmitter.eventButtonPressed(currentGoal: currentGoal.identifierKey, eventType: .dangerZone)
+                }
             })
             .simultaneousGesture(TapGesture().onEnded {
-                XSEventsTransmitter.eventButtonPressed(currentGoal: goalsModel.currentGoal, eventType: .urge)
+                if let currentGoal = goalsModel.currentGoal{
+                    XSEventsTransmitter.eventButtonPressed(currentGoal: currentGoal.identifierKey, eventType: .urge)
+                }
             })
             
         }
@@ -32,7 +36,7 @@ struct UrgeView: View {
 }
 
 struct UrgeView_Previews: PreviewProvider {
-    @StateObject static var goalsModel = GoalsModel()
+    @StateObject static var goalsModel = GoalsListModel()
 
     static var previews: some View {
         UrgeView()

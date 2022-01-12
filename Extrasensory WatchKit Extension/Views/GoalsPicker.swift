@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalsPicker: View {
-    @EnvironmentObject var goalsModel: GoalsModel
+    @EnvironmentObject var goalsModel: GoalsListModel
     
     
     var body: some View {
@@ -16,7 +16,7 @@ struct GoalsPicker: View {
 
         Picker("", selection: $goalsModel.currentGoal){
             ForEach(goalsList, id: \.self){ goal in
-                Text("\(goal)")
+                Text("\(goal.shortName)")
             }
         }
         .frame(height: 50)        
@@ -24,7 +24,7 @@ struct GoalsPicker: View {
 }
 
 struct GoalsPicker_Previews: PreviewProvider {
-    @StateObject static var goalsModel = GoalsModel()
+    @StateObject static var goalsModel = GoalsListModel()
     static var previews: some View {
             GoalsPicker()
                 .environmentObject(goalsModel)

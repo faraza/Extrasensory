@@ -16,7 +16,6 @@ class SessionDelegate: NSObject, WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         DispatchQueue.main.async {
-            print("WCSessionManager. Message received: \(message)")
             if let encodedEvent = message["event"] as? Data{
                 do{
                     let decoder = JSONDecoder()
@@ -36,11 +35,11 @@ class SessionDelegate: NSObject, WCSessionDelegate {
         print("Application Context received. Outer")
         DispatchQueue.main.async() {
             print("Application Context received. Async")
-            /*if let goalsList = applicationContext["goal"] as? [GoalRawData]{
+            if let goalsList = applicationContext["goal"] as? [GoalRawData]{
                 print("Goals list found: \(goalsList)")
                 let nc = NotificationCenter.default
                 nc.post(name: NSNotification.Name(NotificationTypes.goalsListReceivedFromPhone.rawValue), object: goalsList)
-            } */
+            }
         }
     }
     

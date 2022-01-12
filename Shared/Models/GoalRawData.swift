@@ -11,7 +11,7 @@ import Foundation
  Codable version of the entity to be transmitted to the watch.
  Not asking if isActive because they should all be active
  */
-class GoalRawData: Identifiable, Codable{
+class GoalRawData: Identifiable, Codable, Hashable{
     let id: UUID
     let shortName: String
     let identifierKey: String
@@ -36,6 +36,16 @@ extension GoalRawData{
             return nil
         }
     }        
+}
+
+extension GoalRawData{
+    static func == (first: GoalRawData, second: GoalRawData) -> Bool{
+        return (first.id == second.id)
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 extension GoalRawData{
