@@ -12,6 +12,7 @@
 		D21E74B82785434200CA217F /* GoalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B72785434200CA217F /* GoalPicker.swift */; };
 		D220B91C278F6FDC00223BDB /* GoalsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220B91B278F6FDC00223BDB /* GoalsListModel.swift */; };
 		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
+		D234A8B7278FE72500223F61 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234A8B6278FE72500223F61 /* ChartsView.swift */; };
 		D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE6278BF419003B925F /* GoalCDInterface.swift */; };
 		D23DFBEA278D3C16003B925F /* GoalsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */; };
 		D23DFBED278D41D0003B925F /* GoalRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBEC278D41D0003B925F /* GoalRawData.swift */; };
@@ -23,6 +24,7 @@
 		D256501027890F1A00C79FAE /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEvent.swift */; };
 		D256501127890F1A00C79FAE /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEvent.swift */; };
 		D298FAA4278E320000578FEF /* WCSessionWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298FAA3278E320000578FEF /* WCSessionWatchManager.swift */; };
+		D2AC7E9B2790DA240006D3C8 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = D2AC7E9A2790DA240006D3C8 /* Charts */; };
 		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
 		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
 		D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */; };
@@ -106,6 +108,7 @@
 		D21E74BB2786959000CA217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D220B91B278F6FDC00223BDB /* GoalsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListModel.swift; sourceTree = "<group>"; };
 		D221147F2783A85800859B53 /* XSEventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventDetailsView.swift; sourceTree = "<group>"; };
+		D234A8B6278FE72500223F61 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		D23DFBE6278BF419003B925F /* GoalCDInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCDInterface.swift; sourceTree = "<group>"; };
 		D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTransmitter.swift; sourceTree = "<group>"; };
 		D23DFBEC278D41D0003B925F /* GoalRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalRawData.swift; sourceTree = "<group>"; };
@@ -153,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2AC7E9B2790DA240006D3C8 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +173,7 @@
 		D221147E2783A82100859B53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2AC7E9C2790DAC60006D3C8 /* ChartsView */,
 				D2B0A470277EB33A00ED1CBA /* XSEventsListView.swift */,
 				D2B0A474277EB94200ED1CBA /* XSEventCardView.swift */,
 				D221147F2783A85800859B53 /* XSEventDetailsView.swift */,
@@ -178,6 +183,14 @@
 				D2DF286B278BC8510061E89B /* Goals */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D2AC7E9C2790DAC60006D3C8 /* ChartsView */ = {
+			isa = PBXGroup;
+			children = (
+				D234A8B6278FE72500223F61 /* ChartsView.swift */,
+			);
+			path = ChartsView;
 			sourceTree = "<group>";
 		};
 		D2B0A426277EB17400ED1CBA = {
@@ -324,6 +337,9 @@
 				D2B0A440277EB17600ED1CBA /* PBXTargetDependency */,
 			);
 			name = Extrasensory;
+			packageProductDependencies = (
+				D2AC7E9A2790DA240006D3C8 /* Charts */,
+			);
 			productName = Extrasensory;
 			productReference = D2B0A42F277EB17400ED1CBA /* Extrasensory.app */;
 			productType = "com.apple.product-type.application";
@@ -392,6 +408,9 @@
 				Base,
 			);
 			mainGroup = D2B0A426277EB17400ED1CBA;
+			packageReferences = (
+				D2AC7E992790DA240006D3C8 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = D2B0A430277EB17400ED1CBA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -458,6 +477,7 @@
 				D2DF2853278A521F0061E89B /* CoreDataStore.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* XSEventRawData.swift in Sources */,
 				D23DFBF6278E2C9F003B925F /* SessionDelegate.swift in Sources */,
+				D234A8B7278FE72500223F61 /* ChartsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,6 +866,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D2AC7E992790DA240006D3C8 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D2AC7E9A2790DA240006D3C8 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2AC7E992790DA240006D3C8 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D256500527890A6100C79FAE /* Model.xcdatamodeld */ = {

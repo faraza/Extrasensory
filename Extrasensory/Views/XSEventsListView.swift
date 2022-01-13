@@ -10,14 +10,31 @@ import SwiftUI
 struct XSEventsListView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
-    private var events: FetchedResults<XSEvent>    
+    private var events: FetchedResults<XSEvent>
+    @State private var showingAlert = false
     
     var _previewEvents: [XSEvent]? = nil
         
     var body: some View {
+        if #available(iOS 15.0, *) {
+            NavWrappedEventsList
+                .navigationViewStyle(StackNavigationViewStyle())
+                .alert("Exported to Files as a .json", isPresented: $showingAlert){
+                    Button("OK", role: .cancel){}
+                }
+        } else {
+            NavWrappedEventsList
+                .navigationViewStyle(StackNavigationViewStyle())                
+        }
+            
+    }
+}
+
+extension XSEventsListView{
+    private var NavWrappedEventsList: some View{
         let groupedEvents = _previewEvents == nil ? XSEvent.groupEventsByDate(events: events) : XSEvent.groupEventsByDate(events: _previewEvents!)
         
-        NavigationView{
+        return NavigationView{
             List{
                 ForEach(groupedEvents){ group in
                     Section(header: Text(group.groupDate)){
@@ -32,7 +49,7 @@ struct XSEventsListView: View {
                                 managedObjectContext.delete(eventToDelete)
                                 CoreDataStore.shared.saveContext()
                             }
-                        }                        
+                        }
                     }
                 }
             }
@@ -41,11 +58,11 @@ struct XSEventsListView: View {
                 ToolbarItemGroup(placement: .primaryAction){
                     Button("Export"){
                         CoreDataStore.shared.exportToJSON()
+                        showingAlert = true
                     }
                 }
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
-            
+        }
     }
 }
 
