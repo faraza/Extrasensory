@@ -16,7 +16,12 @@ struct ContentView: View {
             UrgeView()
             MoreButtonsView()
         }.environmentObject(goalsModel)
-        
+            .onAppear{
+                if let unwrapped = WCSessionWatchManager.session{
+                    unwrapped.sendMessage([SessionDelegate.MessageKeys.requestAppContext.rawValue : true], replyHandler: nil) { (error) in
+                    }
+                }
+            }        
     }
 }
 

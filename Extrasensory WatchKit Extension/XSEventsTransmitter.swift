@@ -19,7 +19,7 @@ class XSEventsTransmitter {
         }
 
         if let unwrapped = WCSessionWatchManager.session{
-            unwrapped.sendMessage(["event" : encodedEvent!], replyHandler: nil) { (error) in
+            unwrapped.sendMessage([SessionDelegate.MessageKeys.event.rawValue : encodedEvent!], replyHandler: nil) { (error) in
                 print(error.localizedDescription)
             }
         }

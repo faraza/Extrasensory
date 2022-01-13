@@ -17,7 +17,11 @@ import SwiftUI
  Core data doesn't cleanly support this out of the box, so we have an index variable that gets recalculated for everyone once the list is updated.
  */
 class GoalCDInterface{
-    static let shared = GoalCDInterface()    
+    static let shared = GoalCDInterface()
+    
+    init(){
+        transmitUpdatedGoalList()
+    }
     
     func addGoal(goalName: String, goalDescription: String = "", isActiveGoal: Bool){
         let newGoalEntity = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
@@ -141,7 +145,7 @@ extension GoalCDInterface{
         }
     }
     
-    private func transmitUpdatedGoalList(){
+    func transmitUpdatedGoalList(){
         let activeGoals = fetchActiveGoals()
         if var goals = activeGoals{
             goals.sort{$0.activeListPosition < $1.activeListPosition}

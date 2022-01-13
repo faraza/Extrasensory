@@ -29,6 +29,12 @@ struct UrgeView: View {
                 if let currentGoal = GoalsListModel.currentUrgeGoal{
                     XSEventsTransmitter.eventButtonPressed(currentGoal: currentGoal.identifierKey, eventType: .urge)
                 }
+                else{
+                    if let unwrapped = WCSessionWatchManager.session{
+                        unwrapped.sendMessage([SessionDelegate.MessageKeys.requestAppContext.rawValue : true], replyHandler: nil) { (error) in
+                        }
+                    }
+                }
             })
             
         }

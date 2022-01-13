@@ -21,6 +21,9 @@ class WCSessionWatchManager: NSObject{
             unwrapped.delegate = WCSessionWatchManager.delegate
             unwrapped.activate()
             print("Watch session manager activated successfully")
+            unwrapped.sendMessage([SessionDelegate.MessageKeys.requestAppContext.rawValue : true], replyHandler: nil) { (error) in
+//                print(error.localizedDescription)
+            }
         }
     }
 }
