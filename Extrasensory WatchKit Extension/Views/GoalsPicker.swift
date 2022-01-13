@@ -10,7 +10,8 @@ import SwiftUI
 struct GoalsPicker: View {
     @EnvironmentObject var goalsModel: GoalsListModel
     @State var currentGoal = ""
-    var isUrgePicker = false
+    //If it's not urgePicker, then it's lapse picker
+    var isUrgePicker: Bool
     
     
     var body: some View {
@@ -23,7 +24,7 @@ struct GoalsPicker: View {
             }
         }
         .onChange(of: currentGoal, perform: {newGoal in
-            print("Goal changed: \(newGoal)")
+            goalsModel.setSelectedGoalFromName(goalName: currentGoal, fromUrgeView: isUrgePicker)
         })
         .frame(height: 50)        
     }
@@ -32,7 +33,7 @@ struct GoalsPicker: View {
 struct GoalsPicker_Previews: PreviewProvider {
     @StateObject static var goalsModel = GoalsListModel()
     static var previews: some View {
-            GoalsPicker()
+            GoalsPicker(isUrgePicker: false)
                 .environmentObject(goalsModel)
     }
 }

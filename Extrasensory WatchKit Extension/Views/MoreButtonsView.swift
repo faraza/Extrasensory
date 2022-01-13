@@ -13,7 +13,7 @@ struct MoreButtonsView: View {
     
     var body: some View {
         VStack{
-            GoalsPicker()
+            GoalsPicker(isUrgePicker: false)
             Button(action:{
             }){
                 Text("Lapse")

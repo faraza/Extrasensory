@@ -11,7 +11,7 @@ struct UrgeView: View {
     @EnvironmentObject var goalsModel: GoalsListModel
     var body: some View {
         VStack{
-            GoalsPicker()                
+            GoalsPicker(isUrgePicker: true)                
             
             Button(action: {
             }){
