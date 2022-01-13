@@ -37,8 +37,8 @@ struct GroupedBarChart: UIViewRepresentable {
         let dataSets:[BarChartDataSet] = [dataSetIn,dataSetOut]
         let chartData = BarChartData(dataSets: dataSets)
         barChart.data = chartData
-        formatDataSet(dataSet: dataSetIn, label: "Purchased", color: .red)
-        formatDataSet(dataSet: dataSetOut, label: "Consumed", color: .blue)
+        formatDataSet(dataSet: dataSetIn, label: "Urges", color: .yellow)
+        formatDataSet(dataSet: dataSetOut, label: "Lapes", color: .red)
         let gw = formatChartDataReturnGroupWidth(chartData: chartData)
         formatXAxis(xAxis: barChart.xAxis, groupWidth: gw)
     }
@@ -48,7 +48,7 @@ struct GroupedBarChart: UIViewRepresentable {
         dataSet.highlightAlpha = 0.2
         dataSet.colors = [color]
         let format = NumberFormatter()
-        dataSet.valueColors = [color]
+        dataSet.valueColors = [.black]
         format.numberStyle = .none
         dataSet.valueFormatter = DefaultValueFormatter(formatter: format)
     }
@@ -127,6 +127,6 @@ struct GroupedBarChart_Previews: PreviewProvider {
                                                                    itemType: .itemIn),
                         entriesOut: Transaction.transactionsForYear(2019,
                                                                     transactions: Transaction.allTransactions,
-                                                                    itemType: .itemOut))
+                                                                    itemType: .itemIn))
     }
 }

@@ -9,7 +9,7 @@ import Charts
 import SwiftUI
 
 struct BarChart : UIViewRepresentable {
-    @Binding var selectedItem: Transaction
+    @Binding var selectedItem: BarChartEvent
     var entries : [BarChartDataEntry]
     let barChart = BarChartView()
     func makeUIView(context: Context) -> BarChartView {
@@ -34,9 +34,9 @@ struct BarChart : UIViewRepresentable {
     }
     
     func formatDataSet(dataSet: BarChartDataSet) {
-        dataSet.label = "Wine Consumption"
+        dataSet.label = "Urges"
         dataSet.highlightAlpha = 0.2
-        dataSet.colors = [.red]
+        dataSet.colors = [.systemYellow]
         let format = NumberFormatter()
         format.numberStyle = .none
         dataSet.valueFormatter = DefaultValueFormatter(formatter: format)
@@ -47,9 +47,9 @@ struct BarChart : UIViewRepresentable {
         barChart.rightAxis.enabled = false
         barChart.setScaleEnabled(false)
         if barChart.scaleX == 1.0 {
-            barChart.zoom(scaleX: 1.5, scaleY: 1, x: 0, y: 0)
+            barChart.zoom(scaleX: 0.5, scaleY: 1, x: 0, y: 0)
         }
-        if selectedItem.month == -1 {
+        if selectedItem.hoursPassedSince8AM == -1 {
             barChart.animate(xAxisDuration: 0, yAxisDuration: 0.5, easingOption: .linear)
             barChart.highlightValue(nil, callDelegate: false)
         }
@@ -58,8 +58,8 @@ struct BarChart : UIViewRepresentable {
 
     func formatXAxis(xAxis: XAxis) {
         xAxis.labelPosition = .bottom
-        xAxis.valueFormatter = IndexAxisValueFormatter(values:Transaction.monthArray)
-        xAxis.labelTextColor =  .red
+        xAxis.valueFormatter = IndexAxisValueFormatter(values:BarChartEvent.getHoursArray())
+        xAxis.labelTextColor =  .black
     }
 
     func formatLeftAxis(leftAxis:YAxis) {
@@ -67,11 +67,11 @@ struct BarChart : UIViewRepresentable {
         leftAxisFormatter.numberStyle = .none
         leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
         leftAxis.axisMinimum = 0
-        leftAxis.labelTextColor =  .red
+        leftAxis.labelTextColor =  .black
     }
 
     func formatLegend(legend: Legend) {
-        legend.textColor = UIColor.red
+        legend.textColor = UIColor.black
         legend.horizontalAlignment = .right
         legend.verticalAlignment = .top
         legend.drawInside = true
@@ -84,8 +84,8 @@ struct BarChart : UIViewRepresentable {
             self.parent = parent
         }
         func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-            parent.selectedItem.month = entry.x
-            parent.selectedItem.quantity = entry.y
+            parent.selectedItem.hoursPassedSince8AM = Int(entry.x)
+            parent.selectedItem.numberOfEvents = Int(entry.y)
         }
     }
 
@@ -97,8 +97,7 @@ struct BarChart : UIViewRepresentable {
 
 struct BarChart_Previews: PreviewProvider {
     static var previews: some View {
-        BarChart(selectedItem: .constant(Transaction.selectedItem),
-                 entries: Transaction.transactionsForYear(2019,
-                                                          transactions: Transaction.allTransactions))
+        BarChart(selectedItem: .constant(BarChartEvent.selectedItem),
+                 entries: BarChartEvent.getSampleEventsAsDataEntry())
     }
 }
