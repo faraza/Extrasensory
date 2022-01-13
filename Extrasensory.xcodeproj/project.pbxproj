@@ -25,6 +25,14 @@
 		D256501127890F1A00C79FAE /* XSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256500F27890F1A00C79FAE /* XSEvent.swift */; };
 		D298FAA4278E320000578FEF /* WCSessionWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298FAA3278E320000578FEF /* WCSessionWatchManager.swift */; };
 		D2AC7E9B2790DA240006D3C8 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = D2AC7E9A2790DA240006D3C8 /* Charts */; };
+		D2AC7EA52790DE9D0006D3C8 /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7E9D2790DE9D0006D3C8 /* Wine.swift */; };
+		D2AC7EA62790DE9D0006D3C8 /* CombinedChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7E9E2790DE9D0006D3C8 /* CombinedChart.swift */; };
+		D2AC7EA72790DE9D0006D3C8 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7E9F2790DE9D0006D3C8 /* Transactions.swift */; };
+		D2AC7EA82790DE9D0006D3C8 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EA02790DE9D0006D3C8 /* PieChart.swift */; };
+		D2AC7EA92790DE9D0006D3C8 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EA12790DE9D0006D3C8 /* BarChart.swift */; };
+		D2AC7EAA2790DE9D0006D3C8 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EA22790DE9D0006D3C8 /* Sale.swift */; };
+		D2AC7EAB2790DE9D0006D3C8 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EA32790DE9D0006D3C8 /* LineChart.swift */; };
+		D2AC7EAC2790DE9D0006D3C8 /* GroupedBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EA42790DE9D0006D3C8 /* GroupedBarChart.swift */; };
 		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
 		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
 		D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */; };
@@ -116,6 +124,14 @@
 		D256500627890A6100C79FAE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D256500F27890F1A00C79FAE /* XSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEvent.swift; sourceTree = "<group>"; };
 		D298FAA3278E320000578FEF /* WCSessionWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionWatchManager.swift; sourceTree = "<group>"; };
+		D2AC7E9D2790DE9D0006D3C8 /* Wine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wine.swift; path = Models/Wine.swift; sourceTree = "<group>"; };
+		D2AC7E9E2790DE9D0006D3C8 /* CombinedChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CombinedChart.swift; path = "Chart UIViews/CombinedChart.swift"; sourceTree = "<group>"; };
+		D2AC7E9F2790DE9D0006D3C8 /* Transactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transactions.swift; path = Models/Transactions.swift; sourceTree = "<group>"; };
+		D2AC7EA02790DE9D0006D3C8 /* PieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PieChart.swift; path = "Chart UIViews/PieChart.swift"; sourceTree = "<group>"; };
+		D2AC7EA12790DE9D0006D3C8 /* BarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarChart.swift; path = "Chart UIViews/BarChart.swift"; sourceTree = "<group>"; };
+		D2AC7EA22790DE9D0006D3C8 /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sale.swift; path = Models/Sale.swift; sourceTree = "<group>"; };
+		D2AC7EA32790DE9D0006D3C8 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LineChart.swift; path = "Chart UIViews/LineChart.swift"; sourceTree = "<group>"; };
+		D2AC7EA42790DE9D0006D3C8 /* GroupedBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupedBarChart.swift; path = "Chart UIViews/GroupedBarChart.swift"; sourceTree = "<group>"; };
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
 		D2B0A436277EB17600ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +204,14 @@
 		D2AC7E9C2790DAC60006D3C8 /* ChartsView */ = {
 			isa = PBXGroup;
 			children = (
+				D2AC7EA12790DE9D0006D3C8 /* BarChart.swift */,
+				D2AC7E9E2790DE9D0006D3C8 /* CombinedChart.swift */,
+				D2AC7EA42790DE9D0006D3C8 /* GroupedBarChart.swift */,
+				D2AC7EA32790DE9D0006D3C8 /* LineChart.swift */,
+				D2AC7EA02790DE9D0006D3C8 /* PieChart.swift */,
+				D2AC7EA22790DE9D0006D3C8 /* Sale.swift */,
+				D2AC7E9F2790DE9D0006D3C8 /* Transactions.swift */,
+				D2AC7E9D2790DE9D0006D3C8 /* Wine.swift */,
 				D234A8B6278FE72500223F61 /* ChartsView.swift */,
 			);
 			path = ChartsView;
@@ -458,19 +482,27 @@
 			files = (
 				D21E74B327851E9100CA217F /* ContentView.swift in Sources */,
 				D2DF2866278B97060061E89B /* GoalsListView.swift in Sources */,
+				D2AC7EA52790DE9D0006D3C8 /* Wine.swift in Sources */,
 				D2B0A471277EB33A00ED1CBA /* XSEventsListView.swift in Sources */,
 				D2DF285D278A98A40061E89B /* XSEventExporter.swift in Sources */,
+				D2AC7EAB2790DE9D0006D3C8 /* LineChart.swift in Sources */,
 				D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */,
 				D2DF286A278BC8400061E89B /* GoalDetailView.swift in Sources */,
 				D21E74B82785434200CA217F /* GoalPicker.swift in Sources */,
 				D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */,
+				D2AC7EA62790DE9D0006D3C8 /* CombinedChart.swift in Sources */,
+				D2AC7EAC2790DE9D0006D3C8 /* GroupedBarChart.swift in Sources */,
+				D2AC7EA72790DE9D0006D3C8 /* Transactions.swift in Sources */,
 				D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */,
 				D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */,
+				D2AC7EA82790DE9D0006D3C8 /* PieChart.swift in Sources */,
 				D2B0A475277EB94200ED1CBA /* XSEventCardView.swift in Sources */,
 				D23DFBEA278D3C16003B925F /* GoalsTransmitter.swift in Sources */,
 				D2B28D2A278140F80076EAC8 /* WCSessionPhoneManager.swift in Sources */,
 				D2DF285A278A7B490061E89B /* XSEventEnums.swift in Sources */,
+				D2AC7EAA2790DE9D0006D3C8 /* Sale.swift in Sources */,
 				D2DF0C0027828F0000AE6D99 /* NotificationTypes.swift in Sources */,
+				D2AC7EA92790DE9D0006D3C8 /* BarChart.swift in Sources */,
 				D21E74B52785240E00CA217F /* XSEventLoggerView.swift in Sources */,
 				D23DFBED278D41D0003B925F /* GoalRawData.swift in Sources */,
 				D256501027890F1A00C79FAE /* XSEvent.swift in Sources */,
