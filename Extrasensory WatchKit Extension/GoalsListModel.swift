@@ -30,11 +30,14 @@ class GoalsListModel: ObservableObject{
         }
     }
     
-    init(){
+    init(useSampleData: Bool = false){
         GoalsListModel.currentUrgeGoal = nil
         GoalsListModel.currentLapseGoal = nil
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(newGoalsListReceived(notification:)), name: Notification.Name(NotificationTypes.goalsListReceivedFromPhone.rawValue), object: nil)
+        if(useSampleData){
+            setGoalsList(goalsList: GoalsListModel.sampleGoalsList)
+        }
     }
     
     func setGoalsList(goalsList: [GoalRawData]){

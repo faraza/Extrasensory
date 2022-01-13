@@ -9,6 +9,8 @@ import SwiftUI
 
 struct UrgeView: View {
     @EnvironmentObject var goalsModel: GoalsListModel
+    
+    
     var body: some View {
         VStack{
             GoalsPicker(isUrgePicker: true)                
@@ -42,7 +44,7 @@ struct UrgeView: View {
 }
 
 struct UrgeView_Previews: PreviewProvider {
-    @StateObject static var goalsModel = GoalsListModel()
+    @StateObject static var goalsModel = GoalsListModel(useSampleData: true)
 
     static var previews: some View {
         UrgeView()
