@@ -23,9 +23,9 @@ struct GoalsListView: View {
     private var addButton: some View {
         switch editMode {
         case .inactive:
-            return AnyView(EmptyView())
-        default:
             return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
+        default:
+            return AnyView(EmptyView())
         }
     }
     
