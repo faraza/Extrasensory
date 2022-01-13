@@ -11,7 +11,6 @@ class XSEventsTransmitter {
     
     
     private static func transmitEvent(event: XSEventRawData){
-        print("XSEventsTransmitter: Transmitting event: \(event)")
         let encodedEvent = event.encode()
         guard encodedEvent != nil else{
             print("Failed to encode event.")
