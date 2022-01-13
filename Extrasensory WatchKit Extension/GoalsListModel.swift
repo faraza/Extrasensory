@@ -31,8 +31,19 @@ class GoalsListModel: ObservableObject{
     }
     
     init(){
-        goalsList = GoalsListModel.sampleGoalsList //TODO
+        GoalsListModel.currentUrgeGoal = nil
+        GoalsListModel.currentLapseGoal = nil
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(newGoalsListReceived(notification:)), name: Notification.Name(NotificationTypes.goalsListReceivedFromPhone.rawValue), object: nil)
+    }
+    
+    func setGoalsList(goalsList: [GoalRawData]){
+        guard self.goalsList != goalsList else{
+            print("GoalsListModel received goal List that already exists. Returning")
+            return
+        }
         
+        self.goalsList = goalsList
         if goalsList.count > 0{
             GoalsListModel.currentUrgeGoal = goalsList[0]
             GoalsListModel.currentLapseGoal = goalsList[0]
@@ -42,12 +53,6 @@ class GoalsListModel: ObservableObject{
             GoalsListModel.currentLapseGoal = nil
         }
     }
-    
-    func setGoalsList(goalsList: [GoalRawData]){
-        if(self.goalsList == goalsList){return}
-        //TODO
-    }
-    
 }
 
 extension GoalsListModel{
@@ -56,4 +61,15 @@ extension GoalsListModel{
         GoalRawData(shortName: "Get Swole", identifierKey: "Get Swole", activeListPosition: 1),
         GoalRawData(shortName: "Get $", identifierKey: "Get $", activeListPosition: 2)
     ]
+}
+
+extension GoalsListModel{
+    @objc func newGoalsListReceived(notification: Notification){
+        guard let newGoalsList = notification.object as? [GoalRawData]
+        else{
+            print("No event added from notificationCenter")
+            return
+        }
+        setGoalsList(goalsList: newGoalsList)
+    }
 }
