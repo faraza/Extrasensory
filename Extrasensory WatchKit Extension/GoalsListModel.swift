@@ -13,31 +13,41 @@ import Foundation
  */
 class GoalsListModel: ObservableObject{
     @Published var goalsList: [GoalRawData] = []
-    static var currentlySelectedGoal: GoalRawData?
+    static var currentUrgeGoal: GoalRawData?
+    static var currentLapseGoal: GoalRawData?
+    
+    func setSelectedGoalFromName(goalName: String, fromUrgeView: Bool){
+        for goal in goalsList{
+            if(goal.shortName == goalName){
+                if(fromUrgeView){
+                    GoalsListModel.currentUrgeGoal = goal
+                }
+                else{
+                    GoalsListModel.currentLapseGoal = goal
+                }
+                return
+            }
+        }
+    }
     
     init(){
         goalsList = GoalsListModel.sampleGoalsList //TODO
-        guard goalsList.count > 0 else{return}
         
-        GoalsListModel.currentlySelectedGoal = goalsList[0]
-
-        //        let nc = NotificationCenter.default
-//        nc.addObserver(self, selector: #selector(xsEventAddedFromWatch(notification:)), name: Notification.Name(NotificationTypes.xsEventReceivedFromWatch.rawValue), object: nil)
+        if goalsList.count > 0{
+            GoalsListModel.currentUrgeGoal = goalsList[0]
+            GoalsListModel.currentLapseGoal = goalsList[0]
+        }
+        else{
+            GoalsListModel.currentUrgeGoal = nil
+            GoalsListModel.currentLapseGoal = nil
+        }
     }
     
-    /*@objc func xsEventAddedFromWatch(notification: Notification){
-        guard let newEventRawData = notification.object as? XSEventRawData
-        else{
-            print("No event added from notificationCenter")
-            return
-        }
-        let event = XSEvent(context: persistentContainer.viewContext)
-        event.timestamp = newEventRawData.timestamp
-        event.eventFamily = XSEventFamily.urgeFamily.rawValue
-        event.urgeFamilyType = newEventRawData.urgeFamilyType.rawValue
-        event.goalKey = newEventRawData.goal
-        saveContext()
-    } */
+    func setGoalsList(goalsList: [GoalRawData]){
+        if(self.goalsList == goalsList){return}
+        //TODO
+    }
+    
 }
 
 extension GoalsListModel{

@@ -9,17 +9,16 @@ import SwiftUI
 
 struct GoalsPicker: View {
     @EnvironmentObject var goalsModel: GoalsListModel
-//    @State var currentGoal: GoalRawData?
     @State var currentGoal = ""
+    var isUrgePicker = false
     
     
     var body: some View {
-//        let goalsList = goalsModel.goalsList
+
         let goalsList = goalsModel.goalsList.map{$0.shortName}
 
         Picker("", selection: $currentGoal){
             ForEach(goalsList, id: \.self){ goal in
-//                Text("\(goal.shortName)")
                 Text("\(goal)")
             }
         }

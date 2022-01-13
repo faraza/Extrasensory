@@ -21,12 +21,12 @@ struct UrgeView: View {
                     .padding(.vertical, 40) //TODO: Don't hardcode the number - make it a % of screen size
             }
             .simultaneousGesture(LongPressGesture().onEnded { _ in
-                if let currentGoal = GoalsListModel.currentlySelectedGoal{
+                if let currentGoal = GoalsListModel.currentUrgeGoal{
                     XSEventsTransmitter.eventButtonPressed(currentGoal: currentGoal.identifierKey, eventType: .dangerZone)
                 }
             })
             .simultaneousGesture(TapGesture().onEnded {
-                if let currentGoal = GoalsListModel.currentlySelectedGoal{
+                if let currentGoal = GoalsListModel.currentUrgeGoal{
                     XSEventsTransmitter.eventButtonPressed(currentGoal: currentGoal.identifierKey, eventType: .urge)
                 }
             })

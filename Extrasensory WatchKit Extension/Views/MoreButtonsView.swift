@@ -23,19 +23,19 @@ struct MoreButtonsView: View {
             }
             .simultaneousGesture(LongPressGesture().onEnded { _ in
                 if(isLapseInProgress){
-                    if let currentGoal = GoalsListModel.currentlySelectedGoal{
+                    if let currentGoal = GoalsListModel.currentLapseGoal{
                         XSEventsTransmitter.eventButtonPressed(currentGoal: currentGoal.identifierKey, eventType: .lapseEnd)
                     }
                 }
                 else{
-                    if let currentGoal = GoalsListModel.currentlySelectedGoal{
+                    if let currentGoal = GoalsListModel.currentLapseGoal{
                         XSEventsTransmitter.eventButtonPressed(currentGoal: currentGoal.identifierKey, eventType: .lapseStart)
                     }
                 }
                 isLapseInProgress = !isLapseInProgress
             })
             .simultaneousGesture(TapGesture().onEnded {
-                if let currentGoal = GoalsListModel.currentlySelectedGoal{
+                if let currentGoal = GoalsListModel.currentLapseGoal{
                     XSEventsTransmitter.eventButtonPressed(currentGoal: currentGoal.identifierKey, eventType: .atomicLapse)
                 }
             })
