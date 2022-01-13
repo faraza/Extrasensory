@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct XSEventLoggerView: View {
-    @StateObject var goalsModel = GoalsModel()
     @State var isLapseInProgress = false
+    @State private var selectedGoal: Goal? = nil
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
-    private var events: FetchedResults<XSEvent>
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)],
+                  predicate: NSPredicate(format: "isActive == true"))
+    private var activeGoals: FetchedResults<Goal>
             
     func addEvent(eventType: UrgeFamilyType){
+        guard selectedGoal != nil else{
+            print("ERROR - XSEventLoggerView. Selected goal is nil. Not adding event")
+            return
+        }
         let newEventEntity = XSEvent(context: managedObjectContext)
         newEventEntity.eventFamily = XSEventFamily.urgeFamily.rawValue
         newEventEntity.urgeFamilyType = eventType.rawValue
         newEventEntity.timestamp = Date()
-        newEventEntity.goalKey = goalsModel.currentGoal
+        newEventEntity.goalKey = selectedGoal!.identifierKey
         do {
             try managedObjectContext.save()
             print("XSEventLogger. Saved successfully")
@@ -33,9 +38,17 @@ struct XSEventLoggerView: View {
         NavigationView{
             VStack{                
                 
-                GoalsPicker()
-                    .environmentObject(goalsModel)
-                                
+                GoalPicker(selectedGoal: $selectedGoal)
+                    .onAppear{
+                        if(activeGoals.count > 0){
+                            if(selectedGoal == nil){
+                                selectedGoal = activeGoals[0]
+                            }
+                        }
+                        else{
+                            selectedGoal = nil
+                        }
+                    }
                 
                 Button(action: {}){
                     Text(UrgeFamilyType.urge.rawValue)

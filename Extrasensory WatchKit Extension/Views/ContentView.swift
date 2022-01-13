@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    var session = WCSessionManager()
     
-    @StateObject var goalsModel = GoalsModel()
+    @StateObject var goalsModel = GoalsListModel()
     
     var body: some View {
         TabView{
             UrgeView()
             MoreButtonsView()
         }.environmentObject(goalsModel)
-        
+            .onAppear{
+                if let unwrapped = WCSessionWatchManager.session{
+                    unwrapped.sendMessage([SessionDelegate.MessageKeys.requestAppContext.rawValue : true], replyHandler: nil) { (error) in
+                    }
+                }
+            }        
     }
 }
 

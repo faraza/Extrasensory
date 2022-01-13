@@ -9,9 +9,13 @@ import SwiftUI
 
 struct XSEventCardView: View {
     let event: XSEvent
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)])
+    private var allGoals: FetchedResults<Goal>        
+    
     var body: some View {
         HStack{
-            Text(event.goalKey!)
+            Text(GoalCDInterface.getGoalNameFromKey(goalKey: event.goalKey, goalsList: allGoals))
                 .font(.headline)                
                 .accessibilityLabel("goal")
             Text(event.urgeFamilyType!)

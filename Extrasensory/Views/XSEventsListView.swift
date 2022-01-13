@@ -10,7 +10,7 @@ import SwiftUI
 struct XSEventsListView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
-    private var events: FetchedResults<XSEvent>
+    private var events: FetchedResults<XSEvent>    
     
     var _previewEvents: [XSEvent]? = nil
         
@@ -32,7 +32,7 @@ struct XSEventsListView: View {
                                 managedObjectContext.delete(eventToDelete)
                                 CoreDataStore.shared.saveContext()
                             }
-                        }
+                        }                        
                     }
                 }
             }

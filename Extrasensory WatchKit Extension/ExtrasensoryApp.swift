@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct ExtrasensoryApp: App {
+    let session = WCSessionWatchManager()
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {

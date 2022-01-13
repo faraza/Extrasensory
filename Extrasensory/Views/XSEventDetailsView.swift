@@ -35,13 +35,15 @@ struct XSEventDetailsView: View{
     var event: XSEvent
     @State var textfieldString = ""
     @Environment(\.scenePhase) private var scenePhase
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: false)])
+    private var allGoals: FetchedResults<Goal>
 
      
     var body: some View{
         Form{
             Section(header: Text("Event")){
                 List{
-                    ListInfoItem(propertyName: "Goal", propertyVal: event.goalKey!)
+                    ListInfoItem(propertyName: "Goal", propertyVal: GoalCDInterface.getGoalNameFromKey(goalKey: event.goalKey, goalsList: allGoals))
                     ListInfoItem(propertyName: "Type", propertyVal: event.urgeFamilyType!, propertyValColor: UrgeFamilyType(rawValue: event.urgeFamilyType!)?.textColor, shouldBoldVal: true)
                     ListInfoItem(propertyName: "Date", propertyVal: event.getPrintableDate())
                     ListInfoItem(propertyName: "Time", propertyVal: event.getPrintableTime())

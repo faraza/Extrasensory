@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
+        <attribute name="activeListPosition" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="identifierKey" optional="YES" attributeType="String"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="longDescription" optional="YES" attributeType="String"/>
+        <attribute name="shortName" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="XSEvent" representedClassName="XSEvent" syncable="YES" codeGenerationType="class">
         <attribute name="cause" optional="YES" attributeType="String"/>
         <attribute name="eventFamily" optional="YES" attributeType="String"/>
@@ -10,5 +17,6 @@
     </entity>
     <elements>
         <element name="XSEvent" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Goal" positionX="-63" positionY="27" width="128" height="104"/>
     </elements>
 </model>

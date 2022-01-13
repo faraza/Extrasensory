@@ -9,4 +9,5 @@ import Foundation
 
 enum NotificationTypes: String {
     case xsEventReceivedFromWatch = "xsEventReceivedFromWatch"
+    case goalsListReceivedFromPhone = "goalsListReceivedFromPhone"
 }
