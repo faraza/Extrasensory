@@ -34,9 +34,22 @@ class SessionDelegate: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         print("Application Context received. Outer")
         DispatchQueue.main.async() {
-            print("Application Context received. Async")
-            if let goalsList = applicationContext["goal"] as? [GoalRawData]{
-                print("Goals list found: \(goalsList)")
+            print("Application Context received. Async: \(applicationContext)")
+            if let numberOfGoals = applicationContext[GoalRawData.DictionaryKeys.numberOfGoals.rawValue] as? Int{
+                var goalsList: [GoalRawData] = []
+                for i in 0...numberOfGoals{
+                    if let newGoalEncoded = applicationContext[String(i)] as? Data{
+                        do{
+                            let decoder = JSONDecoder()
+                            let newGoal = try decoder.decode(GoalRawData.self, from: newGoalEncoded)
+                            goalsList.append(newGoal)
+                        }
+                        catch{
+                            print("SessionDelegate:: Failed to decode goal")
+                        }
+                    }
+                }
+                
                 let nc = NotificationCenter.default
                 nc.post(name: NSNotification.Name(NotificationTypes.goalsListReceivedFromPhone.rawValue), object: goalsList)
             }

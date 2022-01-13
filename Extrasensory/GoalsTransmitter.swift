@@ -9,8 +9,9 @@ import Foundation
 
 class GoalsTransmitter{
     static func transmitGoalsList(goalsList: [GoalRawData]){
-        var appContext: [String: Data?] = [:]
-        appContext[GoalRawData.DictionaryKeys.numberOfGoals.rawValue] = String(goalsList.count).data(using: .utf8)
+        var appContext: [String: Any] = [:]
+
+        appContext[GoalRawData.DictionaryKeys.numberOfGoals.rawValue] = goalsList.count
         for goal in goalsList{
             appContext[String(goal.activeListPosition)] = goal.encode()
         }
