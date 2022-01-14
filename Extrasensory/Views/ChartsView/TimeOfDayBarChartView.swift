@@ -119,7 +119,7 @@ struct ChartsViewContent: View{
     init(urgeEvents: FetchedResults<XSEvent>, lapseEvents: FetchedResults<XSEvent>){
         self.urgeEvents = urgeEvents
         self.lapseEvents = lapseEvents
-        let urgeAndLapse = ChartDataCreator.getUrgeAndLapseChartData(fetchedUrges: urgeEvents, fetchedLapses: lapseEvents)
+        let urgeAndLapse = ChartDataCreator.getBarChartData(fetchedUrges: urgeEvents, fetchedLapses: lapseEvents)
         urges = urgeAndLapse.urgeData
         lapses = urgeAndLapse.lapseData
     }
