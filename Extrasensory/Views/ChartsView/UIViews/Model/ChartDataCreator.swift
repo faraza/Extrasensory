@@ -61,7 +61,7 @@ class ChartDataCreator{
         let lapseTiming = getEventsPerDayDictionary(events: lapseEvents)
         let lapseData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: lapseTiming.dictionary, startDate: lapseTiming.startDate, endDate: lapseTiming.endDate)
         
-        let xAxisLabels: [String] = []
+        let xAxisLabels: [String] = [] //TODO
         return (urgeData, lapseData, xAxisLabels)
     }
     
@@ -99,8 +99,16 @@ class ChartDataCreator{
     }
     
     private static func convertEventsPerDayDictionaryToDataEntries(timingDictionary: [Date: Int], startDate: Date, endDate: Date)->[ChartDataEntry]{
-        let dataEntries: [BarChartDataEntry] = []
-        //TODO
+        var dataEntries: [ChartDataEntry] = []
+        
+        var currentDate = startDate
+        while(currentDate <= endDate){
+            let daysSinceStart = Calendar.current.dateComponents([.day], from: startDate, to: currentDate).day!
+            let numberOfEvents = timingDictionary[currentDate] ?? 0
+            dataEntries.append(ChartDataEntry(x: Double(daysSinceStart), y: Double(numberOfEvents)))
+            currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+        }
+        
         return dataEntries
     }
 }
