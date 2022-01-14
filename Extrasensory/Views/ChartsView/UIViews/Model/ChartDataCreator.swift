@@ -7,6 +7,7 @@
 
 import Foundation
 import Charts
+import SwiftUI
 
 /**
  Create an instance of this class and pass it the raw events to get it converted back into chart data
@@ -15,18 +16,14 @@ import Charts
 class ChartDataCreator{
     
     //TODO: Also take day/date ranges
-    static func getUrgeAndLapseFromKey(goalKey: String) -> (urgeData: [BarChartDataEntry], lapseData: [BarChartDataEntry]){
-        //Get results of fetch request
-        //For reach item in fetch request, add it to dictionary
-        //Convert dictionary into raw data list
-        //Return the dictionary
+    static func getUrgeAndLapseChartData(fetchedUrges: FetchedResults<XSEvent>, fetchedLapses: FetchedResults<XSEvent>) -> (urgeData: [BarChartDataEntry], lapseData: [BarChartDataEntry]){
+        print("Chart data creator called")
         
-        let urgeEvents = fetchEventsFromKey(goalKey: goalKey, eventType: UrgeFamilyType.urge.rawValue)
+//        let urgeEvents = fetchEventsFromKey(goalKey: goalKey, eventType: UrgeFamilyType.urge.rawValue)
+        let urgeEvents: [XSEvent] = fetchedUrges.map{$0 as XSEvent}
         let urgeTiming = getEventTimingDictionary(events: urgeEvents)
         let urgeData = convertTimingDictionaryToChartDataEntries(timingDictionary: urgeTiming)
-        
-//        urgeData = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .urge) //TODO
-//        lapseData = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .atomicLapse)        
+                
         let lapseData: [BarChartDataEntry] = []
         return (urgeData, lapseData)
     }

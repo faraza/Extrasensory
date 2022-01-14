@@ -41,10 +41,6 @@ struct ChartsFetcher: View{
         self.selectedGoalKey = selectedGoalKey
     }
     
-//    func convertEventListIntoBarChartEntry(eventList: [XSEvent])->[BarChartDataEntry]{
-        //TODO
-//    }
-    
 }
 
 struct ChartsViewContent: View{
@@ -57,7 +53,6 @@ struct ChartsViewContent: View{
     private var lapses: [BarChartDataEntry]
     
     var body: some View{
-        Text("View content")
         VStack{
             Text("Time of Day Breakdown")
                 .font(.title)
@@ -69,7 +64,7 @@ struct ChartsViewContent: View{
     init(urgeEvents: FetchedResults<XSEvent>, lapseEvents: FetchedResults<XSEvent>, selectedGoalKey: String){
         self.urgeEvents = urgeEvents
         self.lapseEvents = lapseEvents
-        let urgeAndLapse = ChartDataCreator.getUrgeAndLapseFromKey(goalKey: selectedGoalKey)
+        let urgeAndLapse = ChartDataCreator.getUrgeAndLapseChartData(fetchedUrges: urgeEvents, fetchedLapses: lapseEvents)
         urges = urgeAndLapse.urgeData
         lapses = urgeAndLapse.lapseData
     }
