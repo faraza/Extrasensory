@@ -19,12 +19,14 @@ class ChartDataCreator{
     static func getUrgeAndLapseChartData(fetchedUrges: FetchedResults<XSEvent>, fetchedLapses: FetchedResults<XSEvent>) -> (urgeData: [BarChartDataEntry], lapseData: [BarChartDataEntry]){
         print("Chart data creator called")
         
-//        let urgeEvents = fetchEventsFromKey(goalKey: goalKey, eventType: UrgeFamilyType.urge.rawValue)
         let urgeEvents: [XSEvent] = fetchedUrges.map{$0 as XSEvent}
         let urgeTiming = getEventTimingDictionary(events: urgeEvents)
         let urgeData = convertTimingDictionaryToChartDataEntries(timingDictionary: urgeTiming)
                 
-        let lapseData: [BarChartDataEntry] = []
+        let lapseEvents: [XSEvent] = fetchedLapses.map{$0 as XSEvent}
+        let lapseTiming = getEventTimingDictionary(events: lapseEvents)
+        let lapseData = convertTimingDictionaryToChartDataEntries(timingDictionary: lapseTiming)
+        
         return (urgeData, lapseData)
     }
     

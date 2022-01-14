@@ -23,11 +23,10 @@ struct ChartsView: View {
 struct ChartsFetcher: View{
     var urgeFetchRequest: FetchRequest<XSEvent>
     var lapseFetchRequest: FetchRequest<XSEvent>
-    var selectedGoalKey: String
     
     var body: some View{
         VStack{
-        ChartsViewContent(urgeEvents: urgeFetchRequest.wrappedValue, lapseEvents: lapseFetchRequest.wrappedValue, selectedGoalKey: selectedGoalKey)
+        ChartsViewContent(urgeEvents: urgeFetchRequest.wrappedValue, lapseEvents: lapseFetchRequest.wrappedValue)
                 
         }
     }
@@ -38,11 +37,12 @@ struct ChartsFetcher: View{
         let urgePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [urgeGoalPredicate, urgeTypePredicate])
         urgeFetchRequest = FetchRequest<XSEvent>(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)], predicate: urgePredicate)
         
-        let lapsePredicate = NSPredicate(format: "goalKey == %@", selectedGoalKey) //TODO: Include event type in predicate
+        let lapseGoalPredicate = NSPredicate(format: "goalKey == %@", selectedGoalKey)
+        let lapseAtomicTypePredicate = NSPredicate(format: "urgeFamilyType == %@", UrgeFamilyType.atomicLapse.rawValue)
+        let lapseStartTypePredicate = NSPredicate(format: "urgeFamilyType == %@", UrgeFamilyType.lapseStart.rawValue)
+        let lapsePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [lapseGoalPredicate, NSCompoundPredicate(orPredicateWithSubpredicates: [lapseAtomicTypePredicate, lapseStartTypePredicate])])
         lapseFetchRequest = FetchRequest<XSEvent>(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)], predicate: lapsePredicate)
-        self.selectedGoalKey = selectedGoalKey
     }
-    
 }
 
 struct ChartsViewContent: View{
@@ -63,7 +63,7 @@ struct ChartsViewContent: View{
         }
     }
     
-    init(urgeEvents: FetchedResults<XSEvent>, lapseEvents: FetchedResults<XSEvent>, selectedGoalKey: String){
+    init(urgeEvents: FetchedResults<XSEvent>, lapseEvents: FetchedResults<XSEvent>){
         self.urgeEvents = urgeEvents
         self.lapseEvents = lapseEvents
         let urgeAndLapse = ChartDataCreator.getUrgeAndLapseChartData(fetchedUrges: urgeEvents, fetchedLapses: lapseEvents)
