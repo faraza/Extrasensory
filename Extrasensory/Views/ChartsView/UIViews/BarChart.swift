@@ -98,6 +98,6 @@ struct BarChart : UIViewRepresentable {
 struct BarChart_Previews: PreviewProvider {
     static var previews: some View {
         BarChart(selectedItem: .constant(BarChartEvent.selectedItem),
-                 entries: BarChartEvent.getSampleEventsAsDataEntry())
+                 entries: BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .urge))
     }
 }
