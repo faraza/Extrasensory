@@ -15,10 +15,7 @@ import SwiftUI
  */
 class ChartDataCreator{
     
-    //TODO: Also take day/date ranges
     static func getUrgeAndLapseChartData(fetchedUrges: FetchedResults<XSEvent>, fetchedLapses: FetchedResults<XSEvent>) -> (urgeData: [BarChartDataEntry], lapseData: [BarChartDataEntry]){
-        print("Chart data creator called")
-        
         let urgeEvents: [XSEvent] = fetchedUrges.map{$0 as XSEvent}
         let urgeTiming = getEventTimingDictionary(events: urgeEvents)
         let urgeData = convertTimingDictionaryToChartDataEntries(timingDictionary: urgeTiming)
