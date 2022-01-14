@@ -68,7 +68,7 @@ struct GroupedBarChart: UIViewRepresentable {
         xAxis.labelPosition = .bottom
         xAxis.valueFormatter = IndexAxisValueFormatter(values:BarChartEvent.getHoursArray())
         xAxis.labelTextColor =  .black
-        xAxis.centerAxisLabelsEnabled = true
+        xAxis.centerAxisLabelsEnabled = false
     }
     
     func configureChart(_ barChart: BarChartView) {
