@@ -6,24 +6,51 @@
 //
 
 import SwiftUI
+import Charts
 
 struct ChartsView: View {
-    @State private var selectedItem: BarChartEvent = BarChartEvent(hoursPassedSince8AM: -1, numberOfEvents: 0, urgeFamilyType: .atomicLapse)
+    @State var selectedGoalKey = ""
     
     var urges = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .urge)
     var lapses = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .atomicLapse)
-
+    
     var body: some View {
+        ChartsViewContent(selectedGoalKey: selectedGoalKey)
+            .padding(.bottom)
+            .padding(.top)
+            .padding(.leading)
+    }
+}
+
+extension ChartsView{
+    
+}
+
+struct ChartsViewContent: View{
+    @State private var selectedItem: BarChartEvent = BarChartEvent(hoursPassedSince8AM: -1, numberOfEvents: 0, urgeFamilyType: .atomicLapse)
+    
+    private var urges: [BarChartDataEntry]
+    private var lapses: [BarChartDataEntry]
+    var body: some View{
         VStack{
             Text("Time of Day Breakdown")
                 .font(.title)
             GroupedBarChart(selectedItem: $selectedItem, urges: urges, lapses: lapses)
             Text("Swipe left to see more times.")
         }
-        .padding(.bottom)
-        .padding(.top)
-        .padding(.leading)
     }
+    
+    init(selectedGoalKey: String){ //TODO: Also take date range
+        let dataCreator = ChartDataCreator()
+        let urgeAndLapse = dataCreator.getUrgeAndLapseFromKey(selectedGoalKey: selectedGoalKey)
+        urges = urgeAndLapse.urgeData
+        lapses = urgeAndLapse.lapseData
+    }
+    
+//    func convertEventListIntoBarChartEntry(eventList: [XSEvent])->[BarChartDataEntry]{
+        //TODO
+//    }
+    
 }
 
 struct ChartsView_Previews: PreviewProvider {
