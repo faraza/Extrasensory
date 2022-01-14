@@ -28,7 +28,7 @@ class ChartDataCreator{
         return (urgeData, lapseData)
     }
     
-    static func getTimeOfDayDictionary(events: [XSEvent])->[Int: Int]{
+    private static func getTimeOfDayDictionary(events: [XSEvent])->[Int: Int]{
         var timingDictionary: [Int: Int] = [:]
         for i in 0...23{
             timingDictionary[i] = 0
@@ -43,7 +43,7 @@ class ChartDataCreator{
         return timingDictionary
     }
         
-    static func convertTimeOfDayDictionaryToDataEntries(timingDictionary: [Int: Int])->[BarChartDataEntry]{
+    private static func convertTimeOfDayDictionaryToDataEntries(timingDictionary: [Int: Int])->[BarChartDataEntry]{
         var dataEntries: [BarChartDataEntry] = []
         for hour in 8...31{ //Starts at 8AM and shifts the dictionary because that's how we display the chart
             let entry = BarChartDataEntry(x: Double(hour-8), y: Double(timingDictionary[hour%24] ?? 0))
@@ -68,13 +68,13 @@ class ChartDataCreator{
     /**
             Date in returned dictionary is Midnight of the date. Stripping away time entirely is not possible, but this is a fine, albeit slightly confusing alternative
      */
-    static func getEventsPerDayDictionary(events: [XSEvent])->[Date: Int]{
+    private static func getEventsPerDayDictionary(events: [XSEvent])->[Date: Int]{
         let perDayDictionary: [Date: Int] = [:]
         //TODO
         return perDayDictionary
     }
     
-    static func convertEventsPerDayDictionaryToDataEntries(timingDictionary: [Date: Int])->[ChartDataEntry]{
+    private static func convertEventsPerDayDictionaryToDataEntries(timingDictionary: [Date: Int])->[ChartDataEntry]{
         let dataEntries: [BarChartDataEntry] = []
         //TODO
         return dataEntries

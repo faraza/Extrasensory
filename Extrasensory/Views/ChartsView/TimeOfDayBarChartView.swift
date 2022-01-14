@@ -38,7 +38,7 @@ struct TimeOfDayBarChartView: View {
                 
             }
             
-            ChartsFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
+            TimeOfDayChartFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
                 .padding(.bottom)
                 .padding(.top)
                 .padding(.leading)
@@ -55,14 +55,14 @@ struct TimeOfDayBarChartView: View {
  We have to use this ridiculous injection construct so the fetch predicate updates and causes a re-render when
  the core data changes.
  */
-struct ChartsFetcher: View{
+struct TimeOfDayChartFetcher: View{
     var urgeFetchRequest: FetchRequest<XSEvent>
     var lapseFetchRequest: FetchRequest<XSEvent>
     
     var body: some View{
         VStack{
             if(urgeFetchRequest.wrappedValue.count > 0 || lapseFetchRequest.wrappedValue.count > 0 ){
-                ChartsViewContent(urgeEvents: urgeFetchRequest.wrappedValue, lapseEvents: lapseFetchRequest.wrappedValue)
+                TimeOfDayChartViewContent(urgeEvents: urgeFetchRequest.wrappedValue, lapseEvents: lapseFetchRequest.wrappedValue)
             }
             else{
                 Text("No data entered for this goal yet")
@@ -96,7 +96,7 @@ struct ChartsFetcher: View{
 /**
  We have to use this ridiculous injection construct so the chart data updates when core data updates
  */
-struct ChartsViewContent: View{
+struct TimeOfDayChartViewContent: View{
     @Environment(\.colorScheme) var colorScheme
 
     @State private var selectedItem: BarChartEvent = BarChartEvent(hoursPassedSince8AM: -1, numberOfEvents: 0, urgeFamilyType: .atomicLapse)
