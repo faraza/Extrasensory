@@ -32,7 +32,7 @@ struct ContentView: View{
                     Image(systemName: "brain.head.profile")
                     Text("Goals")
                 }
-            ChartsView()
+            EventsOverTimeLineChartView()
                 .tabItem{
                     Image(systemName: "chart.bar")
                     Text("Analysis")

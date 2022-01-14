@@ -12,7 +12,7 @@
 		D21E74B82785434200CA217F /* GoalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E74B72785434200CA217F /* GoalPicker.swift */; };
 		D220B91C278F6FDC00223BDB /* GoalsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220B91B278F6FDC00223BDB /* GoalsListModel.swift */; };
 		D22114802783A85800859B53 /* XSEventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221147F2783A85800859B53 /* XSEventDetailsView.swift */; };
-		D234A8B7278FE72500223F61 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234A8B6278FE72500223F61 /* ChartsView.swift */; };
+		D234A8B7278FE72500223F61 /* TimeOfDayBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234A8B6278FE72500223F61 /* TimeOfDayBarChartView.swift */; };
 		D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE6278BF419003B925F /* GoalCDInterface.swift */; };
 		D23DFBEA278D3C16003B925F /* GoalsTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */; };
 		D23DFBED278D41D0003B925F /* GoalRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DFBEC278D41D0003B925F /* GoalRawData.swift */; };
@@ -35,6 +35,7 @@
 		D2AC7EAC2790DE9D0006D3C8 /* GroupedBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EA42790DE9D0006D3C8 /* GroupedBarChart.swift */; };
 		D2AC7EB12790E6E40006D3C8 /* ChartEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EB02790E6E40006D3C8 /* ChartEvent.swift */; };
 		D2AC7EB3279114620006D3C8 /* ChartDataCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EB2279114620006D3C8 /* ChartDataCreator.swift */; };
+		D2AC7EB52791FFCC0006D3C8 /* EventsOverTimeLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EB42791FFCC0006D3C8 /* EventsOverTimeLineChartView.swift */; };
 		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
 		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
 		D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */; };
@@ -118,7 +119,7 @@
 		D21E74BB2786959000CA217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D220B91B278F6FDC00223BDB /* GoalsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListModel.swift; sourceTree = "<group>"; };
 		D221147F2783A85800859B53 /* XSEventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSEventDetailsView.swift; sourceTree = "<group>"; };
-		D234A8B6278FE72500223F61 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
+		D234A8B6278FE72500223F61 /* TimeOfDayBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDayBarChartView.swift; sourceTree = "<group>"; };
 		D23DFBE6278BF419003B925F /* GoalCDInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCDInterface.swift; sourceTree = "<group>"; };
 		D23DFBE9278D3C16003B925F /* GoalsTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTransmitter.swift; sourceTree = "<group>"; };
 		D23DFBEC278D41D0003B925F /* GoalRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalRawData.swift; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 		D2AC7EA42790DE9D0006D3C8 /* GroupedBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedBarChart.swift; sourceTree = "<group>"; };
 		D2AC7EB02790E6E40006D3C8 /* ChartEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartEvent.swift; sourceTree = "<group>"; };
 		D2AC7EB2279114620006D3C8 /* ChartDataCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataCreator.swift; sourceTree = "<group>"; };
+		D2AC7EB42791FFCC0006D3C8 /* EventsOverTimeLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsOverTimeLineChartView.swift; sourceTree = "<group>"; };
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
 		D2B0A436277EB17600ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -209,7 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				D2AC7EAF2790E2890006D3C8 /* UIViews */,
-				D234A8B6278FE72500223F61 /* ChartsView.swift */,
+				D234A8B6278FE72500223F61 /* TimeOfDayBarChartView.swift */,
+				D2AC7EB42791FFCC0006D3C8 /* EventsOverTimeLineChartView.swift */,
 			);
 			path = ChartsView;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				D256500727890A6100C79FAE /* Model.xcdatamodeld in Sources */,
 				D2DF286A278BC8400061E89B /* GoalDetailView.swift in Sources */,
 				D21E74B82785434200CA217F /* GoalPicker.swift in Sources */,
+				D2AC7EB52791FFCC0006D3C8 /* EventsOverTimeLineChartView.swift in Sources */,
 				D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */,
 				D2AC7EA62790DE9D0006D3C8 /* CombinedChart.swift in Sources */,
 				D2AC7EB12790E6E40006D3C8 /* ChartEvent.swift in Sources */,
@@ -533,7 +537,7 @@
 				D2DF2853278A521F0061E89B /* CoreDataStore.swift in Sources */,
 				D2B0A46F277EB2E400ED1CBA /* XSEventRawData.swift in Sources */,
 				D23DFBF6278E2C9F003B925F /* SessionDelegate.swift in Sources */,
-				D234A8B7278FE72500223F61 /* ChartsView.swift in Sources */,
+				D234A8B7278FE72500223F61 /* TimeOfDayBarChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

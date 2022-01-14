@@ -8,7 +8,7 @@
 import SwiftUI
 import Charts
 
-struct ChartsView: View {
+struct TimeOfDayBarChartView: View {
     @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)])
     private var goals: FetchedResults<Goal>
 
@@ -127,6 +127,6 @@ struct ChartsViewContent: View{
 
 struct ChartsView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartsView()
+        TimeOfDayBarChartView()
     }
 }
