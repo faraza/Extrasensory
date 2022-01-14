@@ -164,47 +164,39 @@ extension GoalCDInterface{
             Only call on first run
      */
     static func populateOnFirstRun(){
-        let biteNails = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
-        biteNails.shortName = "Bite Nails"
-        biteNails.identifierKey = "Bite Nails"
-        biteNails.isActive = true
-        biteNails.activeListPosition = 0
+        let junkFood = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        junkFood.shortName = "Junk Food"
+        junkFood.identifierKey = "Junk Food"
+        junkFood.isActive = true
+        junkFood.activeListPosition = 0
+        junkFood.longDescription = "Log anytime you have an urge to eat or go get junk food. Depending on your goals, it may make sense to split this into Processed Sugars and other types of junk food. Urge = desire, lapse = consuming."
         
         let browse = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
         browse.shortName = "Browse"
         browse.identifierKey = "Browse"
         browse.isActive = true
         browse.activeListPosition = 1
+        browse.longDescription = "Log anytime you have the urge to aimlessly browse."
         
-        let browse_g = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
-        browse_g.shortName = "Browse_g"
-        browse_g.identifierKey = "Browse_g"
-        browse_g.isActive = true
-        browse_g.activeListPosition = 2
+        let unrelatedWork = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        unrelatedWork.shortName = "Unrelated Work"
+        unrelatedWork.identifierKey = "Unrelated Work"
+        unrelatedWork.isActive = true
+        unrelatedWork.activeListPosition = 2
         
         let judgment = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
         judgment.shortName = "Judgment"
         judgment.identifierKey = "Judgment"
         judgment.isActive = true
         judgment.activeListPosition = 3
+        judgment.longDescription = "If you want to work on this goal, log whenever you experience negative, judgmental thoughts about someone else or yourself. Urge = the thought occuring to you but you not pursuing it. Lapse = thinking about it."
         
-        let sugar = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
-        sugar.shortName = "Sugar"
-        sugar.identifierKey = "Sugar"
-        sugar.isActive = true
-        sugar.activeListPosition = 4
-        
-        let keepBinging = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
-        keepBinging.shortName = "Keep Binging"
-        keepBinging.identifierKey = "Keep Binging"
-        keepBinging.isActive = true
-        keepBinging.activeListPosition = 5
-        
-        let unrelatedWork = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
-        unrelatedWork.shortName = "Unrelated Work"
-        unrelatedWork.identifierKey = "Unrelated Work"
-        unrelatedWork.isActive = true
-        unrelatedWork.activeListPosition = 6
+        let posture = Goal(context: CoreDataStore.shared.persistentContainer.viewContext)
+        posture.shortName = "Posture"
+        posture.identifierKey = "Posture"
+        posture.isActive = true
+        posture.activeListPosition = 4
+        posture.longDescription = "Lapse = realizing you have bad posture when sitting or standing. Urge = wanting to shift into bad posture but realizing it."
         
         CoreDataStore.shared.saveContext()
     }
