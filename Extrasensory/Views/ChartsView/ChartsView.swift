@@ -9,7 +9,8 @@ import SwiftUI
 import Charts
 
 struct ChartsView: View {
-    @State var selectedGoalKey = ""
+//    @State var selectedGoalKey = ""
+    @State var selectedGoalKey = "Bite Nails" //TODO
     
     var urges = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .urge)
     var lapses = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .atomicLapse)
@@ -40,9 +41,8 @@ struct ChartsViewContent: View{
         }
     }
     
-    init(selectedGoalKey: String){ //TODO: Also take date range
-        let dataCreator = ChartDataCreator()
-        let urgeAndLapse = dataCreator.getUrgeAndLapseFromKey(selectedGoalKey: selectedGoalKey)
+    init(selectedGoalKey: String){ //TODO: Also take date range    
+        let urgeAndLapse = ChartDataCreator.getUrgeAndLapseFromKey(goalKey: selectedGoalKey)
         urges = urgeAndLapse.urgeData
         lapses = urgeAndLapse.lapseData
     }
