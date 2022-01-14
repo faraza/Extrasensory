@@ -33,7 +33,9 @@ struct ChartsFetcher: View{
     }
     
     init(selectedGoalKey: String){ //TODO: Also take date range
-        let urgePredicate = NSPredicate(format: "goalKey == %@", selectedGoalKey) //TODO: Include event type in predicate
+        let urgeGoalPredicate = NSPredicate(format: "goalKey == %@", selectedGoalKey)
+        let urgeTypePredicate = NSPredicate(format: "urgeFamilyType == %@", UrgeFamilyType.urge.rawValue)
+        let urgePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [urgeGoalPredicate, urgeTypePredicate])
         urgeFetchRequest = FetchRequest<XSEvent>(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)], predicate: urgePredicate)
         
         let lapsePredicate = NSPredicate(format: "goalKey == %@", selectedGoalKey) //TODO: Include event type in predicate
