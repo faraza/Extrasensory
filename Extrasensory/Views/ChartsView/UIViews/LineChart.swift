@@ -11,8 +11,10 @@ import SwiftUI
 struct LineChart: UIViewRepresentable {
     // NOTE: No Coordinator or delegate functions in this example
     let lineChart = LineChartView()
-    var entriesIn : [ChartDataEntry] // there is no LineChartDataEntry as I would have expected
-    var entriesOut: [ChartDataEntry]
+    var urges : [ChartDataEntry] // there is no LineChartDataEntry as I would have expected
+    var lapses: [ChartDataEntry]
+    let inDarkMode: Bool
+    
     func makeUIView(context: Context) -> LineChartView {
         return lineChart
     }
@@ -27,13 +29,13 @@ struct LineChart: UIViewRepresentable {
     }
     
     func setChartData(_ lineChart: LineChartView) {
-        let dataSetIn = LineChartDataSet(entries: entriesIn)
-        let dataSetOut = LineChartDataSet(entries: entriesOut)
-        let dataSets: [LineChartDataSet] = [dataSetIn, dataSetOut]
+        let urgeDataSet = LineChartDataSet(entries: urges)
+        let lapseDataSet = LineChartDataSet(entries: lapses)
+        let dataSets: [LineChartDataSet] = [urgeDataSet, lapseDataSet]
         let lineChartData = LineChartData(dataSets: dataSets)
         lineChart.data = lineChartData
-        formatDataSet(dataSet: dataSetIn, label: "Wine In", color: .red)
-        formatDataSet(dataSet: dataSetOut, label: "Wine out", color: .blue)
+        formatDataSet(dataSet: urgeDataSet, label: "Urges", color: .systemYellow)
+        formatDataSet(dataSet: lapseDataSet, label: "Lapses", color: .systemRed)
     }
     
     func formatDataSet(dataSet: LineChartDataSet, label: String, color: UIColor) {
@@ -71,7 +73,7 @@ struct LineChart: UIViewRepresentable {
     func formatXAxis(xAxis: XAxis) {
         xAxis.labelPosition = .bottom
         xAxis.valueFormatter = IndexAxisValueFormatter(values:Transaction.monthArray)
-        xAxis.labelTextColor =  .red
+        xAxis.labelTextColor =  inDarkMode ? UIColor.white : UIColor.black
         xAxis.labelFont = UIFont.boldSystemFont(ofSize: 12)
         // Setting the max and min make sure that the markers are visible at the edges
         xAxis.axisMaximum = 12
@@ -82,12 +84,12 @@ struct LineChart: UIViewRepresentable {
         let leftAxisFormatter = NumberFormatter()
         leftAxisFormatter.numberStyle = .none
         leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
-        leftAxis.labelTextColor =  .red
+        leftAxis.labelTextColor =  inDarkMode ? UIColor.white : UIColor.black
         leftAxis.labelFont = UIFont.boldSystemFont(ofSize: 12)
     }
 
     func formatLegend(legend: Legend) {
-        legend.textColor = UIColor.red
+        legend.textColor = inDarkMode ? UIColor.white : UIColor.black
         legend.horizontalAlignment = .right
         legend.verticalAlignment = .top
         legend.drawInside = true
@@ -97,10 +99,13 @@ struct LineChart: UIViewRepresentable {
 
 
 struct LineChart_Previews: PreviewProvider {
+    @Environment(\.colorScheme) static var colorScheme
+
     static var previews: some View {
         LineChart(
-            entriesIn: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemIn),
-            entriesOut: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemOut))
+            urges: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemIn),
+            lapses: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemOut),
+            inDarkMode: colorScheme == .dark)
             .frame(height: 400)
             .padding(.horizontal)
     }

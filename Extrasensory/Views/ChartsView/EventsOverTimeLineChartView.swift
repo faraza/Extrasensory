@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct EventsOverTimeLineChartView: View {
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some View {
         VStack{
             Text("Over Time Breakdown")
             .font(.title)
             LineChart(
-            entriesIn: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemIn),
-            entriesOut: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemOut))
+            urges: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemIn),
+            lapses: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemOut),
+            inDarkMode: colorScheme == .dark)
             .frame(height: 400)
             .padding(.horizontal)
             Text("Swipe left for more data")
