@@ -32,13 +32,14 @@ struct GroupedBarChart: UIViewRepresentable {
     
     func setChartDataAndXaxis(_ barChart: BarChartView) {
         barChart.noDataText = "No Data"
-        let dataSetIn = BarChartDataSet(entries: urges)
-        let dataSetOut = BarChartDataSet(entries: lapses)
-        let dataSets:[BarChartDataSet] = [dataSetIn,dataSetOut]
+        let urgeDataSet = BarChartDataSet(entries: urges)
+        let lapseDataSet = BarChartDataSet(entries: lapses)
+        guard urgeDataSet.count > 0 || lapseDataSet.count > 0 else{return}
+        let dataSets:[BarChartDataSet] = [urgeDataSet,lapseDataSet]
         let chartData = BarChartData(dataSets: dataSets)
         barChart.data = chartData
-        formatDataSet(dataSet: dataSetIn, label: "Urges", color: .systemYellow)
-        formatDataSet(dataSet: dataSetOut, label: "Lapses", color: .systemRed)
+        formatDataSet(dataSet: urgeDataSet, label: "Urges", color: .systemYellow)
+        formatDataSet(dataSet: lapseDataSet, label: "Lapses", color: .systemRed)
         let gw = formatChartDataReturnGroupWidth(chartData: chartData)
         formatXAxis(xAxis: barChart.xAxis, groupWidth: gw)
     }

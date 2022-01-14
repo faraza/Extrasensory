@@ -19,7 +19,7 @@ class ChartDataCreator{
         var urgeData: [BarChartDataEntry] = []
         var lapseData: [BarChartDataEntry] = []
         
-//        urgeData = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .urge) //TODO
+        urgeData = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .urge) //TODO
 //        lapseData = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .atomicLapse)
                 
         return (urgeData, lapseData)
