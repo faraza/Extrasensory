@@ -55,26 +55,50 @@ class ChartDataCreator{
     static func getLineChartData(fetchedUrges: FetchedResults<XSEvent>, fetchedLapses: FetchedResults<XSEvent>) -> (urgeData: [ChartDataEntry], lapseData: [ChartDataEntry], xAxisLabels: [String]){
         let urgeEvents: [XSEvent] = fetchedUrges.map{$0 as XSEvent} //TODO
         let urgeTiming = getEventsPerDayDictionary(events: urgeEvents)
-        let urgeData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: urgeTiming)
+        let urgeData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: urgeTiming.dictionary, startDate: urgeTiming.startDate, endDate: urgeTiming.endDate)
                 
         let lapseEvents: [XSEvent] = fetchedLapses.map{$0 as XSEvent}
         let lapseTiming = getEventsPerDayDictionary(events: lapseEvents)
-        let lapseData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: lapseTiming)
+        let lapseData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: lapseTiming.dictionary, startDate: lapseTiming.startDate, endDate: lapseTiming.endDate)
         
         let xAxisLabels: [String] = []
         return (urgeData, lapseData, xAxisLabels)
     }
     
-    /**
-            Date in returned dictionary is Midnight of the date. Stripping away time entirely is not possible, but this is a fine, albeit slightly confusing alternative
-     */
-    private static func getEventsPerDayDictionary(events: [XSEvent])->[Date: Int]{
-        let perDayDictionary: [Date: Int] = [:]
-        //TODO
-        return perDayDictionary
+    
+    private static func getEventsPerDayDictionary(events: [XSEvent])->(dictionary: [Date: Int], startDate: Date, endDate: Date){
+        var perDayDictionary: [Date: Int] = [:]
+        var startDate = Date()
+        var endDate = Date()
+        
+        guard events.count > 0 else{return (dictionary: perDayDictionary, startDate: startDate, endDate: endDate)}
+        
+        let sortedEvents = events.sorted{
+            guard $0.timestamp != nil else{ return true}
+            guard $1.timestamp != nil else{return false}
+                
+            return $0.timestamp! < $1.timestamp!
+        }
+        startDate = stripTimeFromDate(date: sortedEvents[0].timestamp!)
+        endDate = stripTimeFromDate(date: sortedEvents[events.count - 1].timestamp!)
+        
+        for event in sortedEvents{
+            if let rawTimestamp = event.timestamp{
+                let timestamp = stripTimeFromDate(date: rawTimestamp)
+                perDayDictionary[timestamp] = (perDayDictionary[timestamp] ?? 0) + 1
+            }
+        }
+                
+        return (dictionary: perDayDictionary, startDate: startDate, endDate: endDate)
     }
     
-    private static func convertEventsPerDayDictionaryToDataEntries(timingDictionary: [Date: Int])->[ChartDataEntry]{
+    private static func stripTimeFromDate(date: Date)->Date{
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        let strippedDate = Calendar.current.date(from: components)
+        return strippedDate!
+    }
+    
+    private static func convertEventsPerDayDictionaryToDataEntries(timingDictionary: [Date: Int], startDate: Date, endDate: Date)->[ChartDataEntry]{
         let dataEntries: [BarChartDataEntry] = []
         //TODO
         return dataEntries
