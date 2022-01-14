@@ -17,28 +17,17 @@ class ChartDataCreator{
     
     static func getUrgeAndLapseChartData(fetchedUrges: FetchedResults<XSEvent>, fetchedLapses: FetchedResults<XSEvent>) -> (urgeData: [BarChartDataEntry], lapseData: [BarChartDataEntry]){
         let urgeEvents: [XSEvent] = fetchedUrges.map{$0 as XSEvent}
-        let urgeTiming = getEventTimingDictionary(events: urgeEvents)
-        let urgeData = convertTimingDictionaryToChartDataEntries(timingDictionary: urgeTiming)
+        let urgeTiming = getTimeOfDayDictionary(events: urgeEvents)
+        let urgeData = convertTimeOfDayDictionaryToDataEntries(timingDictionary: urgeTiming)
                 
         let lapseEvents: [XSEvent] = fetchedLapses.map{$0 as XSEvent}
-        let lapseTiming = getEventTimingDictionary(events: lapseEvents)
-        let lapseData = convertTimingDictionaryToChartDataEntries(timingDictionary: lapseTiming)
+        let lapseTiming = getTimeOfDayDictionary(events: lapseEvents)
+        let lapseData = convertTimeOfDayDictionaryToDataEntries(timingDictionary: lapseTiming)
         
         return (urgeData, lapseData)
     }
     
-    static func fetchEventsFromKey(goalKey: String, eventType: String)->[XSEvent]{
-        let fetchRequest = XSEvent.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "goalKey == %@", goalKey) //TODO: Include event type in predicate
-        do{
-            return try CoreDataStore.shared.persistentContainer.viewContext.fetch(fetchRequest)
-        }
-        catch{
-            return []
-        }
-    }
-    
-    static func getEventTimingDictionary(events: [XSEvent])->[Int: Int]{
+    static func getTimeOfDayDictionary(events: [XSEvent])->[Int: Int]{
         var timingDictionary: [Int: Int] = [:]
         for i in 0...23{
             timingDictionary[i] = 0
@@ -53,7 +42,7 @@ class ChartDataCreator{
         return timingDictionary
     }
     
-    static func convertTimingDictionaryToChartDataEntries(timingDictionary: [Int: Int])->[BarChartDataEntry]{
+    static func convertTimeOfDayDictionaryToDataEntries(timingDictionary: [Int: Int])->[BarChartDataEntry]{
         var dataEntries: [BarChartDataEntry] = []
         for hour in 8...31{ //Starts at 8AM and shifts the dictionary because that's how we display the chart
             let entry = BarChartDataEntry(x: Double(hour-8), y: Double(timingDictionary[hour%24] ?? 0))
