@@ -103,8 +103,8 @@ struct EventsOverTimeViewContent: View{
             Text("Over Time Breakdown")
                 .font(.title)
             LineChart(
-                urges: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemIn),
-                lapses: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemOut),
+                urges: urges,
+                lapses: lapses,
                 inDarkMode: colorScheme == .dark)
                 .frame(height: 400)
                 .padding(.horizontal)
