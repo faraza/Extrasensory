@@ -9,17 +9,32 @@ import SwiftUI
 import Charts
 
 struct ChartsView: View {
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)],
+                  predicate: NSPredicate(format: "isActive == true"))
+    private var goals: FetchedResults<Goal>
+
 //    @State var selectedGoalKey = ""
-    @State var selectedGoalKey = "Bite Nails" //TODO
+    @State var selectedGoal: Goal? = nil
     
     var body: some View {
-        ChartsFetcher(selectedGoalKey: selectedGoalKey)
-            .padding(.bottom)
-            .padding(.top)
-            .padding(.leading)
+        VStack{
+            Picker("Goal", selection: $selectedGoal){
+                ForEach(goals, id: \.self){ goal in
+                    Text("\(goal.shortName ?? "NOSHORTNAMESET")").tag(goal as Goal?)
+                }
+            }
+            ChartsFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "")
+                .padding(.bottom)
+                .padding(.top)
+                .padding(.leading)
+        }
     }
 }
 
+/*
+ We have to use this ridiculous injection construct so the fetch predicate updates and causes a re-render when
+ the core data changes.
+ */
 struct ChartsFetcher: View{
     var urgeFetchRequest: FetchRequest<XSEvent>
     var lapseFetchRequest: FetchRequest<XSEvent>
@@ -45,6 +60,9 @@ struct ChartsFetcher: View{
     }
 }
 
+/**
+ We have to use this ridiculous injection construct so the chart data updates when core data updates
+ */
 struct ChartsViewContent: View{
     @State private var selectedItem: BarChartEvent = BarChartEvent(hoursPassedSince8AM: -1, numberOfEvents: 0, urgeFamilyType: .atomicLapse)
 
