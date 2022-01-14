@@ -42,6 +42,11 @@ struct ChartsView: View {
                 .padding(.bottom)
                 .padding(.top)
                 .padding(.leading)
+                .onAppear{
+                    if(goals.count > 0 && selectedGoal == nil){
+                        selectedGoal = goals[0]
+                    }
+                }
         }
     }
 }
