@@ -97,6 +97,8 @@ struct ChartsFetcher: View{
  We have to use this ridiculous injection construct so the chart data updates when core data updates
  */
 struct ChartsViewContent: View{
+    @Environment(\.colorScheme) var colorScheme
+
     @State private var selectedItem: BarChartEvent = BarChartEvent(hoursPassedSince8AM: -1, numberOfEvents: 0, urgeFamilyType: .atomicLapse)
 
     var urgeEvents: FetchedResults<XSEvent>
@@ -109,7 +111,7 @@ struct ChartsViewContent: View{
         VStack{
             Text("Time of Day Breakdown")
                 .font(.title)
-            GroupedBarChart(selectedItem: $selectedItem, urges: urges, lapses: lapses)
+            GroupedBarChart(selectedItem: $selectedItem, urges: urges, lapses: lapses, inDarkMode: colorScheme == .dark)
             Text("Swipe left to see more times.")
         }
     }

@@ -13,6 +13,7 @@ struct GroupedBarChart: UIViewRepresentable {
     var urges: [BarChartDataEntry]
     var lapses: [BarChartDataEntry]
     let groupedBarChart = BarChartView()
+    let inDarkMode: Bool
     let barWidth = 0.35
     let barSpace = 0.05
     let groupSpace = 0.2
@@ -49,7 +50,8 @@ struct GroupedBarChart: UIViewRepresentable {
         dataSet.highlightAlpha = 0.2
         dataSet.colors = [color]
         let format = NumberFormatter()
-        dataSet.valueColors = [.black]
+        let dataSetColor = inDarkMode ? UIColor.white : UIColor.black
+        dataSet.valueColors = [dataSetColor]
         format.numberStyle = .none
         dataSet.valueFormatter = DefaultValueFormatter(formatter: format)
     }
@@ -67,7 +69,7 @@ struct GroupedBarChart: UIViewRepresentable {
         xAxis.axisMinimum = startX
         xAxis.labelPosition = .bottom
         xAxis.valueFormatter = IndexAxisValueFormatter(values:BarChartEvent.getHoursArray())
-        xAxis.labelTextColor =  .black
+        xAxis.labelTextColor = inDarkMode ? UIColor.white: UIColor.black
         xAxis.centerAxisLabelsEnabled = false
     }
     
@@ -88,11 +90,11 @@ struct GroupedBarChart: UIViewRepresentable {
         let leftAxisFormatter = NumberFormatter()
         leftAxisFormatter.numberStyle = .none
         leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
-        leftAxis.labelTextColor =  .black
+        leftAxis.labelTextColor =  inDarkMode ? UIColor.white: UIColor.black
     }
 
     func formatLegend(legend: Legend) {
-        legend.textColor = .black
+        legend.textColor = inDarkMode ? UIColor.white: UIColor.black
         legend.horizontalAlignment = .right
         legend.verticalAlignment = .top
         legend.drawInside = true
@@ -116,9 +118,12 @@ struct GroupedBarChart: UIViewRepresentable {
 }
 
 struct GroupedBarChart_Previews: PreviewProvider {
+    @Environment(\.colorScheme) static var colorScheme
+
     static var previews: some View {
         GroupedBarChart(selectedItem: .constant(BarChartEvent.selectedItem),
                         urges: BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .urge),
-                        lapses: BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .atomicLapse))
+                        lapses: BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .atomicLapse),
+                        inDarkMode: colorScheme == .dark)
     }
 }
