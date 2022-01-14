@@ -45,17 +45,6 @@ struct ChartsView: View {
             
             ScrollView{
                 VStack{
-                    TimeOfDayChartFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
-                        .padding(.bottom)
-                        .padding(.top)
-                        .padding(.leading)
-                        .onAppear{
-                            if(goals.count > 0 && selectedGoal == nil){
-                                selectedGoal = goals[0]
-                            }
-                        }
-                        .frame(height: 500)
-                    
                     EventsOverTimeChartFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
                         .padding(.bottom)
                         .padding(.top)
@@ -68,6 +57,17 @@ struct ChartsView: View {
                                 startDate = events[0].timestamp!
                             }
                         }
+                    
+                    TimeOfDayChartFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
+                        .padding(.bottom)
+                        .padding(.top)
+                        .padding(.leading)
+                        .onAppear{
+                            if(goals.count > 0 && selectedGoal == nil){
+                                selectedGoal = goals[0]
+                            }
+                        }
+                        .frame(height: 500)
                 }
             }
         }
