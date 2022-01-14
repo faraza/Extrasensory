@@ -12,27 +12,52 @@ struct ChartsView: View {
 //    @State var selectedGoalKey = ""
     @State var selectedGoalKey = "Bite Nails" //TODO
     
-    var urges = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .urge)
-    var lapses = BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .atomicLapse)
-    
     var body: some View {
-        ChartsViewContent(selectedGoalKey: selectedGoalKey)
+        ChartsFetcher(selectedGoalKey: selectedGoalKey)
             .padding(.bottom)
             .padding(.top)
             .padding(.leading)
     }
 }
 
-extension ChartsView{
+struct ChartsFetcher: View{
+    var urgeFetchRequest: FetchRequest<XSEvent>
+    var lapseFetchRequest: FetchRequest<XSEvent>
+    var selectedGoalKey: String
+    
+    var body: some View{
+        VStack{
+        ChartsViewContent(urgeEvents: urgeFetchRequest.wrappedValue, lapseEvents: lapseFetchRequest.wrappedValue, selectedGoalKey: selectedGoalKey)
+                
+        }
+    }
+    
+    init(selectedGoalKey: String){ //TODO: Also take date range
+        let urgePredicate = NSPredicate(format: "goalKey == %@", selectedGoalKey) //TODO: Include event type in predicate
+        urgeFetchRequest = FetchRequest<XSEvent>(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)], predicate: urgePredicate)
+        
+        let lapsePredicate = NSPredicate(format: "goalKey == %@", selectedGoalKey) //TODO: Include event type in predicate
+        lapseFetchRequest = FetchRequest<XSEvent>(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)], predicate: lapsePredicate)
+        self.selectedGoalKey = selectedGoalKey
+    }
+    
+//    func convertEventListIntoBarChartEntry(eventList: [XSEvent])->[BarChartDataEntry]{
+        //TODO
+//    }
     
 }
 
 struct ChartsViewContent: View{
     @State private var selectedItem: BarChartEvent = BarChartEvent(hoursPassedSince8AM: -1, numberOfEvents: 0, urgeFamilyType: .atomicLapse)
+
+    var urgeEvents: FetchedResults<XSEvent>
+    var lapseEvents: FetchedResults<XSEvent>
     
     private var urges: [BarChartDataEntry]
     private var lapses: [BarChartDataEntry]
+    
     var body: some View{
+        Text("View content")
         VStack{
             Text("Time of Day Breakdown")
                 .font(.title)
@@ -41,16 +66,13 @@ struct ChartsViewContent: View{
         }
     }
     
-    init(selectedGoalKey: String){ //TODO: Also take date range    
+    init(urgeEvents: FetchedResults<XSEvent>, lapseEvents: FetchedResults<XSEvent>, selectedGoalKey: String){
+        self.urgeEvents = urgeEvents
+        self.lapseEvents = lapseEvents
         let urgeAndLapse = ChartDataCreator.getUrgeAndLapseFromKey(goalKey: selectedGoalKey)
         urges = urgeAndLapse.urgeData
         lapses = urgeAndLapse.lapseData
     }
-    
-//    func convertEventListIntoBarChartEntry(eventList: [XSEvent])->[BarChartDataEntry]{
-        //TODO
-//    }
-    
 }
 
 struct ChartsView_Previews: PreviewProvider {
