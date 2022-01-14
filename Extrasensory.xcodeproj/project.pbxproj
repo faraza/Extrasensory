@@ -36,6 +36,7 @@
 		D2AC7EB12790E6E40006D3C8 /* ChartEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EB02790E6E40006D3C8 /* ChartEvent.swift */; };
 		D2AC7EB3279114620006D3C8 /* ChartDataCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EB2279114620006D3C8 /* ChartDataCreator.swift */; };
 		D2AC7EB52791FFCC0006D3C8 /* EventsOverTimeLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EB42791FFCC0006D3C8 /* EventsOverTimeLineChartView.swift */; };
+		D2AC7EB727921D550006D3C8 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC7EB627921D550006D3C8 /* ChartsView.swift */; };
 		D2B0A433277EB17400ED1CBA /* ExtrasensoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */; };
 		D2B0A437277EB17600ED1CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A436277EB17600ED1CBA /* Assets.xcassets */; };
 		D2B0A43A277EB17600ED1CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B0A439277EB17600ED1CBA /* Preview Assets.xcassets */; };
@@ -138,6 +139,7 @@
 		D2AC7EB02790E6E40006D3C8 /* ChartEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartEvent.swift; sourceTree = "<group>"; };
 		D2AC7EB2279114620006D3C8 /* ChartDataCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataCreator.swift; sourceTree = "<group>"; };
 		D2AC7EB42791FFCC0006D3C8 /* EventsOverTimeLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsOverTimeLineChartView.swift; sourceTree = "<group>"; };
+		D2AC7EB627921D550006D3C8 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		D2B0A42F277EB17400ED1CBA /* Extrasensory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extrasensory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0A432277EB17400ED1CBA /* ExtrasensoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasensoryApp.swift; sourceTree = "<group>"; };
 		D2B0A436277EB17600ED1CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				D2AC7EAF2790E2890006D3C8 /* UIViews */,
 				D234A8B6278FE72500223F61 /* TimeOfDayBarChartView.swift */,
 				D2AC7EB42791FFCC0006D3C8 /* EventsOverTimeLineChartView.swift */,
+				D2AC7EB627921D550006D3C8 /* ChartsView.swift */,
 			);
 			path = ChartsView;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				D23DFBE7278BF419003B925F /* GoalCDInterface.swift in Sources */,
 				D2AC7EA62790DE9D0006D3C8 /* CombinedChart.swift in Sources */,
 				D2AC7EB12790E6E40006D3C8 /* ChartEvent.swift in Sources */,
+				D2AC7EB727921D550006D3C8 /* ChartsView.swift in Sources */,
 				D2AC7EAC2790DE9D0006D3C8 /* GroupedBarChart.swift in Sources */,
 				D2AC7EB3279114620006D3C8 /* ChartDataCreator.swift in Sources */,
 				D2AC7EA72790DE9D0006D3C8 /* Transactions.swift in Sources */,

@@ -5,52 +5,9 @@
 //  Created by Faraz Abidi on 1/12/22.
 //
 
+
 import SwiftUI
 import Charts
-
-struct TimeOfDayBarChartView: View {
-    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)])
-    private var goals: FetchedResults<Goal>
-
-    @State var selectedGoal: Goal? = nil
-    @State var startDate: Date = Date(timeIntervalSince1970: 1609569201) //Jan 1 2021
-    @State var endDate: Date = Date()
-    
-    var body: some View {
-        VStack{
-            HStack{
-                Text("Goal:")
-                Picker("", selection: $selectedGoal){
-                    ForEach(goals, id: \.self){ goal in
-                        Text("\(goal.shortName ?? "NOSHORTNAMESET")").tag(goal as Goal?)
-                    }
-                }
-            }
-            HStack{
-                Text("Start:")
-                DatePicker("Start Date", selection: $startDate, in: ...endDate, displayedComponents: .date)
-                    .labelsHidden()
-                Text("End:")
-                DatePicker("End Date", selection: $endDate, in: startDate...Date(), displayedComponents: .date)
-                    .labelsHidden()
-            }
-            HStack{
-                
-            }
-            
-            TimeOfDayChartFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
-                .padding(.bottom)
-                .padding(.top)
-                .padding(.leading)
-                .onAppear{
-                    if(goals.count > 0 && selectedGoal == nil){
-                        selectedGoal = goals[0]
-                    }
-                }
-        }
-    }
-}
-
 /*
  We have to use this ridiculous injection construct so the fetch predicate updates and causes a re-render when
  the core data changes.
@@ -125,8 +82,8 @@ struct TimeOfDayChartViewContent: View{
     }
 }
 
-struct ChartsView_Previews: PreviewProvider {
+/*struct TimeOfDayBarChartView_Previews: PreviewProvider {
     static var previews: some View {
         TimeOfDayBarChartView()
     }
-}
+} */
