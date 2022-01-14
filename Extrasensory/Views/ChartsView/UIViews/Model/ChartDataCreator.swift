@@ -55,11 +55,15 @@ class ChartDataCreator{
     static func getLineChartData(fetchedUrges: FetchedResults<XSEvent>, fetchedLapses: FetchedResults<XSEvent>) -> (urgeData: [ChartDataEntry], lapseData: [ChartDataEntry], xAxisLabels: [String]){
         let urgeEvents: [XSEvent] = fetchedUrges.map{$0 as XSEvent} //TODO
         let urgeTiming = getEventsPerDayDictionary(events: urgeEvents)
-        let urgeData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: urgeTiming.dictionary, startDate: urgeTiming.startDate, endDate: urgeTiming.endDate)
                 
         let lapseEvents: [XSEvent] = fetchedLapses.map{$0 as XSEvent}
         let lapseTiming = getEventsPerDayDictionary(events: lapseEvents)
-        let lapseData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: lapseTiming.dictionary, startDate: lapseTiming.startDate, endDate: lapseTiming.endDate)
+        
+        let startDate = min(urgeTiming.startDate, lapseTiming.startDate)
+        let endDate = max(urgeTiming.endDate, lapseTiming.endDate)
+        
+        let urgeData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: urgeTiming.dictionary, startDate: startDate, endDate: endDate)
+        let lapseData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: lapseTiming.dictionary, startDate: startDate, endDate: endDate)
         
         let xAxisLabels: [String] = [] //TODO
         return (urgeData, lapseData, xAxisLabels)
@@ -81,6 +85,8 @@ class ChartDataCreator{
         }
         startDate = stripTimeFromDate(date: sortedEvents[0].timestamp!)
         endDate = stripTimeFromDate(date: sortedEvents[events.count - 1].timestamp!)
+        
+//        print("getEventsPerDayDictionary. Start: \(startDate) End: \(endDate) Count: ")
         
         for event in sortedEvents{
             if let rawTimestamp = event.timestamp{
@@ -107,6 +113,7 @@ class ChartDataCreator{
             let numberOfEvents = timingDictionary[currentDate] ?? 0
             dataEntries.append(ChartDataEntry(x: Double(daysSinceStart), y: Double(numberOfEvents)))
             currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+//            print("convertEventsPerDayDictionaryToDataEntries. Days since start: \(daysSinceStart) Number of events: \(numberOfEvents)")
         }
         
         return dataEntries
