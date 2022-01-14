@@ -9,9 +9,9 @@ import Charts
 import SwiftUI
 
 struct GroupedBarChart: UIViewRepresentable {
-    @Binding var selectedItem: Transaction
-    var entriesIn: [BarChartDataEntry]
-    var entriesOut: [BarChartDataEntry]
+    @Binding var selectedItem: BarChartEvent
+    var urges: [BarChartDataEntry]
+    var lapses: [BarChartDataEntry]
     let groupedBarChart = BarChartView()
     let barWidth = 0.35
     let barSpace = 0.05
@@ -32,13 +32,13 @@ struct GroupedBarChart: UIViewRepresentable {
     
     func setChartDataAndXaxis(_ barChart: BarChartView) {
         barChart.noDataText = "No Data"
-        let dataSetIn = BarChartDataSet(entries: entriesIn)
-        let dataSetOut = BarChartDataSet(entries: entriesOut)
+        let dataSetIn = BarChartDataSet(entries: urges)
+        let dataSetOut = BarChartDataSet(entries: lapses)
         let dataSets:[BarChartDataSet] = [dataSetIn,dataSetOut]
         let chartData = BarChartData(dataSets: dataSets)
         barChart.data = chartData
-        formatDataSet(dataSet: dataSetIn, label: "Urges", color: .yellow)
-        formatDataSet(dataSet: dataSetOut, label: "Lapes", color: .red)
+        formatDataSet(dataSet: dataSetIn, label: "Urges", color: .systemYellow)
+        formatDataSet(dataSet: dataSetOut, label: "Lapses", color: .systemRed)
         let gw = formatChartDataReturnGroupWidth(chartData: chartData)
         formatXAxis(xAxis: barChart.xAxis, groupWidth: gw)
     }
@@ -62,10 +62,10 @@ struct GroupedBarChart: UIViewRepresentable {
         return chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace)
     }
     func formatXAxis(xAxis: XAxis, groupWidth: Double) {
-        xAxis.axisMaximum = startX + groupWidth * Double(entriesIn.count)
+        xAxis.axisMaximum = startX + groupWidth * Double(urges.count)
         xAxis.axisMinimum = startX
         xAxis.labelPosition = .bottom
-        xAxis.valueFormatter = IndexAxisValueFormatter(values:Transaction.monthArray)
+        xAxis.valueFormatter = IndexAxisValueFormatter(values:BarChartEvent.getHoursArray())
         xAxis.labelTextColor =  .red
         xAxis.centerAxisLabelsEnabled = true
     }
@@ -77,7 +77,7 @@ struct GroupedBarChart: UIViewRepresentable {
         if barChart.scaleX == 1.0 {
             barChart.zoom(scaleX: 1.5, scaleY: 1, x: 0, y: 0)
         }
-        if selectedItem.month == -1 {
+        if selectedItem.hoursPassedSince8AM == -1 {
             barChart.animate(xAxisDuration: 0, yAxisDuration: 0.5, easingOption: .linear)
             barChart.highlightValue(nil, callDelegate: false)
         }
@@ -104,13 +104,8 @@ struct GroupedBarChart: UIViewRepresentable {
             self.parent = parent
         }
         func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-            parent.selectedItem.month = entry.x
-            parent.selectedItem.quantity = entry.y
-            if entry.y < 0 {
-                parent.selectedItem.itemType = .itemOut
-            } else {
-                parent.selectedItem.itemType = .itemIn
-            }
+            parent.selectedItem.hoursPassedSince8AM = Int(entry.x)
+            parent.selectedItem.numberOfEvents = Int(entry.y)
         }
     }
 
@@ -121,12 +116,8 @@ struct GroupedBarChart: UIViewRepresentable {
 
 struct GroupedBarChart_Previews: PreviewProvider {
     static var previews: some View {
-        GroupedBarChart(selectedItem: .constant(Transaction.selectedItem),
-                        entriesIn: Transaction.transactionsForYear(2019,
-                                                                   transactions: Transaction.allTransactions,
-                                                                   itemType: .itemIn),
-                        entriesOut: Transaction.transactionsForYear(2019,
-                                                                    transactions: Transaction.allTransactions,
-                                                                    itemType: .itemIn))
+        GroupedBarChart(selectedItem: .constant(BarChartEvent.selectedItem),
+                        urges: BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .urge),
+                        lapses: BarChartEvent.getSampleEventsAsDataEntry(urgeFamilyType: .atomicLapse))
     }
 }
