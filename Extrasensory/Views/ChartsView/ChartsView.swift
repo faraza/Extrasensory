@@ -74,6 +74,41 @@ struct ChartsView: View {
     }
 }
 
+extension ChartsView{ //TODO: This can probably be refactored to support DRY
+    static func getUrgeFetchRequest(goalKey: String, startDate: Date, endDate: Date)->FetchRequest<XSEvent>{
+        let roundedStartDate = Calendar.current.startOfDay(for: startDate)
+        let dayAfterEndDate = Calendar.current.date(byAdding: .day, value: 1, to: endDate)
+        if(dayAfterEndDate == nil){
+            print("ERROR - ChartsFetcher. dayAfterEndDay is nil! Endday: \(endDate)")
+        }
+        
+        let roundedEndDate = Calendar.current.startOfDay(for: dayAfterEndDate ?? endDate)
+        
+        let urgeGoalPredicate = NSPredicate(format: "goalKey == %@", goalKey)
+        let urgeTypePredicate = NSPredicate(format: "urgeFamilyType == %@", UrgeFamilyType.urge.rawValue)
+        let urgeDateRangePredicate = NSPredicate(format: "timestamp >= %@ AND timestamp <= %@", roundedStartDate as NSDate, roundedEndDate as NSDate)
+        let urgePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [urgeGoalPredicate, urgeTypePredicate, urgeDateRangePredicate])
+        
+        return FetchRequest<XSEvent>(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)], predicate: urgePredicate)
+    }
+    
+    static func getLapseFetchRequest(goalKey: String, startDate: Date, endDate: Date)->FetchRequest<XSEvent>{
+        let roundedStartDate = Calendar.current.startOfDay(for: startDate)
+        let dayAfterEndDate = Calendar.current.date(byAdding: .day, value: 1, to: endDate)
+        if(dayAfterEndDate == nil){
+            print("ERROR - ChartsFetcher. dayAfterEndDay is nil! Endday: \(endDate)")
+        }
+        let roundedEndDate = Calendar.current.startOfDay(for: dayAfterEndDate ?? endDate)
+        let lapseGoalPredicate = NSPredicate(format: "goalKey == %@", goalKey)
+        let lapseAtomicTypePredicate = NSPredicate(format: "urgeFamilyType == %@", UrgeFamilyType.atomicLapse.rawValue)
+        let lapseStartTypePredicate = NSPredicate(format: "urgeFamilyType == %@", UrgeFamilyType.lapseStart.rawValue)
+        let lapseDateRangePredicate = NSPredicate(format: "timestamp >= %@ AND timestamp <= %@", roundedStartDate as NSDate, roundedEndDate as NSDate)
+        let lapsePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [lapseGoalPredicate, lapseDateRangePredicate, NSCompoundPredicate(orPredicateWithSubpredicates: [lapseAtomicTypePredicate, lapseStartTypePredicate])])
+        
+        return FetchRequest<XSEvent>(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)], predicate: lapsePredicate)
+    }
+}
+
 struct ChartsView_Previews: PreviewProvider {
     static var previews: some View {
         ChartsView()
