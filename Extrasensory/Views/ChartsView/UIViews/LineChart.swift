@@ -14,6 +14,7 @@ struct LineChart: UIViewRepresentable {
     var urges : [ChartDataEntry] // there is no LineChartDataEntry as I would have expected
     var lapses: [ChartDataEntry]
     let inDarkMode: Bool
+    let xAxisValues: [String]
     
     func makeUIView(context: Context) -> LineChartView {
         return lineChart
@@ -72,7 +73,7 @@ struct LineChart: UIViewRepresentable {
 
     func formatXAxis(xAxis: XAxis) {
         xAxis.labelPosition = .bottom
-        xAxis.valueFormatter = IndexAxisValueFormatter(values:Transaction.monthArray)
+        xAxis.valueFormatter = IndexAxisValueFormatter(values:xAxisValues)
         xAxis.labelTextColor =  inDarkMode ? UIColor.white : UIColor.black
         xAxis.labelFont = UIFont.boldSystemFont(ofSize: 12)
         // Setting the max and min make sure that the markers are visible at the edges
@@ -105,7 +106,8 @@ struct LineChart_Previews: PreviewProvider {
         LineChart(
             urges: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemIn),
             lapses: Transaction.lineChartDataForYear(2019, transactions: Transaction.allTransactions, itemType: .itemOut),
-            inDarkMode: colorScheme == .dark)
+            inDarkMode: colorScheme == .dark,
+            xAxisValues: Transaction.monthArray)
             .frame(height: 400)
             .padding(.horizontal)
     }

@@ -97,6 +97,7 @@ struct EventsOverTimeViewContent: View{
     
     private var urges: [ChartDataEntry]
     private var lapses: [ChartDataEntry]
+    private var xAxisValues: [String]
 
     var body: some View{
         VStack{
@@ -105,7 +106,8 @@ struct EventsOverTimeViewContent: View{
             LineChart(
                 urges: urges,
                 lapses: lapses,
-                inDarkMode: colorScheme == .dark)
+                inDarkMode: colorScheme == .dark,
+                xAxisValues: xAxisValues)
                 .frame(height: 400)
                 .padding(.horizontal)
             Text("Swipe left for more data")
@@ -118,6 +120,7 @@ struct EventsOverTimeViewContent: View{
         let urgeAndLapse = ChartDataCreator.getLineChartData(fetchedUrges: urgeEvents, fetchedLapses: lapseEvents)
         urges = urgeAndLapse.urgeData
         lapses = urgeAndLapse.lapseData
+        xAxisValues = urgeAndLapse.xAxisLabels
     }
 }
 

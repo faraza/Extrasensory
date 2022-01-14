@@ -65,7 +65,15 @@ class ChartDataCreator{
         let urgeData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: urgeTiming.dictionary, startDate: startDate, endDate: endDate)
         let lapseData = convertEventsPerDayDictionaryToDataEntries(timingDictionary: lapseTiming.dictionary, startDate: startDate, endDate: endDate)
         
-        let xAxisLabels: [String] = [] //TODO
+        var xAxisLabels: [String] = []
+        var currentDate = startDate
+        while(currentDate <= endDate){
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd"
+            xAxisLabels.append(dateFormatter.string(from: currentDate))
+            currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+        }
+        
         return (urgeData, lapseData, xAxisLabels)
     }
     
@@ -85,9 +93,7 @@ class ChartDataCreator{
         }
         startDate = stripTimeFromDate(date: sortedEvents[0].timestamp!)
         endDate = stripTimeFromDate(date: sortedEvents[events.count - 1].timestamp!)
-        
-//        print("getEventsPerDayDictionary. Start: \(startDate) End: \(endDate) Count: ")
-        
+                
         for event in sortedEvents{
             if let rawTimestamp = event.timestamp{
                 let timestamp = stripTimeFromDate(date: rawTimestamp)
@@ -113,7 +119,6 @@ class ChartDataCreator{
             let numberOfEvents = timingDictionary[currentDate] ?? 0
             dataEntries.append(ChartDataEntry(x: Double(daysSinceStart), y: Double(numberOfEvents)))
             currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
-//            print("convertEventsPerDayDictionaryToDataEntries. Days since start: \(daysSinceStart) Number of events: \(numberOfEvents)")
         }
         
         return dataEntries
