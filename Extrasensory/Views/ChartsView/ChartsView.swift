@@ -43,31 +43,33 @@ struct ChartsView: View {
                 
             }
             
-            VStack{
-                TimeOfDayChartFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
-                    .padding(.bottom)
-                    .padding(.top)
-                    .padding(.leading)
-                    .onAppear{
-                        if(goals.count > 0 && selectedGoal == nil){
-                            selectedGoal = goals[0]
+            ScrollView{
+                VStack{
+                    TimeOfDayChartFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
+                        .padding(.bottom)
+                        .padding(.top)
+                        .padding(.leading)
+                        .onAppear{
+                            if(goals.count > 0 && selectedGoal == nil){
+                                selectedGoal = goals[0]
+                            }
                         }
-                    }
-                
-                EventsOverTimeChartFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
-                    .padding(.bottom)
-                    .padding(.top)
-                    .padding(.leading)
-                    .onAppear{
-                        if(goals.count > 0 && selectedGoal == nil){
-                            selectedGoal = goals[0]
+                        .frame(height: 500)
+                    
+                    EventsOverTimeChartFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
+                        .padding(.bottom)
+                        .padding(.top)
+                        .padding(.leading)
+                        .onAppear{
+                            if(goals.count > 0 && selectedGoal == nil){
+                                selectedGoal = goals[0]
+                            }
+                            if(events.count > 0 && startDate == ChartsView.placeholderStartDate){
+                                startDate = events[0].timestamp!
+                            }
                         }
-                        if(events.count > 0 && startDate == ChartsView.placeholderStartDate){
-                            startDate = events[0].timestamp!
-                        }
-                    }
+                }
             }
-            
         }
     }
 }
