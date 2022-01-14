@@ -13,16 +13,19 @@ struct ChartsView: View {
                   predicate: NSPredicate(format: "isActive == true"))
     private var goals: FetchedResults<Goal>
 
-//    @State var selectedGoalKey = ""
     @State var selectedGoal: Goal? = nil
     
     var body: some View {
         VStack{
-            Picker("Goal", selection: $selectedGoal){
-                ForEach(goals, id: \.self){ goal in
-                    Text("\(goal.shortName ?? "NOSHORTNAMESET")").tag(goal as Goal?)
+            HStack{
+                Text("Goal:")
+                Picker("", selection: $selectedGoal){
+                    ForEach(goals, id: \.self){ goal in
+                        Text("\(goal.shortName ?? "NOSHORTNAMESET")").tag(goal as Goal?)
+                    }
                 }
             }
+            
             ChartsFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "")
                 .padding(.bottom)
                 .padding(.top)
@@ -41,8 +44,12 @@ struct ChartsFetcher: View{
     
     var body: some View{
         VStack{
-        ChartsViewContent(urgeEvents: urgeFetchRequest.wrappedValue, lapseEvents: lapseFetchRequest.wrappedValue)
-                
+            if(urgeFetchRequest.wrappedValue.count > 0 || lapseFetchRequest.wrappedValue.count > 0 ){
+                ChartsViewContent(urgeEvents: urgeFetchRequest.wrappedValue, lapseEvents: lapseFetchRequest.wrappedValue)
+            }
+            else{
+                Text("No data entered for this goal yet")
+            }
         }
     }
     
