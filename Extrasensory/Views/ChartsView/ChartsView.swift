@@ -9,8 +9,7 @@ import SwiftUI
 import Charts
 
 struct ChartsView: View {
-    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)],
-                  predicate: NSPredicate(format: "isActive == true"))
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)])
     private var goals: FetchedResults<Goal>
 
     @State var selectedGoal: Goal? = nil
