@@ -32,6 +32,11 @@ struct ContentView: View{
                     Image(systemName: "brain.head.profile")
                     Text("Goals")
                 }
+            ChartsView()
+                .tabItem{
+                    Image(systemName: "chart.bar")
+                    Text("Analysis")
+                }
         }
     }
 }

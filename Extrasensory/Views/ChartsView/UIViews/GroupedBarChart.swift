@@ -66,7 +66,7 @@ struct GroupedBarChart: UIViewRepresentable {
         xAxis.axisMinimum = startX
         xAxis.labelPosition = .bottom
         xAxis.valueFormatter = IndexAxisValueFormatter(values:BarChartEvent.getHoursArray())
-        xAxis.labelTextColor =  .red
+        xAxis.labelTextColor =  .black
         xAxis.centerAxisLabelsEnabled = true
     }
     
@@ -87,11 +87,11 @@ struct GroupedBarChart: UIViewRepresentable {
         let leftAxisFormatter = NumberFormatter()
         leftAxisFormatter.numberStyle = .none
         leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
-        leftAxis.labelTextColor =  .red
+        leftAxis.labelTextColor =  .black
     }
 
     func formatLegend(legend: Legend) {
-        legend.textColor = UIColor.red
+        legend.textColor = .black
         legend.horizontalAlignment = .right
         legend.verticalAlignment = .top
         legend.drawInside = true
