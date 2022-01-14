@@ -11,11 +11,15 @@ import Charts
 struct EventsOverTimeLineChartView: View {
     @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "activeListPosition", ascending: true)])
     private var goals: FetchedResults<Goal>
-
-    @State var selectedGoal: Goal? = nil
-    @State var startDate: Date = Date(timeIntervalSince1970: 1609569201) //TODO: Fetch this - date of earliest event
-    @State var endDate: Date = Date()
+    @FetchRequest(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)])
+    private var events: FetchedResults<XSEvent>
     
+    static private let placeholderStartDate = Date(timeIntervalSince1970: 1609569201)
+
+    @State private var selectedGoal: Goal? = nil
+    @State private var startDate: Date = EventsOverTimeLineChartView.placeholderStartDate
+    @State private var endDate: Date = Date()
+       
     var body: some View {
         VStack{
             HStack{
@@ -45,6 +49,9 @@ struct EventsOverTimeLineChartView: View {
                 .onAppear{
                     if(goals.count > 0 && selectedGoal == nil){
                         selectedGoal = goals[0]
+                    }
+                    if(events.count > 0 && startDate == EventsOverTimeLineChartView.placeholderStartDate){
+                        startDate = events[0].timestamp!
                     }
                 }
         }
