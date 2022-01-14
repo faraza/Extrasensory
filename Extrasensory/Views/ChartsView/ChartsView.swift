@@ -14,6 +14,8 @@ struct ChartsView: View {
     private var goals: FetchedResults<Goal>
 
     @State var selectedGoal: Goal? = nil
+    @State var startDate: Date = Date(timeIntervalSince1970: 1609569201) //Jan 1 2021
+    @State var endDate: Date = Date()
     
     var body: some View {
         VStack{
@@ -25,8 +27,19 @@ struct ChartsView: View {
                     }
                 }
             }
+            HStack{
+                Text("Start:")
+                DatePicker("Start Date", selection: $startDate, in: ...endDate, displayedComponents: .date)
+                    .labelsHidden()
+                Text("End:")
+                DatePicker("End Date", selection: $endDate, in: startDate...Date(), displayedComponents: .date)
+                    .labelsHidden()
+            }
+            HStack{
+                
+            }
             
-            ChartsFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "")
+            ChartsFetcher(selectedGoalKey: selectedGoal?.identifierKey ?? "", startDate: startDate, endDate: endDate)
                 .padding(.bottom)
                 .padding(.top)
                 .padding(.leading)
@@ -53,16 +66,18 @@ struct ChartsFetcher: View{
         }
     }
     
-    init(selectedGoalKey: String){ //TODO: Also take date range
+    init(selectedGoalKey: String, startDate: Date, endDate: Date){
         let urgeGoalPredicate = NSPredicate(format: "goalKey == %@", selectedGoalKey)
         let urgeTypePredicate = NSPredicate(format: "urgeFamilyType == %@", UrgeFamilyType.urge.rawValue)
-        let urgePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [urgeGoalPredicate, urgeTypePredicate])
+        let urgeDateRangePredicate = NSPredicate(format: "timestamp >= %@ AND timestamp <= %@", startDate as NSDate, endDate as NSDate)
+        let urgePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [urgeGoalPredicate, urgeTypePredicate, urgeDateRangePredicate])
         urgeFetchRequest = FetchRequest<XSEvent>(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)], predicate: urgePredicate)
         
         let lapseGoalPredicate = NSPredicate(format: "goalKey == %@", selectedGoalKey)
         let lapseAtomicTypePredicate = NSPredicate(format: "urgeFamilyType == %@", UrgeFamilyType.atomicLapse.rawValue)
         let lapseStartTypePredicate = NSPredicate(format: "urgeFamilyType == %@", UrgeFamilyType.lapseStart.rawValue)
-        let lapsePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [lapseGoalPredicate, NSCompoundPredicate(orPredicateWithSubpredicates: [lapseAtomicTypePredicate, lapseStartTypePredicate])])
+        let lapseDateRangePredicate = NSPredicate(format: "timestamp >= %@ AND timestamp <= %@", startDate as NSDate, endDate as NSDate)
+        let lapsePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [lapseGoalPredicate, lapseDateRangePredicate, NSCompoundPredicate(orPredicateWithSubpredicates: [lapseAtomicTypePredicate, lapseStartTypePredicate])])
         lapseFetchRequest = FetchRequest<XSEvent>(entity: XSEvent.entity(), sortDescriptors: [NSSortDescriptor(key: "timestamp", ascending: true)], predicate: lapsePredicate)
     }
 }
