@@ -52,8 +52,6 @@ struct XSEventLoggerView: View {
                 
                 Button(action: {
                     addEvent(eventType: .urge)
-                    let haptics = UINotificationFeedbackGenerator()
-                    haptics.notificationOccurred(.success)
                 }){
                     Text(UrgeFamilyType.urge.rawValue)
                         .fontWeight(.bold)
@@ -65,9 +63,7 @@ struct XSEventLoggerView: View {
                 .background(UrgeFamilyType.urge.textColor)
                                 
                 Button(action: {
-                    addEvent(eventType: .atomicLapse)
-                    let haptics = UINotificationFeedbackGenerator()
-                    haptics.notificationOccurred(.success)
+                    addEvent(eventType: .atomicLapse)                
                 }){
                     Text(UrgeFamilyType.atomicLapse.rawValue)
                         .fontWeight(.bold)
