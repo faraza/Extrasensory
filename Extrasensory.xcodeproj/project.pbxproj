@@ -705,7 +705,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = "Complication-1";
 				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit Extension/Extrasensory WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = NX5537CAQ9;
 				ENABLE_PREVIEWS = YES;
@@ -738,7 +738,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = "Complication-1";
 				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit Extension/Extrasensory WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = NX5537CAQ9;
 				ENABLE_PREVIEWS = YES;
@@ -774,7 +774,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit App/Extrasensory WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = NX5537CAQ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Extrasensory_WatchKit_Extension;
@@ -801,7 +801,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Extrasensory WatchKit App/Extrasensory WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = NX5537CAQ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Extrasensory_WatchKit_Extension;
@@ -828,7 +828,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Extrasensory/Extrasensory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory/Preview Content\"";
 				DEVELOPMENT_TEAM = NX5537CAQ9;
 				ENABLE_PREVIEWS = YES;
@@ -862,7 +862,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Extrasensory/Extrasensory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Extrasensory/Preview Content\"";
 				DEVELOPMENT_TEAM = NX5537CAQ9;
 				ENABLE_PREVIEWS = YES;

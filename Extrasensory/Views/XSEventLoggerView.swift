@@ -50,7 +50,11 @@ struct XSEventLoggerView: View {
                         }
                     }
                 
-                Button(action: {}){
+                Button(action: {
+                    addEvent(eventType: .urge)
+                    let haptics = UINotificationFeedbackGenerator()
+                    haptics.notificationOccurred(.success)
+                }){
                     Text(UrgeFamilyType.urge.rawValue)
                         .fontWeight(.bold)
                         .padding()
@@ -59,16 +63,12 @@ struct XSEventLoggerView: View {
                         .frame(minWidth: 1000)
                 }
                 .background(UrgeFamilyType.urge.textColor)
-                .simultaneousGesture(LongPressGesture().onEnded { _ in
-                    addEvent(eventType: .dangerZone)
+                                
+                Button(action: {
+                    addEvent(eventType: .atomicLapse)
                     let haptics = UINotificationFeedbackGenerator()
                     haptics.notificationOccurred(.success)
-                })
-                .simultaneousGesture(TapGesture().onEnded {
-                    addEvent(eventType: .urge)
-                })
-                                
-                Button(action: {}){
+                }){
                     Text(UrgeFamilyType.atomicLapse.rawValue)
                         .fontWeight(.bold)
                         .padding()
@@ -76,22 +76,7 @@ struct XSEventLoggerView: View {
                         .font(.largeTitle)
                         .frame(minWidth: 1000)
                 }
-                .background(UrgeFamilyType.lapseStart.textColor)
-                .simultaneousGesture(LongPressGesture().onEnded { _ in
-                    if(isLapseInProgress){
-                        addEvent(eventType: .lapseEnd)
-                    }
-                    else{
-                        addEvent(eventType: .lapseStart)
-                    }
-                    isLapseInProgress = !isLapseInProgress
-                    let haptics = UINotificationFeedbackGenerator()
-                    haptics.notificationOccurred(.success)
-                })
-                .simultaneousGesture(TapGesture().onEnded { _ in
-                    addEvent(eventType: .atomicLapse)
-                })
-                
+                .background(UrgeFamilyType.lapseStart.textColor)                
                 
             }.navigationTitle("Add Event")            
             
